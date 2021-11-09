@@ -1,0 +1,25 @@
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --primary-color: #ee4d2d;
+    --border-color: #dbdbdb;
+    --star-gold-color: #ffce3d;
+    --header-height: 80px;
+    --body-promotion-height: 520px;
+    --footer-height: 260px;
+    --footer-content: 180px;
+    --border-radius: 8px;
+}
+
+*{
+    box-sizing: inherit;
+    /* box-sizing: border-box; */
+}
+
+html{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif; 
+    box-sizing: border-box;
+}
