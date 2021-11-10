@@ -350,7 +350,7 @@
 }
 
 
-.footer__content{
+/* .footer__content{
     color: var(--white);
     background-image: url(/assets/images/footer-desktop.727f3a2.png);
     background-size: cover;
@@ -375,5 +375,28 @@
     font-size: 1.4rem;
     text-align: center;
     color: #737373;
+    position: relative;
+} */
+.footer__content{
+    padding: 40px 0 60px 0; 
+    background-image: linear-gradient(0,#ffb141, #fb8d17);
+}
+
+.footer__heading{
+    color: var(--white-color);
+    border-bottom: 0.005px ridge var(--white-color);
+    padding-bottom: 20px;
+}
+
+.footer__bottom{
+    padding: 30px 0;
+    background-color: var(--black-color);
+}
+
+.footer__text{
+    margin: 0;
+    font-size: 1.4rem;
+    text-align: center;
+    color: #444444;
     position: relative;
 }
