@@ -16,7 +16,8 @@ const  handleMenuTab1 = async ()=>{
                                     <div class="product-card--footer">
                                         <span>$${items.price}</span>
                                         <div class="product-card--button">
-                                            <i class="fas fa-plus"></i>
+                                            
+                                            <a href="./tutor.html"><i class="fas fa-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
