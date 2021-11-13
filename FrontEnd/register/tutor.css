@@ -1,0 +1,177 @@
+#top {
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 3%;
+    background-color:rgb(233, 166, 67);
+}
+
+#top a, #top i {
+    color: rgb(255, 255, 255);
+}
+
+#top .navbar-toggler {
+    border-color: rgb(255, 255, 255);
+}
+
+body { 
+    padding-top: 100px;
+}
+
+#main-container {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#course-name {
+    float: left;
+    color: rgb(131, 128, 128);
+    font-weight: normal;
+}
+
+.description {
+    color:rgb(73, 72, 72);
+}
+
+#register-container {
+    border: none;
+    background-color: rgb(88, 128, 236);
+    padding: 5% 5% 10% 5%;
+    margin-bottom: 10%;
+}
+
+#register-container h4 {
+    color:rgb(255, 255, 255);
+    font-weight: normal;
+}
+
+#register-container h3 {
+    color:rgb(233, 166, 67);
+    font-weight: normal;
+}
+
+#register-container #trial-btn {
+    width: 50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: rgb(255, 255, 255);
+    color: rgb(112, 146, 240);
+}
+
+#register-container #register-btn {
+    width: 50%;
+    background-color: rgb(233, 166, 67);
+}
+
+#register-container span {
+    font-size: medium;
+}
+
+#timeline-container {
+    padding-top: 5%;
+    border-top: solid 1px rgb(131, 128, 128);
+}
+
+#timeline-container p:first-child {
+    color: rgb(88, 128, 236);
+}
+
+#timeline-container ul {
+    padding-left: 5%;
+}
+
+#section-navbar {
+    padding-left: 0;
+    margin-left: 0;
+    border-top: solid 1px rgb(131, 128, 128);
+    border-bottom: solid 1px rgb(131, 128, 128);
+    margin-bottom: 5%;
+}
+
+#course-description {
+    margin-bottom: 5%;
+}
+
+#course-description h5 {
+    font-weight: normal;
+}
+
+#schedule-section {
+    margin-bottom: 10%;
+}
+
+#schedule-title {
+    border-bottom: solid 1px rgb(88, 128, 236);
+    padding-bottom: 0;
+    margin-bottom: 5%;
+}
+
+#schedule-title h5 {
+    font-weight: normal;
+    color: rgb(255, 255, 255);
+    border: solid 1px rgb(88, 128, 236);
+    background: rgb(88, 128, 236);
+    margin-bottom: 0;
+}
+
+.schedule-item {
+    margin-bottom: 5%;
+}
+
+.schedule-item .card-header i {
+    float: right;
+}
+
+.schedule-item .card-body {
+    border-bottom: solid 1px rgb(131, 128, 128);
+}
+
+.schedule-item .card-body i {
+    color: rgb(88, 128, 236);
+}
+
+#tutor-profile {
+    margin-bottom: 10%;
+}
+
+#tutor-profile h4 {
+    color: rgb(73, 72, 72);
+}
+
+#tutor-profile h5 {
+    font-weight: normal;
+}
+
+#tutor-profile img {
+    width: 80%;
+    height: auto;
+}
+
+/* Tablets and phones */
+@media screen and (max-width: 768px) {
+    #main-container {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+/* Tablets */
+@media screen and (min-width: 768px) and (max-width: 992px){
+    #register-container h4 {
+        font-size: 18px
+    }
+    
+    #register-container h3 {
+        font-size: 20px;
+    }
+
+    #register-container #trial-btn, #register-container #register-btn  {
+        font-size: 16px;
+    }
+
+    #timeline-container {
+        font-size: 14px;
+    }
+}
+
+
+
