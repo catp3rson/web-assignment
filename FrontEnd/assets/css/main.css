@@ -227,6 +227,7 @@
 }
 
 .product__item-img{
+
     object-fit: contain;
     height: 75%;
     display: inline-block;
@@ -243,12 +244,12 @@
     justify-content: center;
 }
 .product-card--info{
-    width: 155px;
-    margin-top: 5px;
+  width: 155px;
+    margin-right: auto;
 }
 .product-card{
-    box-shadow: 0px 10px 20px rgba(0, 0, 0 , 0.1);
-    width: 155px;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0 , 0.1);
+    width: 355px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -261,16 +262,23 @@
     
 }
 .product-card--image{
-    margin-top: 5px;
+   margin-top: 5px;
 }
 #product-name{
     margin: 5px;
     
 }
+/*.info-tutor{
+    display: inline;
+    flex: 1 1 70%;
+    margin-right: 12px;
+
+}*/
 .product-card--image img{
-    width: 145px;
+     width: 145px;
     height: 145px;
     border-radius: var(--border-radius);
+    
 }
 .product-card--footer {
     display: flex;
@@ -282,10 +290,12 @@
 
 }
 
-
+.content-stars{
+    margin-right: auto;
+}
 
 .product-card--button{
-    margin-right: 5px;
+    margin-right: -192px;
     display: inline-block;
     width: 32px;
     line-height: 32px;
@@ -294,8 +304,29 @@
     border-radius: 50%;
     text-align: center;
     color: white;
-}
+    margin-top: -7px;
 
+}
+.Courses-name-math{
+    margin-left: 26px ;
+    color: black;
+}
+.Courses-name-physical{
+    margin-left: 14px ;
+    color: black;
+}
+.Courses-name-chemistry{
+    margin-left: 8px ;
+    color: black;
+}
+.Courses-name-biology{
+    margin-left: 17px ;
+    color: black;
+}
+.Courses-name-languages{
+    margin-left: 7px ;
+    color: black;
+}
 .news-container{
     display: flex;
     justify-content: center;
@@ -308,8 +339,9 @@
     margin: 15px 10px 10px 15px;
 }
 .news-card img{
-    width: 100%;
-    border-radius: 8px 8px 0 0 ;
+    width: 266px;
+    border-radius: 8px 8px 0 0;
+    margin-left: 5px;
 }
 .news-content{
     padding: 10px 16px 10px 16px;
@@ -350,7 +382,7 @@
 }
 
 
-/* .footer__content{
+.footer__content{
     color: var(--white);
     background-image: url(/assets/images/footer-desktop.727f3a2.png);
     background-size: cover;
@@ -376,27 +408,31 @@
     text-align: center;
     color: #737373;
     position: relative;
-} */
-.footer__content{
-    padding: 40px 0 60px 0; 
-    background-image: linear-gradient(0,#ffb141, #fb8d17);
 }
-
-.footer__heading{
-    color: var(--white-color);
-    border-bottom: 0.005px ridge var(--white-color);
-    padding-bottom: 20px;
-}
-
-.footer__bottom{
+.index-container1{
+        background: none;
+    background-image: url(http://www-aws-static.tutor.com/images/homepage-hero-banner2.png);
+    background-color: #31404f;
     padding: 30px 0;
-    background-color: var(--black-color);
+    color: #fff;
+    height: 294px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #fff;
+    border-bottom: 1px solid #fff;
 }
 
-.footer__text{
-    margin: 0;
-    font-size: 1.4rem;
-    text-align: center;
-    color: #444444;
-    position: relative;
+.index-container2{
+        background: none;
+    background-image: url(http://www-aws-static.tutor.com/images/homepage-hero-banner.png);
+    background-color: #31404f;
+    padding: 30px 0;
+    color: #fff;
+    height: 294px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #fff;
+    border-bottom: 1px solid #fff;
 }
