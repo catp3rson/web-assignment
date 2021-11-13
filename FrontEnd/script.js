@@ -2,26 +2,53 @@ const  handleMenuTab1 = async ()=>{
     const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item');
     const myJson = await response.json();
     let newJson = [];
-    if(myJson.length>12)
-        newJson = myJson.slice(0,12);
+    if(myJson.length>10)
+        newJson = myJson.slice(0,5);
     const html = newJson.map((items) =>{
         // console.log(items);
     return `
     <div class="product-card">
                                 <div class="product-card--image">
-                                    <img src="./assets/images/coffee1.jpg" alt="">
+                                    <img margin-right: auto; width="256" height="256" src="https://cdn-icons-png.flaticon.com/512/10/10938.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
                                 </div>
+
+                                <div class="content-stars">
+                                    <div class="star">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-h"></i>
+                                        </div>
+                                        </div>
+
+
                                 <div class="product-card--info">
                                     <span id="product-name"><b>${items.name}</b></span>
+                                    </br>
+                                     <span id="product-name"> Age </span>
+                                     <div class="info-tutor">
+
+                                        <p id="product-name"> information </p>
+                                        </div>
                                     <div class="product-card--footer">
-                                        <span>$${items.price}</span>
+                                    
+
+                                       
+
+                                        <h4> <i class="far fa-clock"></i> 2 hours </h4>
+                                        <h4> <i class="far fa-calendar-alt"></i> 6 months </h4>
+                                        <h4> <i class="far fa-book"></i> 12 modules </h4>
                                         <div class="product-card--button">
                                             
                                             <a href="./tutor.html"><i class="fas fa-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
+
+        
     `;
                 }).join(" ");
     let a = document.querySelector("#first-menu-tab");
@@ -32,25 +59,52 @@ const  handleMenuTab2 = async ()=>{
     const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item2');
     const myJson = await response.json();
     let newJson = [];
-    if(myJson.length>12)
-        newJson = myJson.slice(0,12);
+    if(myJson.length>10)
+        newJson = myJson.slice(0,5);
     const html = newJson.map((items) =>{
         // console.log(items);
     return `
     <div class="product-card">
-                                <div class="product-card--image">
-                                    <img src="./assets/images/coffee2.jpg" alt="">
+                              <div class="product-card--image">
+                                    <img margin-right: auto; width="256" height="256" src="https://cdn-icons-png.flaticon.com/512/10/10938.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
                                 </div>
+
+                                <div class="content-stars">
+                                    <div class="star">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-h"></i>
+                                        </div>
+                                        </div>
+
+
                                 <div class="product-card--info">
                                     <span id="product-name"><b>${items.name}</b></span>
+                                    </br>
+                                     <span id="product-name"> Age </span>
+                                     <div class="info-tutor">
+
+                                        <p id="product-name"> information </p>
+                                        </div>
                                     <div class="product-card--footer">
-                                        <span>$${items.price}</span>
+                                    
+
+                                       
+
+                                        <h4> <i class="far fa-clock"></i> 2 hours </h4>
+                                        <h4> <i class="far fa-calendar-alt"></i> 6 months </h4>
+                                        <h4> <i class="far fa-book"></i> 12 modules </h4>
                                         <div class="product-card--button">
-                                            <i class="fas fa-plus"></i>
+                                            
+                                            <a href="./tutor.html"><i class="fas fa-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
+
     `;
                 }).join(" ");
     let a = document.querySelector("#second-menu-tab");
@@ -61,31 +115,169 @@ const  handleMenuTab3 = async ()=>{
     const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item3');
     const myJson = await response.json();
     let newJson = [];
-    if(myJson.length>12)
-        newJson = myJson.slice(0,12);
+    if(myJson.length>10)
+        newJson = myJson.slice(0,5);
     const html = newJson.map((items) =>{
         // console.log(items);
     return `
     <div class="product-card">
-                                <div class="product-card--image">
-                                    <img src="./assets/images/coffee3.jpg" alt="">
+                             <div class="product-card--image">
+                                    <img margin-right: auto; width="256" height="256" src="https://cdn-icons-png.flaticon.com/512/10/10938.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
                                 </div>
+
+                                <div class="content-stars">
+                                    <div class="star">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-h"></i>
+                                        </div>
+                                        </div>
+
+
                                 <div class="product-card--info">
                                     <span id="product-name"><b>${items.name}</b></span>
+                                    </br>
+                                     <span id="product-name"> Age </span>
+                                     <div class="info-tutor">
+
+                                        <p id="product-name"> information </p>
+                                        </div>
                                     <div class="product-card--footer">
-                                        <span>$${items.price}</span>
+                                    
+
+                                       
+
+                                        <h4> <i class="far fa-clock"></i> 2 hours </h4>
+                                        <h4> <i class="far fa-calendar-alt"></i> 6 months </h4>
+                                        <h4> <i class="far fa-book"></i> 12 modules </h4>
                                         <div class="product-card--button">
-                                            <i class="fas fa-plus"></i>
+                                            
+                                            <a href="./tutor.html"><i class="fas fa-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
+
     `;
                 }).join(" ");
     let a = document.querySelector("#third-menu-tab");
     a.innerHTML = html;          
 };
 
+const  handleMenuTab4 = async ()=>{
+    const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item3');
+    const myJson = await response.json();
+    let newJson = [];
+    if(myJson.length>10)
+        newJson = myJson.slice(0,5);
+    const html = newJson.map((items) =>{
+        // console.log(items);
+    return `
+    <div class="product-card">
+                           <div class="product-card--image">
+                                    <img margin-right: auto; width="256" height="256" src="https://cdn-icons-png.flaticon.com/512/10/10938.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
+                                </div>
+
+                                <div class="content-stars">
+                                    <div class="star">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-h"></i>
+                                        </div>
+                                        </div>
+
+
+                                <div class="product-card--info">
+                                    <span id="product-name"><b>${items.name}</b></span>
+                                    </br>
+                                     <span id="product-name"> Age </span>
+                                     <div class="info-tutor">
+
+                                        <p id="product-name"> information </p>
+                                        </div>
+                                    <div class="product-card--footer">
+                                    
+
+                                       
+
+                                        <h4> <i class="far fa-clock"></i> 2 hours </h4>
+                                        <h4> <i class="far fa-calendar-alt"></i> 6 months </h4>
+                                        <h4> <i class="far fa-book"></i> 12 modules </h4>
+                                        <div class="product-card--button">
+                                            
+                                            <a href="./tutor.html"><i class="fas fa-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+    `;
+                }).join(" ");
+    let a = document.querySelector("#fourth-menu-tab");
+    a.innerHTML = html;          
+};
+
+const  handleMenuTab5 = async ()=>{
+    const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item3');
+    const myJson = await response.json();
+    let newJson = [];
+    if(myJson.length>10)
+        newJson = myJson.slice(0,5);
+    const html = newJson.map((items) =>{
+        // console.log(items);
+    return `
+    <div class="product-card">
+                            <div class="product-card--image">
+                                    <img margin-right: auto; width="256" height="256" src="https://cdn-icons-png.flaticon.com/512/10/10938.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
+                                </div>
+
+                                <div class="content-stars">
+                                    <div class="star">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-h"></i>
+                                        </div>
+                                        </div>
+
+
+                                <div class="product-card--info">
+                                    <span id="product-name"><b>${items.name}</b></span>
+                                    </br>
+                                     <span id="product-name"> Age </span>
+                                     <div class="info-tutor">
+
+                                        <p id="product-name"> information </p>
+                                        </div>
+                                    <div class="product-card--footer">
+                                    
+
+                                       
+
+                                        <h4> <i class="far fa-clock"></i> 2 hours </h4>
+                                        <h4> <i class="far fa-calendar-alt"></i> 6 months </h4>
+                                        <h4> <i class="far fa-book"></i> 12 modules </h4>
+                                        <div class="product-card--button">
+                                            
+                                            <a href="./tutor.html"><i class="fas fa-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+    `;
+                }).join(" ");
+    let a = document.querySelector("#fifth-menu-tab");
+    a.innerHTML = html;          
+};
 const  handleNews = async ()=>{
     const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/news');
     const myJson = await response.json();
@@ -96,7 +288,7 @@ const  handleNews = async ()=>{
         // console.log(items);
     return `
     <div class="news-card">
-                        <img src="./assets/images/news1.jpg" alt="news1">
+                        <img width="256" height="256" src="https://cdn-icons-png.flaticon.com/512/1074/1074106.png" alt="Newspaper free icon" title="Newspaper free icon" class="loaded">
                         <div class="news-content">
                             <h5>${items.title}</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pretium ex ac urna tempor, ac ultrices justo aliquet. Aenean viverra urna eu est tincidunt venenatis. </p>
