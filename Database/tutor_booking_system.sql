@@ -2,6 +2,7 @@ CREATE TABLE courses (
 	course_code          char(6)  NOT NULL    PRIMARY KEY,
 	course_name          varchar(100)  NOT NULL    ,
 	tutor_id			 int UNSIGNED NOT NULL	,
+	brief				 varchar(5000)		,
 	description          varchar(5000)      ,
 	course_fee           int UNSIGNED NOT NULL    ,
 	schedule             json  NOT NULL    ,
@@ -44,11 +45,11 @@ CREATE TABLE users (
 	password             varchar(100)  NOT NULL    ,
 	email                varchar(100)  NOT NULL    ,
 	full_name            varchar(100)  NOT NULL    ,
-	birthday             varchar(100)  NOT NULL    ,
-	phone                varchar(11)  NOT NULL    ,
-	address              varchar(2000)  NOT NULL    ,
+	birthday             date NOT NULL  		   ,
+	phone                varchar(11)  NOT NULL     ,
+	address              varchar(2000)  NOT NULL   ,
 	role                 int UNSIGNED NOT NULL DEFAULT 2   ,
-	description          varchar(5000)      ,
+	description          varchar(5000)      	   ,
 	CONSTRAINT unq_users_username UNIQUE ( username ) ,
 	CONSTRAINT unq_users_phone UNIQUE ( phone ) 
  ) engine=InnoDB;
@@ -64,15 +65,78 @@ ALTER TABLE users MODIFY role int UNSIGNED NOT NULL DEFAULT 2  COMMENT 'The role
 -- real password of user1, user2, user3 is user123
 
 
-INSERT INTO users (username, password, full_name, phone, address, role, description) 
+INSERT INTO users (username, password, full_name, birthday, phone, address, role, description) 
 VALUES 
-	('admin', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', 'Nguyen Van A', '01234567890', '506 Hong Bang street ward 16 district 11', 0, NULL),
-	('math123', '537d26965fd30bf9ebe78b86a8b56ca954cd886ed6d57e43fd37924f1dc2fcbf', 'Tran Van B', '01112223333', 'No. 331 Ben Van Don, Ward 1, District 48', 1, 'Math tutor for secondary students.'),
-	('physics123', '537d26965fd30bf9ebe78b86a8b56ca954cd886ed6d57e43fd37924f1dc2fcbf', 'Le Thi C', '03334445555', '565B Au Co Street, Ward 10', 1, 'Physics tutor for high school students (from grade 10-12). I have crash courses for university entrance test.'),
-	('english123', '537d26965fd30bf9ebe78b86a8b56ca954cd886ed6d57e43fd37924f1dc2fcbf', 'Nguyen Thanh D', '04445556666', '1051-1021 Nguyen Trai St., Ward 14, Dist. 5', 1, 'English teacher for kids aged 5 to 10.'),
-	('user1', 'e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446', 'Tran Thi E', '05556667777', '165B Phan Dang luu, Ward 3', 2, NULL),
-	('user2', 'e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446', 'Le Phu F', '06667778888', '21 Nguyen Bieu, Nam Ha Ward', 2, NULL),
-	('user3', 'e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446', 'Nguyen Minh G', '07778889999', '268 Cao Xuan Duc street, Ward 12, District 8', 2, 'Looking for private English tutors for my two kids.');
+	(
+		'admin',
+		'240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9',
+		'Nguyen Van A',
+		'1995-10-20',
+		'01234567890',
+		'506 Hong Bang street ward 16 district 11',
+		0,
+		NULL
+	),
+	(
+		'math123',
+		'537d26965fd30bf9ebe78b86a8b56ca954cd886ed6d57e43fd37924f1dc2fcbf',
+		'Tran Van B',
+		'1996-11-21',
+		'01112223333',
+		'No. 331 Ben Van Don, Ward 1, District 48',
+		1,
+		'Math tutor for secondary students.'
+	),
+	(
+		'physics123',
+		'537d26965fd30bf9ebe78b86a8b56ca954cd886ed6d57e43fd37924f1dc2fcbf',
+		'Le Thi C',
+		'1990-12-01',
+		'03334445555',
+		'565B Au Co Street, Ward 10',
+		1,
+		'Physics tutor for high school students (from grade 10-12). I have crash courses for university entrance test.'
+	),
+	(
+		'english123',
+		'537d26965fd30bf9ebe78b86a8b56ca954cd886ed6d57e43fd37924f1dc2fcbf',
+		'Nguyen Thanh D',
+		'1992-02-03',
+		'04445556666',
+		'1051-1021 Nguyen Trai St., Ward 14, Dist. 5',
+		1,
+		'English teacher for kids aged 5 to 10.'
+	),
+	(
+		'user1',
+		'e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446',
+		'Tran Thi E',
+		'1990-07-19',
+		'05556667777',
+		'165B Phan Dang luu, Ward 3',
+		2,
+		NULL
+	),
+	(
+		'user2',
+		'e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446',
+		'Le Phu F',
+		'1998-12-02',
+		'06667778888',
+		'21 Nguyen Bieu, Nam Ha Ward',
+		2,
+		NULL
+	),
+	(
+		'user3',
+		'e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446',
+		'Nguyen Minh G',
+		'1996-07-07',
+		'07778889999',
+		'268 Cao Xuan Duc street, Ward 12, District 8',
+		2,
+		NULL
+	);
 
 
 
@@ -84,8 +148,38 @@ VALUES
 
 
 
-INSERT INTO courses (course_code, course_name, tutor_id, description, course_fee, schedule, start_date, end_date)
+INSERT INTO courses (course_code, course_name, tutor_id, brief, description, course_fee, schedule, start_date, end_date)
 VALUES
-	('MA0001', 'Advanced Math for Grade 9', 2, 'A 3-month Math course for Grade 9 students.', 6000000, '{"Monday": ["18:00-20:00"], "Thursday":["18:00-20:00"]}', '2021-11-15', '2022-02-14'),
-	('PH0001', 'Physics crash course for Grade 12', 3, 'A 2-month Physics crash course for Grade 12 students who is taking part in the 2022 university entrance test.', 4000000, '{"Monday": ["18:00-20:00"], "Tuesday":["18:00-20:00"], "Thursday":["18:00-20:00"]}', '2021-11-22', '2022-01-24'),
-	('EN0001', 'Basic English for kids', 4, 'A fun online English course for kids aged 5-10.', 4000000, '{"Monday": ["18:00-20:00"], "Friday":["18:00-20:00"]}', '2021-11-22', '2022-02-21');
+	(
+		'MA0001',
+		'Advanced Math for Grade 9',
+		2,
+		'A 3-month Math course for Grade 9 students.',
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
+		6000000,
+		'{"Monday": ["18:00-20:00"], "Thursday":["18:00-20:00"]}',
+		'2021-11-15',
+		'2022-02-14'
+	),
+	(
+		'PH0001',
+		'Physics crash course for Grade 12',
+		3,
+		'A 2-month Physics crash course for Grade 12 students who is taking part in the 2022 university entrance test.',
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
+		4000000,
+		'{"Monday": ["18:00-20:00"], "Tuesday":["18:00-20:00"], "Thursday":["18:00-20:00"]}',
+		'2021-11-22',
+		'2022-01-24'
+	),
+	(
+		'EN0001',
+		'Basic English for kids',
+		4,
+		'A fun online English course for kids aged 5-10.',
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
+		4000000,
+		'{"Monday": ["18:00-20:00"], "Friday":["18:00-20:00"]}',
+		'2021-11-22',
+		'2022-02-21'
+	);

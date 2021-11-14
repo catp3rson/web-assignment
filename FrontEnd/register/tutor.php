@@ -142,10 +142,10 @@
                 <h2 id="course-name"><?= $course["course_name"] ?></h2>
             </div>
 
-            <!-- The course description and tutor's name -->
+            <!-- The course's brief description and tutor's name -->
             <div class="row description">
                 <p>
-                    <?= str_replace("\n", "<br>", $course["description"]) ?>
+                    <?= str_replace("\n", "<br>", $course["brief"]) ?>
                     <br><br>
                     Tutor: <a href="#"><?= $tutor["full_name"]?></a>
                 </p>
