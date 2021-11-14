@@ -3,7 +3,7 @@ const  handleMenuTab1 = async ()=>{
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>10)
-        newJson = myJson.slice(0,9);
+        newJson = myJson.slice(0,6);
     const html = newJson.map((items) =>{
         // console.log(items);
     return `
@@ -60,7 +60,7 @@ const  handleMenuTab2 = async ()=>{
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>10)
-        newJson = myJson.slice(0,5);
+        newJson = myJson.slice(0,6);
     const html = newJson.map((items) =>{
         // console.log(items);
     return `
@@ -116,7 +116,7 @@ const  handleMenuTab3 = async ()=>{
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>10)
-        newJson = myJson.slice(0,5);
+        newJson = myJson.slice(0,6);
     const html = newJson.map((items) =>{
         // console.log(items);
     return `
@@ -172,7 +172,7 @@ const  handleMenuTab4 = async ()=>{
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>10)
-        newJson = myJson.slice(0,5);
+        newJson = myJson.slice(0,6);
     const html = newJson.map((items) =>{
         // console.log(items);
     return `
@@ -228,7 +228,7 @@ const  handleMenuTab5 = async ()=>{
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>10)
-        newJson = myJson.slice(0,5);
+        newJson = myJson.slice(0,6);
     const html = newJson.map((items) =>{
         // console.log(items);
     return `

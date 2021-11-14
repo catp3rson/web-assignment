@@ -113,14 +113,12 @@
     /* background-color: #EF6A3E; */
     background-image: linear-gradient(0,#e77a55, #EF6A3E);
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    
     
 }
 
-.promotion-container{
-
-}
 .promotion-indicator{
     margin-bottom: -20px !important;
     height: 20px;
@@ -137,6 +135,10 @@
 
 .heading-title{
     color: var(--black-color);
+}
+
+.product{
+    padding-top: var(--header-height);
 }
 
 .product__heading{
@@ -292,7 +294,7 @@
 }
 
 .news{
-    margin-bottom: 20px;
+    padding-top: var(--header-height);
 }
 
 .news-container{
