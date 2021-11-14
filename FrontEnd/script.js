@@ -3,13 +3,13 @@ const  handleMenuTab1 = async ()=>{
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>10)
-        newJson = myJson.slice(0,5);
+        newJson = myJson.slice(0,9);
     const html = newJson.map((items) =>{
         // console.log(items);
     return `
     <div class="product-card">
                                 <div class="product-card--image">
-                                    <img margin-right: auto; width="256" height="256" src="https://cdn-icons-png.flaticon.com/512/10/10938.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
+                                    <img margin-right: auto; width="256" height="256" src="https://w7.pngwing.com/pngs/339/877/png-transparent-chemistry-encapsulated-postscript-chemistry-icon-miscellaneous-biology-line.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
                                 </div>
 
                                 <div class="content-stars">
@@ -41,7 +41,7 @@ const  handleMenuTab1 = async ()=>{
                                         <h4> <i class="far fa-book"></i> 12 modules </h4>
                                         <div class="product-card--button">
                                             
-                                            <a href="./tutor.html"><i class="fas fa-plus"></i></a>
+                                            <a href="./tutor.html"><i class="product-card--plus fas fa-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@ const  handleMenuTab2 = async ()=>{
     return `
     <div class="product-card">
                               <div class="product-card--image">
-                                    <img margin-right: auto; width="256" height="256" src="https://cdn-icons-png.flaticon.com/512/10/10938.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
+                                    <img margin-right: auto; width="256" height="256" src="https://image.pngaaa.com/583/4863583-middle.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
                                 </div>
 
                                 <div class="content-stars">
@@ -98,7 +98,7 @@ const  handleMenuTab2 = async ()=>{
                                         <h4> <i class="far fa-book"></i> 12 modules </h4>
                                         <div class="product-card--button">
                                             
-                                            <a href="./tutor.html"><i class="fas fa-plus"></i></a>
+                                            <a href="./tutor.html"><i class="product-card--plus fas fa-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@ const  handleMenuTab3 = async ()=>{
     return `
     <div class="product-card">
                              <div class="product-card--image">
-                                    <img margin-right: auto; width="256" height="256" src="https://cdn-icons-png.flaticon.com/512/10/10938.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
+                                    <img margin-right: auto; width="256" height="256" src="https://w7.pngwing.com/pngs/339/877/png-transparent-chemistry-encapsulated-postscript-chemistry-icon-miscellaneous-biology-line.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
                                 </div>
 
                                 <div class="content-stars">
@@ -154,7 +154,7 @@ const  handleMenuTab3 = async ()=>{
                                         <h4> <i class="far fa-book"></i> 12 modules </h4>
                                         <div class="product-card--button">
                                             
-                                            <a href="./tutor.html"><i class="fas fa-plus"></i></a>
+                                            <a href="./tutor.html"><i class="product-card--plus fas fa-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -168,7 +168,7 @@ const  handleMenuTab3 = async ()=>{
 };
 
 const  handleMenuTab4 = async ()=>{
-    const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item3');
+    const response = await fetch('https://619104b741928b001768ff0f.mockapi.io/chemistry/bi');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>10)
@@ -178,7 +178,7 @@ const  handleMenuTab4 = async ()=>{
     return `
     <div class="product-card">
                            <div class="product-card--image">
-                                    <img margin-right: auto; width="256" height="256" src="https://cdn-icons-png.flaticon.com/512/10/10938.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
+                                    <img margin-right: auto; width="256" height="256" src="https://image.similarpng.com/thumbnail/2020/12/Google-logo-design-clipart-PNG.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
                                 </div>
 
                                 <div class="content-stars">
@@ -210,7 +210,7 @@ const  handleMenuTab4 = async ()=>{
                                         <h4> <i class="far fa-book"></i> 12 modules </h4>
                                         <div class="product-card--button">
                                             
-                                            <a href="./tutor.html"><i class="fas fa-plus"></i></a>
+                                            <a href="./tutor.html"><i class="product-card--plus fas fa-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -266,7 +266,7 @@ const  handleMenuTab5 = async ()=>{
                                         <h4> <i class="far fa-book"></i> 12 modules </h4>
                                         <div class="product-card--button">
                                             
-                                            <a href="./tutor.html"><i class="fas fa-plus"></i></a>
+                                            <a href="./tutor.html"><i class="product-card--plus fas fa-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -283,7 +283,7 @@ const  handleNews = async ()=>{
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>6)
-        newJson = myJson.slice(0,6);
+        newJson = myJson.slice(0,8);
     const html = newJson.map((items) =>{
         // console.log(items);
     return `
@@ -308,6 +308,8 @@ const  handleNews = async ()=>{
 handleMenuTab1();
 handleMenuTab2();
 handleMenuTab3();
+handleMenuTab4();
+handleMenuTab5();
 handleNews();
 
 var $li = $('#pills-tab li').click(function() {

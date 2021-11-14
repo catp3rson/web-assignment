@@ -3,7 +3,7 @@
 }
 .header{
     height: var(--header-height);
-    background-image: linear-gradient(0,#ffb141, #fb8d17);
+    background-color: var(--black-color); 
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0 , 0.1);
     position: fixed;
     width: 100%;
@@ -47,49 +47,6 @@
     height: 60px;
     border-radius: 10px;
     margin-top: 9px;
-}
-
-.header__nav-delibery{
-    width: 210px;
-    height: 56px;
-    display: flex;
-    background: rgba(232,130,21,0.7);
-    border-radius: 50px;
-    text-align: center;
-    align-items: center;
-    margin-top: 11px;
-    margin-left: 40px;
-}
-
-.header__nav-delibery:hover{
-    cursor: pointer;
-}
-
-.header__delibery--logo{
-    width: 40px;
-    margin-left: 10px;
-}
-
-.header__nav-delibery-list{
-    list-style: none;
-    margin-top: 11px;
-    font-size: 14px;
-    margin-left: -25px;
-    position: relative;
-    color: var(--black-color);
-}
-
-.header__nav-delibery-item{
-    position: relative;
-}
-
-.delibery__address-head{
-    font-size: 14px;
-    line-height: 17px;
-    font-weight: 550;
-    align-items: center;
-    text-align: center;
-    letter-spacing: -0.017em;
 }
 
 .header__nav-item--link{
@@ -147,14 +104,14 @@
 
 }
 .body{
-    height: 3000px;
     margin-top: var(--header-height);
 }
 
 
 .promotion{
-    background-image: linear-gradient(0,#ffb141, #fb8d17);
-    /* height: 70vh; */
+    /* background-image: linear-gradient(0,#ffb141, #fb8d17); */
+    /* background-color: #EF6A3E; */
+    background-image: linear-gradient(0,#e77a55, #EF6A3E);
     width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -178,7 +135,9 @@
     margin-right: auto;
 }
 
-
+.heading-title{
+    color: var(--black-color);
+}
 
 .product__heading{
     font-size: 28px;
@@ -188,7 +147,7 @@
 }
 
 .product__heading-icon{
-    color: #F9A613;
+    color: #EF6A3E;
     margin-right: 5px;
 }
 
@@ -223,7 +182,7 @@
     height: 86px;
 }
 #pills-tab .selected .product__info  {
-    background-color: #fb8d17;
+    background-color: #EF6A3E;
 }
 
 .product__item-img{
@@ -300,12 +259,16 @@
     width: 32px;
     line-height: 32px;
     height: 32px;
-    background-color: #fc8e19;
+    background-color: #170f6f;
     border-radius: 50%;
     text-align: center;
     color: white;
     margin-top: -7px;
 
+}
+
+.product-card--plus{
+    color: var(--white-color);
 }
 .Courses-name-math{
     margin-left: 26px ;
@@ -327,6 +290,11 @@
     margin-left: 7px ;
     color: black;
 }
+
+.news{
+    margin-bottom: 20px;
+}
+
 .news-container{
     display: flex;
     justify-content: center;
@@ -359,7 +327,7 @@
     margin-right: 10px;
 }
 .read-all a,.read-all a:hover {
-    color: #fb8d17;
+    color: #EF6A3E;
     text-decoration: none;
 }
 
@@ -368,7 +336,7 @@
     flex-direction: row-reverse;  
 }
 .more-button button{
-    background-color: #fb8d17;
+    background-color: #170f6f;
     border-radius: 60px;
     width: 100px;
     height: 40px;
@@ -384,7 +352,8 @@
 
 .footer__content{
     color: var(--white);
-    background-image: url(/assets/images/footer-desktop.727f3a2.png);
+    /* background-image: url(/assets/images/footer-desktop.727f3a2.png); */
+    background-color: #EF6A3E;
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -393,7 +362,7 @@
 
 .footer__heading{
     
-    border-bottom: 0.005px ridge #5B5A59;
+    border-bottom: 0.005px ridge var(--white-color);
     padding-bottom: 20px;
 }
 
@@ -436,3 +405,4 @@
     border: 2px solid #fff;
     border-bottom: 1px solid #fff;
 }
+
