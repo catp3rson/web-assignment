@@ -351,7 +351,9 @@
     font-size: 14px;
 }
 
-
+.footer{
+    margin-top: var(--header-height)
+}
 .footer__content{
     color: var(--white);
     /* background-image: url(/assets/images/footer-desktop.727f3a2.png); */
