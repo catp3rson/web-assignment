@@ -2,13 +2,19 @@
 .nav__bars-btn--icon{
     font-size: 30px;
     color: var(--white-color);
-    margin-top: 10px;
+    /* margin-top: 10px;
     margin-left: 5px;
+    right: 0; */
+    top: 10px;
+    right: 10px;    
+    position:absolute ;
+    
 }
 
 .nav__bars-btn{
     display: none;
 }
+
 
 .nav__overlay{
     position: fixed;
@@ -24,12 +30,12 @@
 .nav__mobile{
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     bottom: 0;
     width: 300px;
     max-width: 100%;
     background-image: linear-gradient(0,#e77a55, #EF6A3E);
-    transform: translateX(-100%);
+    transform: translateX(100%);
     animation:transform linear 0.2s ;
 }
 
@@ -37,14 +43,29 @@
 .nav__mobile-list{
     margin-top: 24px;
     list-style: none;
+    padding-right: 2rem;
 }
 
 .nav__mobile-item .nav__mobile-item--link{
     text-decoration: none;
-    color: var(--black-color);
+    color: var(--white-color);
     display: block;
     padding: 8px 0;
     font-size: 1.8rem;
+}
+
+.nav__mobile-item:nth-child(4){
+    border-bottom: 0.3px solid var(--white-color);
+    padding-bottom: 10px;
+}
+
+.nav__mobile-item:last-child{
+    margin-left: 25px;
+    margin-top: 180px;
+}
+
+.nav__mobile-item h1{
+    color: var(--white-color);
 }
 
 .nav-input{
@@ -60,8 +81,7 @@
 
 .nav__mobile-close--icon{
     font-size: 30px;
-    color: var(--black-color);
-    
+    color: var(--white-color);  
 }
 
 .nav-input:checked ~ .nav__overlay{
@@ -72,7 +92,23 @@
     transform: translateX(0);
 }
 
+.nav-mobile-logo{
+    display: none;
+    margin-top: 10px;
 
+}
+
+.nav-mobile-logo--icon{
+    height: 30px; 
+    display: block;
+    border-radius: 3px;
+}
+
+.nav__mobile-item .nav__mobile-icon{
+   color: var(--white-color); 
+   margin-left: 8px;
+   padding: 5px;
+}
 /* Mobile and Tablets */
 @media (max-width: 1023px){
     .hide-on-mobile-tablet{
@@ -96,6 +132,12 @@
         height: var(--header-height-mobile);
     }
 
+    .header__nav{
+        display: flex;
+        justify-content: space-between;
+        height: var(--header-height-mobile);
+    }
+
     .body{
         margin-top: var(--header-height-mobile);
     }
@@ -106,6 +148,10 @@
 
     .header__nav-list{
         display: none;
+    }
+
+    .nav-mobile-logo{
+        display: block;
     }
 }
 
