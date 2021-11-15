@@ -8,6 +8,7 @@
     <link rel="icon" href="./assets/images/LOGO.png" type="image/x-icon" />
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -22,11 +23,10 @@
             <div class="container">
                 <nav class="header__nav">
                     <div class="header__info">
-                        <a href=""class ="header__nav-logo--link">
+                        <a href=""class ="header__nav-logo--link hide-on-mobile">
                             <img src="./assets/images/LOGO.png" alt="logo" class ="header__nav-logo" >
                         </a>
                           
-
                         <ul class="header__nav-list ">
                             <li class="header__nav-item">
                                 <a href="#" class="header__nav-item--link">HOME</a>
@@ -42,10 +42,47 @@
                             <li class="header__nav-item"> 
                                 <a href="#" class="header__nav-item--link">MAP</a>
                             </li>   
-                        
                         </ul>
 
+
+                        <!-- Mobile nav bar -->
+                        <label for="nav-mobile-input" class="nav__bars-btn">
+                            <i class="nav__bars-btn--icon fas fa-bars"></i>
+                        </label>
+
+                        <input type="checkbox" hidden name="" id="nav-mobile-input" class="nav-input">
+
+                        <label for="nav-mobile-input" class="nav__overlay"> </label>
+
+                        <!-- <div class="nav__overlay">
+                        </div> -->
+
+                        <div class="nav__mobile">
+                            <label for="nav-mobile-input" class="nav__mobile-close">
+                                <i class="nav__mobile-close--icon fas fa-times"></i>
+                            </label>
+                            <ul class="nav__mobile-list ">
+                                <li class="nav__mobile-item">
+                                    <a href="#" class="nav__mobile-item--link">HOME</a>
+                                </li>
+         
+                                <li class="nav__mobile-item">
+                                    <a href="#courses" class="nav__mobile-item--link">COURSE</a>
+                                </li>
+         
+                                <li class="nav__mobile-item"> 
+                                    <a href="#news" class="nav__mobile-item--link">CONTACT</a>
+                                </li>       
+                                <li class="nav__mobile-item"> 
+                                    <a href="#" class="nav__mobile-item--link">MAP</a>
+                                </li>   
+                            </ul>
+                        </div>
+                        <!--  -->
                     </div>
+
+                    
+
                     
                     <ul class="header__nav-list">
                             <li class="header__nav-user"> 
