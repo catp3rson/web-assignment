@@ -283,7 +283,7 @@ const  handleNews = async ()=>{
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>6)
-        newJson = myJson.slice(0,8);
+        newJson = myJson.slice(0,4);
     const html = newJson.map((items) =>{
         // console.log(items);
     return `
