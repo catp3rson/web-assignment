@@ -381,6 +381,10 @@
     padding-bottom: 5px;
 }
 
+.footer__phone{
+    color: var(--white-color);
+}
+
 .footer__icon-link{
     margin-right: 10px;
 }
@@ -390,18 +394,19 @@
     font-size: 18px;
 }
 
-.footer-email{
-    font-size: 18px;    
-}
 
+.footer__email,
 .footer__link{
-    text-decoration: underline;
+    /* text-decoration: underline; */
     color: var(--white-color);
 }
 
+.footer__logo-item .footer__email:hover,
+.footer__logo-item .footer__phone:hover,
 .footer__logo-item .footer__icon-social:hover,
 .footer__logo-item .footer__link:hover{
     color: var(--black-color);
+    text-decoration: none;
 }
 
 .footer__bottom{
