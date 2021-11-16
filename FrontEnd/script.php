@@ -49,31 +49,34 @@ const menuTabPhysics = async ()=>{
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo '{"course_code": "'.$row['course_code'].'","course_name": "'.$row['course_name'].'","course_fee": new Number('.$row['course_fee'].'),"brief": "'.$row['brief'].'"},';
+                    echo '{"course_name": "'.$row['course_name'].'","course_fee": new Number('.$row['course_fee'].'),"brief": "'.$row['brief'].'"},';
                 }
             }
         ?>
     ]
     const html = newJson.map((items) =>{
-    return `
-        <a href="./register/tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
+        return `
+        <div class="product-card">
             <div class="product-card--image">
                 <img margin-right: auto; width="256" height="256" src="https://w7.pngwing.com/pngs/339/877/png-transparent-chemistry-encapsulated-postscript-chemistry-icon-miscellaneous-biology-line.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
             </div>
             <div class="product-card--info">
                 <span id="product-name"><b>${items.course_name}</b></span>
                 </br>
-                <span id="product-name"> ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
-                <div class="info-tutor">
+                    <span id="product-name"> ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
+                    <div class="info-tutor">
                     <p id="product-name"> ${items.brief} </p>
-                </div>
-                <div class="product-card--footer" style="width=100%">
+                    </div>
+                <div class="product-card--footer">
                     <h4> <i class="far fa-clock"></i> 2 hours </h4>
                     <h4> <i class="far fa-calendar-alt"></i> 6 months </h4>
                     <h4> <i class="far fa-book"></i> 12 modules </h4>
+                    <div class="product-card--button">
+                        <a href="./tutor.html"><i class="product-card--plus fas fa-plus"></i></a>
+                    </div>
                 </div>
             </div>
-        </div></a>
+        </div>
     `;
                 }).join(" ");
     let a = document.querySelector("#second-menu-tab");
@@ -89,31 +92,34 @@ const menuTabChemistry = async ()=>{
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo '{"course_code": "'.$row['course_code'].'","course_name": "'.$row['course_name'].'","course_fee": new Number('.$row['course_fee'].'),"brief": "'.$row['brief'].'"},';
+                    echo '{"course_name": "'.$row['course_name'].'","course_fee": new Number('.$row['course_fee'].'),"brief": "'.$row['brief'].'"},';
                 }
             }
         ?>
     ]
     const html = newJson.map((items) =>{
-    return `
-        <a href="./register/tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
+        return `
+        <div class="product-card">
             <div class="product-card--image">
                 <img margin-right: auto; width="256" height="256" src="https://w7.pngwing.com/pngs/339/877/png-transparent-chemistry-encapsulated-postscript-chemistry-icon-miscellaneous-biology-line.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
             </div>
             <div class="product-card--info">
                 <span id="product-name"><b>${items.course_name}</b></span>
                 </br>
-                <span id="product-name"> ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
-                <div class="info-tutor">
+                    <span id="product-name"> ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
+                    <div class="info-tutor">
                     <p id="product-name"> ${items.brief} </p>
-                </div>
-                <div class="product-card--footer" style="width=100%">
+                    </div>
+                <div class="product-card--footer">
                     <h4> <i class="far fa-clock"></i> 2 hours </h4>
                     <h4> <i class="far fa-calendar-alt"></i> 6 months </h4>
                     <h4> <i class="far fa-book"></i> 12 modules </h4>
+                    <div class="product-card--button">
+                        <a href="./tutor.html"><i class="product-card--plus fas fa-plus"></i></a>
+                    </div>
                 </div>
             </div>
-        </div></a>
+        </div>
     `;
                 }).join(" ");
     let a = document.querySelector("#third-menu-tab");
@@ -129,31 +135,34 @@ const menuTabBiology = async ()=>{
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo '{"course_code": "'.$row['course_code'].'","course_name": "'.$row['course_name'].'","course_fee": new Number('.$row['course_fee'].'),"brief": "'.$row['brief'].'"},';
+                    echo '{"course_name": "'.$row['course_name'].'","course_fee": new Number('.$row['course_fee'].'),"brief": "'.$row['brief'].'"},';
                 }
             }
         ?>
     ]
     const html = newJson.map((items) =>{
     return `
-        <a href="./register/tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
+        <div class="product-card">
             <div class="product-card--image">
                 <img margin-right: auto; width="256" height="256" src="https://w7.pngwing.com/pngs/339/877/png-transparent-chemistry-encapsulated-postscript-chemistry-icon-miscellaneous-biology-line.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
             </div>
             <div class="product-card--info">
                 <span id="product-name"><b>${items.course_name}</b></span>
                 </br>
-                <span id="product-name"> ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
-                <div class="info-tutor">
+                    <span id="product-name"> ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
+                    <div class="info-tutor">
                     <p id="product-name"> ${items.brief} </p>
-                </div>
-                <div class="product-card--footer" style="width=100%">
+                    </div>
+                <div class="product-card--footer">
                     <h4> <i class="far fa-clock"></i> 2 hours </h4>
                     <h4> <i class="far fa-calendar-alt"></i> 6 months </h4>
                     <h4> <i class="far fa-book"></i> 12 modules </h4>
+                    <div class="product-card--button">
+                        <a href="./tutor.html"><i class="product-card--plus fas fa-plus"></i></a>
+                    </div>
                 </div>
             </div>
-        </div></a>
+        </div>
     `;
                 }).join(" ");
     let a = document.querySelector("#fourth-menu-tab");
@@ -169,31 +178,34 @@ const  menuTabLanguages = async ()=>{
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo '{"course_code": "'.$row['course_code'].'","course_name": "'.$row['course_name'].'","course_fee": new Number('.$row['course_fee'].'),"brief": "'.$row['brief'].'"},';
+                    echo '{"course_name": "'.$row['course_name'].'","course_fee": new Number('.$row['course_fee'].'),"brief": "'.$row['brief'].'"},';
                 }
             }
         ?>
     ]
     const html = newJson.map((items) =>{
     return `
-        <a href="./register/tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
+        <div class="product-card">
             <div class="product-card--image">
                 <img margin-right: auto; width="256" height="256" src="https://w7.pngwing.com/pngs/339/877/png-transparent-chemistry-encapsulated-postscript-chemistry-icon-miscellaneous-biology-line.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
             </div>
             <div class="product-card--info">
                 <span id="product-name"><b>${items.course_name}</b></span>
                 </br>
-                <span id="product-name"> ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
-                <div class="info-tutor">
+                    <span id="product-name"> ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
+                    <div class="info-tutor">
                     <p id="product-name"> ${items.brief} </p>
-                </div>
-                <div class="product-card--footer" style="width=100%">
+                    </div>
+                <div class="product-card--footer">
                     <h4> <i class="far fa-clock"></i> 2 hours </h4>
                     <h4> <i class="far fa-calendar-alt"></i> 6 months </h4>
                     <h4> <i class="far fa-book"></i> 12 modules </h4>
+                    <div class="product-card--button">
+                        <a href="./tutor.html"><i class="product-card--plus fas fa-plus"></i></a>
+                    </div>
                 </div>
             </div>
-        </div></a>
+        </div>
     `;
                 }).join(" ");
     let a = document.querySelector("#fifth-menu-tab");
