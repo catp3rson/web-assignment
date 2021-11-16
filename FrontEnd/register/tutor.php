@@ -2,7 +2,7 @@
     //connection details
     $mysql_addr = "localhost";
     $mysql_user = "root";
-    $mysql_password = "admin123";
+    $mysql_password = "an0kumene";
     $mysql_db = "tutor_booking_system";
 
 
@@ -43,7 +43,6 @@
     
         return mysqli_fetch_assoc($query);
     }
-
 
 ?>
 

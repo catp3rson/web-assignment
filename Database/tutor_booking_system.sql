@@ -1,6 +1,9 @@
-CREATE TABLE courses ( 
+CREATE DATABASE tutor_booking_system;
+USE tutor_booking_system;
+CREATE TABLE courses (
 	course_code          char(6)  NOT NULL    PRIMARY KEY,
-	course_name          varchar(100)  NOT NULL    ,
+	course_name          varchar(255)  NOT NULL    ,
+    course_category		 varchar(255)  NOT NULL    ,
 	tutor_id			 int UNSIGNED NOT NULL	,
 	brief				 varchar(5000)		,
 	description          varchar(5000)      ,
@@ -26,8 +29,9 @@ CREATE TABLE locations (
 	location_name        varchar(500)  NOT NULL    ,
 	longtitude           double  NOT NULL    ,
 	latitude             double  NOT NULL    ,
+	location_description varchar(500)  NOT NULL    ,
 	CONSTRAINT unq_locations_longlat UNIQUE ( longtitude, latitude ) 
- ) engine=InnoDB;
+) engine=InnoDB;
 
 ALTER TABLE locations COMMENT 'Contains the locations of the tutoring center';
 
@@ -43,7 +47,7 @@ CREATE TABLE users (
 	user_id              int UNSIGNED NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
 	username             varchar(100)  NOT NULL    ,
 	password             varchar(100)  NOT NULL    ,
-	email                varchar(100)  NOT NULL    ,
+	# email                varchar(100)  NOT NULL    ,
 	full_name            varchar(100)  NOT NULL    ,
 	birthday             date NOT NULL  		   ,
 	phone                varchar(11)  NOT NULL     ,
@@ -138,21 +142,18 @@ VALUES
 		NULL
 	);
 
-
-
 INSERT INTO subjects (subject_code, subject_name, num_courses)
 VALUES
 	('MA', 'Math', 1),
 	('PH', 'Physics', 1),
 	('EN', 'English', 1);
 
-
-
-INSERT INTO courses (course_code, course_name, tutor_id, brief, description, course_fee, schedule, start_date, end_date)
+INSERT INTO courses (course_code, course_name, course_category, tutor_id, brief, description, course_fee, schedule, start_date, end_date)
 VALUES
 	(
 		'MA0001',
 		'Advanced Math for Grade 9',
+        'math',
 		2,
 		'A 3-month Math course for Grade 9 students.',
 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
@@ -164,6 +165,7 @@ VALUES
 	(
 		'PH0001',
 		'Physics crash course for Grade 12',
+        'physics',
 		3,
 		'A 2-month Physics crash course for Grade 12 students who is taking part in the 2022 university entrance test.',
 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
@@ -175,6 +177,7 @@ VALUES
 	(
 		'EN0001',
 		'Basic English for kids',
+        'english',
 		4,
 		'A fun online English course for kids aged 5-10.',
 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
@@ -183,3 +186,10 @@ VALUES
 		'2021-11-22',
 		'2022-02-21'
 	);
+    
+INSERT INTO locations (location_id, location_name, latitude, longtitude, location_description)
+VALUES
+	(1, 'Nha Trang branch', 12.249520736579708, 109.18676734631, '71 Yersin Street, Nha Trang City'),
+	(2, 'Head Quarter at Ho Chi Minh City', 10.773922365553329, 106.66068367301231, '268 Ly Thuong Kiet Street, District 10, Ho Chi Minh City'),
+	(3, 'Can Tho branch', 10.000316093244491, 105.75045605911849, '414 National Road 1A - Area Yen Ha, Le Binh, Cai Rang, Can Tho'),
+	(4, 'Ha Noi branch', 21.007866621437497, 105.84328620369546, '1 Dai Co Viet Street, Hai Ba Trung, Ha Noi');

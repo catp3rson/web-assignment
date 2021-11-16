@@ -1,5 +1,5 @@
 <?php
-	include ("create_locationsDB.php");
+    include "config.php";
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.0.0-beta2-web/css/all.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"  rel="stylesheet"/>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3rMarZKfKHtdqrkVk6XV3zBMgNyHfnAg&callback=initMap&libraries=&v=weekly" async></script>
+    <?php include "script.php";?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
     <script>
         function initMap() {
             var markers = new Array();
@@ -357,8 +360,7 @@
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active " id="pills-food" role="tabpanel" aria-labelledby="pills-food-tab">
                             <div class="product-card--container" id="first-menu-tab">
-                         
-                        </div>
+                            </div>
                         </div>
 
                         <div class="tab-pane fade" id="pills-drink" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -529,8 +531,6 @@
             </div>
         </div>
     </div>
-    <script src="./script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+    
 </body>
 </html>
