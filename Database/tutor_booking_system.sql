@@ -185,6 +185,66 @@ VALUES
 		'{"Monday": ["18:00-20:00"], "Friday":["18:00-20:00"]}',
 		'2021-11-22',
 		'2022-02-21'
+	),
+    (
+		'EN0002',
+		'Basic English for grade 6',
+        'english',
+		4,
+		'An online English course for grade 6 students.',
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
+		4000000,
+		'{"Monday": ["18:00-20:00"], "Friday":["18:00-20:00"]}',
+		'2021-11-22',
+		'2022-02-21'
+	),
+    (
+		'EN0003',
+		'Basic English for grade 7',
+        'english',
+		4,
+		'An online English course for grade 7 students.',
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
+		4000000,
+		'{"Monday": ["18:00-20:00"], "Friday":["18:00-20:00"]}',
+		'2021-11-22',
+		'2022-02-21'
+	),
+    (
+		'EN0004',
+		'Basic English for grade 7',
+        'english',
+		4,
+		'An online English course for grade 8 students.',
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
+		4000000,
+		'{"Monday": ["18:00-20:00"], "Friday":["18:00-20:00"]}',
+		'2021-11-22',
+		'2022-02-21'
+	),
+    (
+		'EN0005',
+		'English course for Grade 12',
+        'english',
+		4,
+		'A fun online English course for kids aged 5-10.',
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
+		4000000,
+		'{"Monday": ["18:00-20:00"], "Friday":["18:00-20:00"]}',
+		'2021-11-22',
+		'2022-02-21'
+	),
+    (
+		'EN0006',
+		'English course for Grade 12',
+        'english',
+		4,
+		'An online English course for grade 10 students.',
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
+		4000000,
+		'{"Monday": ["18:00-20:00"], "Friday":["18:00-20:00"]}',
+		'2021-11-22',
+		'2022-02-21'
 	);
     
 INSERT INTO locations (location_id, location_name, latitude, longtitude, location_description)
