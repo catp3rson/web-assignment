@@ -88,12 +88,16 @@
                             <li class="header__nav-item">
                                 <a href="#courses" class="header__nav-item--link">COURSES</a>
                             </li>
+
+                            <li class="header__nav-item"> 
+                                <a href="#news" class="header__nav-item--link">NEWS</a>
+                            </li>  
      
                             <li class="header__nav-item"> 
-                                <a href="#news" class="header__nav-item--link">CONTACT</a>
+                                <a href="#contact" class="header__nav-item--link">CONTACT</a>
                             </li>       
                             <li class="header__nav-item"> 
-                                <a href="#map" class="header__nav-item--link">LOCATIONS</a>
+                                <a href="#map_location" class="header__nav-item--link">LOCATION</a>
                             </li>   
                         </ul>
 
@@ -136,11 +140,19 @@
                                     <li class="nav__mobile-item"> 
                                         <a href="#news" class="nav__mobile-item--link">
                                             <i class="nav__mobile-icon fas fa-newspaper"></i>
+                                            News
+                                        </a>
+                                    </li>   
+
+                                    <li class="nav__mobile-item"> 
+                                        <a href="#contact" class="nav__mobile-item--link">
+                                            <i class="nav__mobile-icon fas fa-envelope"></i>
                                             Contact
                                         </a>
-                                    </li>       
+                                    </li>  
+                                    
                                     <li class="nav__mobile-item"> 
-                                        <a href="#" class="nav__mobile-item--link">
+                                        <a href="#map_location" class="nav__mobile-item--link">
                                             <i class="nav__mobile-icon fas fa-map-marked-alt"></i>
                                             Map
                                         </a>
@@ -373,12 +385,12 @@
                     </div>
                     
                 </div>
-                <div class="read-all">
+                <!-- <div class="read-all">
                     <a href="#">
                         <span>Read all</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
-                </div>    
+                </div>     -->
             </div>
                 <!-- News -->
                 <div id="news" class="news">
@@ -386,7 +398,7 @@
                         <div class="product__heading">
                             <i class="product__heading-icon fas fa-newspaper"></i>
         
-                            <span class="heading-title" >Contact</span>
+                            <span class="heading-title" >News</span>
                         </div>
                     
                     <div class="news-container">
@@ -408,29 +420,32 @@
                     </div>   
                     
                     </div>        
-                    <div class="read-all">
+                    <!-- <div class="read-all">
                         <a href="#">
                             <span>Read all</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
-                    </div>    
+                    </div>     -->
                 </div>
         </div>
-        
-        <div class="container">
-            <!-- Google Map -->
-            <div class="product__heading">
-                <i class="product__heading-icon fas fa-book"></i>
-                <span class="heading-title" >Location</span>
-            </div>
-            <div id="map"></div>
-            <div class="map-menu">
-                <div id="markers"></div>
+
+        <div id="map_location" class="location">
+            <div class="container">
+                <!-- Google Map -->
+                <div class="product__heading">
+                    <i class="product__heading-icon fas fa-map-marked-alt"></i>
+                    <span class="heading-title" >Location</span>
+                </div>
+                <div id="map"></div>
+                <div class="map-menu">
+                    <div id="markers"></div>
+                </div>
             </div>
         </div>
+        
 
         <div class="footer">
-            <div class="footer__content">
+            <div id="contact" class="footer__content">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 footer__text">
@@ -494,10 +509,10 @@
                             </li>
      
                             <li class="footer__logo-item"> 
-                                <a class="footer__link" href="#news">CONTACT</a>
+                                <a class="footer__link" href="#news">NEWS</a>
                             </li> 
                             <li class="footer__logo-item"> 
-                                <a class="footer__link" href="#">SITE MAPS</a>
+                                <a class="footer__link" href="#map_location">LOCATION</a>
                             </li>      
                         </ul>
                         </div>
