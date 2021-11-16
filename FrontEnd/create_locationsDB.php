@@ -1,8 +1,7 @@
 <?php
-include "connectDB.php";
+include "config.php";
 $sql = 
 "
-DROP TABLE locations
 CREATE TABLE locations ( 
 	location_id          int UNSIGNED NOT NULL    PRIMARY KEY,
 	location_name        varchar(500)  NOT NULL    ,
