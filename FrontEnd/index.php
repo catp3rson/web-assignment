@@ -1,3 +1,7 @@
+<?php
+	include ("create_locationsDB.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +17,56 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"  rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"  rel="stylesheet"/>
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.0.0-beta2-web/css/all.css">
-    <link  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"  rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"  rel="stylesheet"/>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3rMarZKfKHtdqrkVk6XV3zBMgNyHfnAg&callback=initMap&libraries=&v=weekly" async></script>
+    <script>
+        function initMap() {
+            var markers = new Array();
+            var mapOptions = {
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                center: new google.maps.LatLng(10.760126435947619, 106.66319203208252)
+            };
+            <?php
+                $sql = "SELECT * FROM locations";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    echo 'var locations = [';
+                    $style = "'font-size: 15px; font-weight: 5px;'";
+                    while($row = $result->fetch_assoc()) {
+                        echo '[new google.maps.LatLng('. $row['latitude']. ','. $row['longtitude']. '), "'.$row['location_name'].'",'.'"<h1 style='.$style.'>'.$row['location_name'].'</h1><hr>'. '<p>Address: '.$row['location_description'].'</p>"'. '],';
+                        
+                    }
+                    echo '];';
+                }
+            ?>
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+            var infowindow = new google.maps.InfoWindow();
+            for (var i = 0; i < locations.length; i++) {
+                $('#markers').append('<a class="marker-link" data-markerid="' + i + '" href="#maps">' + locations[i][1] + '</a> ');
+                var marker = new google.maps.Marker({
+                    position: locations[i][0],
+                    map: map,
+                    title: locations[i][1],
+                });
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infowindow.setContent(locations[i][2]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+                markers.push(marker);
+            }
+
+            $('.marker-link').on('click', function () {
+                google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
+            });
+        }
+
+        initialize();
+    </script>
 </head>
 <body>
     <div class="app">
@@ -35,14 +86,14 @@
                             </li>
      
                             <li class="header__nav-item">
-                                <a href="#courses" class="header__nav-item--link">COURSE</a>
+                                <a href="#courses" class="header__nav-item--link">COURSES</a>
                             </li>
      
                             <li class="header__nav-item"> 
                                 <a href="#news" class="header__nav-item--link">CONTACT</a>
                             </li>       
                             <li class="header__nav-item"> 
-                                <a href="#" class="header__nav-item--link">MAP</a>
+                                <a href="#map" class="header__nav-item--link">LOCATIONS</a>
                             </li>   
                         </ul>
 
@@ -131,9 +182,12 @@
                              </li>
                     </ul>
                 </nav>
+                
             </div>
         </header>
         
+        
+
         <div class="body">
             <div class="promotion">
                 <div class="promotion-container">
@@ -165,7 +219,7 @@
                     <div class="carousel-inner">
                 <!-- Single item -->
                     <div class="carousel-item promotion-carousel--item active">
-                       <div class="index-container1 new-bg">
+                       <div class="index-container image1 new-bg">
                             <h1>21 Million<br> Sessions</h1>
                             <h2>Helping students achieve and persist<br> One learner at a time</h2>
                         </div>
@@ -173,7 +227,7 @@
 
                 <!-- Single item -->
                     <div class="carousel-item promotion-carousel--item">
-                        <div class="index-container2 new-bg">
+                        <div class="index-container image2 new-bg">
                             <h1>21 Million<br> Sessions</h1>
                             <h2>Helping students achieve and persist<br> One learner at a time</h2>
                         </div>
@@ -319,12 +373,12 @@
                     </div>
                     
                 </div>
-                <!-- <div class="read-all">
+                <div class="read-all">
                     <a href="#">
                         <span>Read all</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
-                </div>     -->
+                </div>    
             </div>
                 <!-- News -->
                 <div id="news" class="news">
@@ -354,15 +408,27 @@
                     </div>   
                     
                     </div>        
-                    <!-- <div class="read-all">
+                    <div class="read-all">
                         <a href="#">
                             <span>Read all</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
-                    </div>     -->
+                    </div>    
                 </div>
         </div>
         
+        <div class="container">
+            <!-- Google Map -->
+            <div class="product__heading">
+                <i class="product__heading-icon fas fa-book"></i>
+                <span class="heading-title" >Location</span>
+            </div>
+            <div id="map"></div>
+            <div class="map-menu">
+                <div id="markers"></div>
+            </div>
+        </div>
+
         <div class="footer">
             <div class="footer__content">
                 <div class="container">
