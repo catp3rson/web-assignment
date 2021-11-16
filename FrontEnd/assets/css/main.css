@@ -450,10 +450,20 @@
     margin-top: 20px;
 }
 
-.marker-link {
-    width: 300px;
-    height: 100px;
-    padding: 50px;
-    border: 1px solid red;
-    margin-top: 500px;
+.map-menu {
+    width: 33%;
+    height: 200px;
+    overflow-y: auto;
+}
+
+.map-menu a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.map-menu a:hover {
+    background-color: #ccc;
 }

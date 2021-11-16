@@ -182,9 +182,12 @@
                              </li>
                     </ul>
                 </nav>
+                
             </div>
         </header>
         
+        
+
         <div class="body">
             <div class="promotion">
                 <div class="promotion-container">
@@ -414,13 +417,17 @@
                 </div>
         </div>
         
-        <!-- Google Map -->
-        <div class="product__heading">
-            <i class="product__heading-icon fas fa-book"></i>
-            <span class="heading-title" >Location</span>
+        <div class="container">
+            <!-- Google Map -->
+            <div class="product__heading">
+                <i class="product__heading-icon fas fa-book"></i>
+                <span class="heading-title" >Location</span>
+            </div>
+            <div id="map"></div>
+            <div class="map-menu">
+                <div id="markers"></div>
+            </div>
         </div>
-        <div id="map"></div>
-		<div id="markers"></div>
 
         <div class="footer">
             <div class="footer__content">
