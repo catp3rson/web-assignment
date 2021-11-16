@@ -238,8 +238,8 @@
 
 }*/
 .product-card--image img{
-     width: 145px;
-    height: 145px;
+      width: 342px;
+    height: 211px;
     border-radius: var(--border-radius);
     
 }
