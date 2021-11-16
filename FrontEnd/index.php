@@ -24,6 +24,7 @@
     <?php include "script.php";?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+    <script type="text/javascript" src="myscripts.js"></script>
     <script>
         function initMap() {
             var markers = new Array();
@@ -523,6 +524,7 @@
                     </div>
                 </div>
             </div>
+            <script src="./script.js"></script>
 
             <div class="footer__bottom">
                 <div class="container">                   

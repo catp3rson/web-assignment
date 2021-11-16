@@ -233,10 +233,7 @@ menuTabBiology();
 menuTabLanguages();
 handleNews();
 
-var $li = $('#pills-tab li').click(function() {
-    $li.removeClass('selected');
-    $(this).addClass('selected');
-});
+
 
 const clickLogin = ()=>{
     let loginbox = document.querySelector('.popup-login');
