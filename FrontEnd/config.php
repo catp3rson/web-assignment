@@ -1,7 +1,7 @@
 <?php
 $hostname = "localhost";
 $username = "root";
-$password = "an0kumene";
+$password = "";
 $database = "tutor_booking_system";
 $conn = new mysqli($hostname, $username, $password);
 $sql = "CREATE DATABASE IF NOT EXISTS tutor_booking_system;";

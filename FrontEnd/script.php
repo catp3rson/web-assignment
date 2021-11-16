@@ -22,17 +22,14 @@ const menuTabMath = async ()=>{
                 <img margin-right: auto; width="256" height="256" src="https://w7.pngwing.com/pngs/339/877/png-transparent-chemistry-encapsulated-postscript-chemistry-icon-miscellaneous-biology-line.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
             </div>
             <div class="product-card--info">
-                <span id="product-name"><b>${items.course_name}</b></span>
+    
+                <span style="color:#EF6A3E;" id="product-name"><b>${items.course_name}</b></span>
                 </br>
-                <span id="product-name"> ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
+                <span  id="product-name"> Price: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
                 <div class="info-tutor">
                     <p id="product-name"> ${items.brief} </p>
                 </div>
-                <div class="product-card--footer" style="width=100%">
-                    <h4> <i class="far fa-clock"></i> 2 hours </h4>
-                    <h4> <i class="far fa-calendar-alt"></i> 6 months </h4>
-                    <h4> <i class="far fa-book"></i> 12 modules </h4>
-                </div>
+                
             </div>
         </div></a>
     `;
@@ -61,17 +58,14 @@ const menuTabPhysics = async ()=>{
                 <img margin-right: auto; width="256" height="256" src="https://w7.pngwing.com/pngs/339/877/png-transparent-chemistry-encapsulated-postscript-chemistry-icon-miscellaneous-biology-line.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
             </div>
             <div class="product-card--info">
-                <span id="product-name"><b>${items.course_name}</b></span>
+    
+                <span style="color:#EF6A3E;" id="product-name"><b>${items.course_name}</b></span>
                 </br>
-                <span id="product-name"> ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
+                <span  id="product-name"> Price: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
                 <div class="info-tutor">
                     <p id="product-name"> ${items.brief} </p>
                 </div>
-                <div class="product-card--footer" style="width=100%">
-                    <h4> <i class="far fa-clock"></i> 2 hours </h4>
-                    <h4> <i class="far fa-calendar-alt"></i> 6 months </h4>
-                    <h4> <i class="far fa-book"></i> 12 modules </h4>
-                </div>
+                
             </div>
         </div></a>
     `;
@@ -101,17 +95,14 @@ const menuTabChemistry = async ()=>{
                 <img margin-right: auto; width="256" height="256" src="https://w7.pngwing.com/pngs/339/877/png-transparent-chemistry-encapsulated-postscript-chemistry-icon-miscellaneous-biology-line.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
             </div>
             <div class="product-card--info">
-                <span id="product-name"><b>${items.course_name}</b></span>
+    
+                <span style="color:#EF6A3E;" id="product-name"><b>${items.course_name}</b></span>
                 </br>
-                <span id="product-name"> ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
+                <span  id="product-name"> Price: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
                 <div class="info-tutor">
                     <p id="product-name"> ${items.brief} </p>
                 </div>
-                <div class="product-card--footer" style="width=100%">
-                    <h4> <i class="far fa-clock"></i> 2 hours </h4>
-                    <h4> <i class="far fa-calendar-alt"></i> 6 months </h4>
-                    <h4> <i class="far fa-book"></i> 12 modules </h4>
-                </div>
+                
             </div>
         </div></a>
     `;
@@ -141,17 +132,14 @@ const menuTabBiology = async ()=>{
                 <img margin-right: auto; width="256" height="256" src="https://w7.pngwing.com/pngs/339/877/png-transparent-chemistry-encapsulated-postscript-chemistry-icon-miscellaneous-biology-line.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
             </div>
             <div class="product-card--info">
-                <span id="product-name"><b>${items.course_name}</b></span>
+    
+                <span style="color:#EF6A3E;" id="product-name"><b>${items.course_name}</b></span>
                 </br>
-                <span id="product-name"> ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
+                <span  id="product-name"> Price: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
                 <div class="info-tutor">
                     <p id="product-name"> ${items.brief} </p>
                 </div>
-                <div class="product-card--footer" style="width=100%">
-                    <h4> <i class="far fa-clock"></i> 2 hours </h4>
-                    <h4> <i class="far fa-calendar-alt"></i> 6 months </h4>
-                    <h4> <i class="far fa-book"></i> 12 modules </h4>
-                </div>
+                
             </div>
         </div></a>
     `;
@@ -181,17 +169,14 @@ const  menuTabLanguages = async ()=>{
                 <img margin-right: auto; width="256" height="256" src="https://w7.pngwing.com/pngs/339/877/png-transparent-chemistry-encapsulated-postscript-chemistry-icon-miscellaneous-biology-line.png" alt="User Icon free icon" title="User Icon free icon" class="loaded">
             </div>
             <div class="product-card--info">
-                <span id="product-name"><b>${items.course_name}</b></span>
+    
+                <span style="color:#EF6A3E;" id="product-name"><b>${items.course_name}</b></span>
                 </br>
-                <span id="product-name"> ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
+                <span  id="product-name"> Price: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
                 <div class="info-tutor">
                     <p id="product-name"> ${items.brief} </p>
                 </div>
-                <div class="product-card--footer" style="width=100%">
-                    <h4> <i class="far fa-clock"></i> 2 hours </h4>
-                    <h4> <i class="far fa-calendar-alt"></i> 6 months </h4>
-                    <h4> <i class="far fa-book"></i> 12 modules </h4>
-                </div>
+                
             </div>
         </div></a>
     `;

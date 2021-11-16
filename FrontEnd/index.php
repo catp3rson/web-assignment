@@ -309,7 +309,7 @@
                                             </div>
                                         </div>
                                         <div class="Courses-name-physical">
-                                            <h4> Physical</h4>
+                                            <h4> Physics</h4>
                                         </div>
                                     </div>
                                 </li>
@@ -348,7 +348,7 @@
                                             </div>
                                         </div>
                                         <div class="Courses-name-languages">
-                                            <h4> Languages</h4>
+                                            <h4> English</h4>
                                         </div>
                                     </div>
                                 </li>
