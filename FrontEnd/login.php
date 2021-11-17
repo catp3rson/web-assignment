@@ -16,17 +16,15 @@ if (isset($_POST["signup"])) {
   $address = mysqli_real_escape_string($conn, $_POST["signup_address"]);
   $phone = mysqli_real_escape_string($conn, $_POST["signup_phone"]);
   
-  /*$username = mysqli_real_escape_string($conn, $_POST["signup_user_name"]);*/
+  
   $email = mysqli_real_escape_string($conn, $_POST["signup_email"]);
   $password = mysqli_real_escape_string($conn, md5($_POST["signup_password"]));
-  /*$cpassword = mysqli_real_escape_string($conn, md5($_POST["signup_cpassword"]));*/
+  
 
 
   $check_email = mysqli_num_rows(mysqli_query($conn, "SELECT email FROM users WHERE email='$email'"));
 
-  /*if ($password !== $cpassword) {
-    echo "<script>alert('Password did not match.');</script>";
-  } else*/if ($check_email > 0) {
+  if ($check_email > 0) {
     echo "<script>alert('Email already exists in out database.');</script>";
   } else {
     $sql = "INSERT INTO users (password, email, full_name, birthday, phone, address)  VALUES ( '$password','$email', '$full_name', '$birthday', '$phone', '$address')";
@@ -37,26 +35,10 @@ if (isset($_POST["signup"])) {
       $_POST["signup_address"] = "";
       $_POST["signup_phone"] = "";
     
-      /*$_POST["signup_user_name"] = "";*/
+      
       $_POST["signup_email"] = "";
       $_POST["signup_password"] = "";
-      /*$_POST["signup_cpassword"] = "";*/
-
-      $to = $email;
-      $subject = "Email verification";
-
-      // Always set content-type when sending HTML email
-      $headers = "MIME-Version: 1.0" . "\r\n";
-      $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-      // More headers
-      $headers .= "From: ". $my_email;
-
-      if (mail($to,$subject,$message,$headers)) {
-        echo "<script>alert('We have sent a verification link to your email - {$email}.');</script>";
-      } else {
-        echo "<script>alert('Mail not sent. Please try again.');</script>";
-      }
+      echo "<script>alert('User registration successfully.');</script>";
     } else {
       echo "<script>alert('User registration failed.');</script>";
     }
@@ -155,12 +137,6 @@ if (isset($_POST["signin"])) {
             <input type="password" placeholder="Password" name="signup_password" value="<?php echo $_POST["signup_password"]; ?>" required id = "signup_password" pattern ="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title = "at least 8" required/>
           </div>
 
-          <!--
-          <div class="input-field">
-            <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Confirm Password" name="signup_cpassword" value="<?php echo $_POST["signup_cpassword"]; ?>" required />
-          </div>
-          -->
 
           <input type="submit" class="btn" name="signup" value="Sign up" />
         </form>
