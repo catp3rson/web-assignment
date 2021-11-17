@@ -38,35 +38,7 @@ if (isset($_POST["signup"])) {
       
       $_POST["signup_email"] = "";
       $_POST["signup_password"] = "";
-      
-
-      $to = $email;
-      $subject = "Email verification";
-      $message = "
-      <html>
-      <head>
-      <title>{$subject}</title>
-      </head>
-      <body>
-      <p><strong>Dear {$full_name},</strong></p>
-      <p>Thanks for registration! Verify your email to access our website. Click below link to verify your email.</p>
-      <p><a href='{$base_url}verify-email.php?token={$token}'>Verify Email</a></p>
-      </body>
-      </html>
-      ";
-
-      // Always set content-type when sending HTML email
-      $headers = "MIME-Version: 1.0" . "\r\n";
-      $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-      // More headers
-      $headers .= "From: ". $my_email;
-
-      if (mail($to,$subject,$message,$headers)) {
-        echo "<script>alert('We have sent a verification link to your email - {$email}.');</script>";
-      } else {
-        echo "<script>alert('Mail not sent. Please try again.');</script>";
-      }
+      echo "<script>alert('User registration successfully.');</script>";
     } else {
       echo "<script>alert('User registration failed.');</script>";
     }
