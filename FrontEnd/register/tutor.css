@@ -68,6 +68,38 @@ body {
     font-size: medium;
 }
 
+#trial-login-btn {
+    width: 100%;
+    background: none;
+}
+
+#trial-login-btn .btn, #trial-register-btn input {
+    width: 100%;
+    font-size: 100%;
+    color:rgb(255, 255, 255);
+    background-color: rgb(88, 128, 236);
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+#trial-login-btn-footer {
+    color:rgb(255, 255, 255);
+    background-color: rgb(88, 128, 236);
+}
+
+#trial-modal-description {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-weight: normal;
+    color: rgb(131, 128, 128);
+}
+
+.modal-body {
+    margin-bottom: 5%;
+}
+
 #timeline-container {
     padding-top: 5%;
     border-top: solid 1px rgb(131, 128, 128);
