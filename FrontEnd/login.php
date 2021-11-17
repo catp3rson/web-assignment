@@ -23,6 +23,7 @@ if (isset($_POST["signup"])) {
 	} else {
 		$sql = "INSERT INTO users (password, email, full_name, birthday, phone)  VALUES ( '$password','$email', '$full_name', '$birthday', '$phone')";
 		$result = mysqli_query($conn, $sql);
+		
 		if ($result) {
 			$_POST["signup_full_name"] = "";
 			$_POST["signup_birthday"] = "";
@@ -32,7 +33,8 @@ if (isset($_POST["signup"])) {
 			
 			echo "<script>alert('User registration successfully.');</script>";
 		} else {
-			echo "<script>alert('User registration failed.');</script>";
+			echo "<script>alert('User registration failed.') ".mysqli_error($conn)." </script>";
+			echo mysqli_error($conn);
 		}
 	}
 }

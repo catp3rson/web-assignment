@@ -14,9 +14,7 @@
     border-color: rgb(255, 255, 255);
 }
 
-body { 
-    padding-top: 100px;
-}
+
 
 #main-container {
     padding-left: 5%;
@@ -27,7 +25,7 @@ body {
     float: left;
     color: rgb(131, 128, 128);
     font-weight: normal;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 
 .description {
@@ -44,11 +42,13 @@ body {
 #register-container h4 {
     color:rgb(255, 255, 255);
     font-weight: normal;
+    font-size: 24px;
 }
 
 #register-container h3 {
     color:rgb(233, 166, 67);
     font-weight: normal;
+    font-size: 28px;
 }
 
 #register-container #trial-btn {
@@ -57,11 +57,13 @@ body {
     margin-bottom: 5%;
     background-color: rgb(255, 255, 255);
     color: rgb(112, 146, 240);
+    font-size: 16px;
 }
 
 #register-container #register-btn {
     width: 50%;
     background-color: rgb(233, 166, 67);
+    font-size: 16px;
 }
 
 #register-container span {
@@ -153,10 +155,12 @@ body {
 
 .schedule-item .card-header i {
     float: right;
+    font-size: 16px;
 }
 
 .schedule-item .card-body {
     border-bottom: solid 1px rgb(131, 128, 128);
+    font-size: 16px;
 }
 
 .schedule-item .card-body i {
@@ -178,6 +182,13 @@ body {
 #tutor-profile img {
     width: 80%;
     height: auto;
+}
+p {
+    font-size: 18px;
+}
+
+li {
+    font-size: 15px;
 }
 
 /* Tablets and phones */

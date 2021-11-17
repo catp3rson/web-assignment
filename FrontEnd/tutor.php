@@ -72,29 +72,6 @@
     session_start();
     $is_logged_in = isset($_SESSION["user_id"]);
 
-
-    // $course = array(
-    //     "course_code" => 0,
-	//     "course_name" => "English course for kids",
-	//     "tutor_id" => 1,
-	//     "description" => "Best English course for kids. Suitable for kids aged 5 to 10. Interactive lessons, supportive and experienced tutor.\nEarly birds will get a special gift!",
-	//     "course_fee" => 5000000,
-	//     "schedule" => array(
-    //         'Monday'=> ['12:00-14:00'],
-    //         'Friday'=> ['12:00-14:00']
-    //     ),
-	//     "start_date" =>  '2021-10-22',
-	//     "end_date"=> '2021-12-22'  
-    // );
-
-    // $tutor = array(
-    //     "username" => "math123",
-    //     "email" => "math123@email.com",
-    //     "full_name" => "Nguyen Van A",
-    //     "birthday" => '1998-22-10',
-    //     "phone"  => "01234567890",              
-    //     "description" => "Graduated from the Ho Chi Minh city University of Teachnology. I've been working as an English teacher since graduation.",
-    // );
 ?>
 
 
@@ -109,33 +86,22 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"  rel="stylesheet"/>
+        <!-- ********************************************************************************************************** -->
 
+
+        <link rel="icon" href="./assets/images/LOGO.png" type="image/x-icon" />
+        <link rel="stylesheet" href="./assets/css/base.css">
+        <link rel="stylesheet" href="./assets/css/main.css">
         <link rel="stylesheet" type="text/css" href="tutor.css"/>
+        <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.0.0-beta2-web/css/all.css">
+        <link rel="stylesheet" href="./assets/css/responsive.css">
     </head>
 
 
     <body>
         <!-- navigation bar -->
-        <nav id="top" class="navbar navbar-expand-lg fixed-top">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-supported-content" aria-controls="navbar-supported-content" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbar-supported-content">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../#courses">Courses</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contacts</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <?php include "./header.php" ?>
 
 
         <div id="main-container" class="container">
@@ -198,7 +164,7 @@
                                 <div class = "col-lg-12 col-md-12 col-sm-12 col-12 pl-0 pr-0">
                                     <div class="card">
                                         <div class="card-header" id="heading-%d">
-                                            <h6>
+                                            <h6 style="font-size: 16px;">
                                                 <div data-toggle="collapse" data-target="#collapse-%d" aria-expanded="true" aria-controls="collapse-%d">
                                                     %s<i class="fa fa-caret-down"></i>
                                                 </div>
@@ -252,7 +218,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- section for registration -->
                 <div class="col-lg-4 col-md-4 col-sm-12 col-12 mx-auto">
                     <div id="register-container" class="container rounded">
@@ -315,7 +280,7 @@
                                             </div>
                                             <div class="row">
                                                 <div id="trial-login-btn" class="col-md-8 col-sm-8 col-8 offset-md-2 offset-sm-2 offset-2">
-                                                    <a href="../login.php">
+                                                    <a href="./login.php">
                                                         <button type="button" class="btn">
                                                             Login
                                                         </button>
@@ -346,7 +311,7 @@
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                     Cancel
                                 </button>
-                                <a href="../login.php">
+                                <a href="./login.php">
                                     <button id="trial-login-btn-footer" type="button" class="btn btn-primary">
                                         <?= $is_logged_in? 'Register': 'Login'?>
                                     </button>
@@ -382,7 +347,7 @@
                                             </div>
                                             <div class="row">
                                                 <div id="trial-login-btn" class="col-md-8 col-sm-8 col-8 offset-md-2 offset-sm-2 offset-2">
-                                                    <a href="../login.php">
+                                                    <a href="./login.php">
                                                         <button type="button" class="btn">
                                                             Login
                                                         </button>
@@ -413,7 +378,7 @@
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                     Cancel
                                 </button>
-                                <a href="../login.php">
+                                <a href="./login.php">
                                     <button id="trial-login-btn-footer" type="button" class="btn btn-primary">
                                         <?= $is_logged_in? 'Register': 'Login'?>
                                     </button>
@@ -427,5 +392,7 @@
 
             </div>
         </div>
+        <?php include "footer.php"; ?>
+
     </body>
 </html>
