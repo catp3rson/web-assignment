@@ -152,7 +152,7 @@ if (isset($_POST["signin"])) {
           
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" name="signup_password" value="<?php echo $_POST["signup_password"]; ?>" required />
+            <input type="password" placeholder="Password" name="signup_password" value="<?php echo $_POST["signup_password"]; ?>" required id = "signup_password" pattern ="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title = "at least 8" required/>
           </div>
 
           <!--
