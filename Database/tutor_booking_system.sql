@@ -46,9 +46,9 @@ ALTER TABLE subjects MODIFY num_courses int UNSIGNED NOT NULL   COMMENT 'Number 
 
 CREATE TABLE users ( 
 	user_id              int UNSIGNED NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
-	username             varchar(100)  NOT NULL    ,
+	
 	password             varchar(100)  NOT NULL    ,
-	# email                varchar(100)  NOT NULL    ,
+	email                varchar(100)  NOT NULL    ,
 	full_name            varchar(100)  NOT NULL    ,
 	birthday             date NOT NULL  		   ,
 	phone                varchar(11)  NOT NULL     ,
