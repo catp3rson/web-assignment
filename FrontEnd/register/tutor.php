@@ -69,6 +69,9 @@
         exit;
     }
 
+    session_start();
+    $is_logged_in = isset($_SESSION["user_id"]);
+
 
     // $course = array(
     //     "course_code" => 0,
@@ -263,12 +266,14 @@
                             </h3>
                         </div>
                         <div class="row">
-                            <button type="button" id="trial-btn" class="btn btn-primary mx-auto">
+                            <button type="button" id="trial-btn" class="btn mx-auto"
+                                data-toggle="modal" data-target="#free-trial">
                                 Try now for free
                             </button>
                         </div>
                         <div class="row">
-                            <button type="button" id="register-btn" class="btn btn-primary mx-auto">
+                            <button type="button" id="register-btn" class="btn mx-auto"
+                                data-toggle="modal" data-target="#register-form">
                                 Register now
                             </button>
                         </div>
@@ -283,6 +288,143 @@
                         </div>
                     </div>
                 </div>
+                
+
+                <!--registration modal -->
+                <div class="modal fade" id="free-trial" tabindex="-1" role="dialog" aria-labelledby="free-trial-label" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+
+                            <!-- header -->
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="free-trial-label">Free Trial Registration</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <!-- body -->
+                            <div class="modal-body">
+                                <div class="container">
+                                    <?php
+                                        if (!$is_logged_in){
+                                            //user not logged in
+                                            echo '
+                                            <div class="row">
+                                                <h5 id="trial-modal-description">Please login to continue</h5>
+                                            </div>
+                                            <div class="row">
+                                                <div id="trial-login-btn" class="col-md-8 col-sm-8 col-8 offset-md-2 offset-sm-2 offset-2">
+                                                    <a href="../login.php">
+                                                        <button type="button" class="btn">
+                                                            Login
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            ';
+                                        }else{
+                                            echo '
+                                            <div class="row">
+                                                <h5 id="trial-modal-description">Do you want to register for a free trial?</h5>
+                                            </div>
+                                            <form action="register_success.php" method="get">
+                                                <div class="row">
+                                                    <div id="trial-register-btn" class="col-md-8 col-sm-8 col-8 offset-md-2 offset-sm-2 offset-2">
+                                                        <input type="submit" class="btn" value="Yes, sign me up!">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            ';
+                                        }
+                                    ?>
+                                </div>>
+                            </div>
+                            
+                            <!-- footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                    Cancel
+                                </button>
+                                <a href="../login.php">
+                                    <button id="trial-login-btn-footer" type="button" class="btn btn-primary">
+                                        <?= $is_logged_in? 'Register': 'Login'?>
+                                    </button>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="register-form" tabindex="-1" role="dialog" aria-labelledby="register-form-label" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+
+                            <!-- header -->
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="register-form-label">Course Registration</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <!-- body -->
+                            <div class="modal-body">
+                                <div class="container">
+                                    <?php
+                                        if (!$is_logged_in){
+                                            //user not logged in
+                                            echo '
+                                            <div class="row">
+                                                <h5 id="trial-modal-description">Please login to continue</h5>
+                                            </div>
+                                            <div class="row">
+                                                <div id="trial-login-btn" class="col-md-8 col-sm-8 col-8 offset-md-2 offset-sm-2 offset-2">
+                                                    <a href="../login.php">
+                                                        <button type="button" class="btn">
+                                                            Login
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            ';
+                                        }else{
+                                            echo '
+                                            <div class="row">
+                                                <h5 id="trial-modal-description">Do you want to register for this course?</h5>
+                                            </div>
+                                            <form action="register_success.php" method="get">
+                                                <div class="row">
+                                                    <div id="trial-register-btn" class="col-md-8 col-sm-8 col-8 offset-md-2 offset-sm-2 offset-2">
+                                                        <input type="submit" class="btn" value="Yes, sign me up!">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            ';
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                            
+                            <!-- footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                    Cancel
+                                </button>
+                                <a href="../login.php">
+                                    <button id="trial-login-btn-footer" type="button" class="btn btn-primary">
+                                        <?= $is_logged_in? 'Register': 'Login'?>
+                                    </button>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </body>
