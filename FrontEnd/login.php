@@ -16,17 +16,15 @@ if (isset($_POST["signup"])) {
   $address = mysqli_real_escape_string($conn, $_POST["signup_address"]);
   $phone = mysqli_real_escape_string($conn, $_POST["signup_phone"]);
   
-  /*$username = mysqli_real_escape_string($conn, $_POST["signup_user_name"]);*/
+  
   $email = mysqli_real_escape_string($conn, $_POST["signup_email"]);
   $password = mysqli_real_escape_string($conn, md5($_POST["signup_password"]));
-  /*$cpassword = mysqli_real_escape_string($conn, md5($_POST["signup_cpassword"]));*/
+  
 
 
   $check_email = mysqli_num_rows(mysqli_query($conn, "SELECT email FROM users WHERE email='$email'"));
 
-  /*if ($password !== $cpassword) {
-    echo "<script>alert('Password did not match.');</script>";
-  } else*/if ($check_email > 0) {
+  if ($check_email > 0) {
     echo "<script>alert('Email already exists in out database.');</script>";
   } else {
     $sql = "INSERT INTO users (password, email, full_name, birthday, phone, address)  VALUES ( '$password','$email', '$full_name', '$birthday', '$phone', '$address')";
@@ -37,13 +35,25 @@ if (isset($_POST["signup"])) {
       $_POST["signup_address"] = "";
       $_POST["signup_phone"] = "";
     
-      /*$_POST["signup_user_name"] = "";*/
+      
       $_POST["signup_email"] = "";
       $_POST["signup_password"] = "";
-      /*$_POST["signup_cpassword"] = "";*/
+      
 
       $to = $email;
       $subject = "Email verification";
+      $message = "
+      <html>
+      <head>
+      <title>{$subject}</title>
+      </head>
+      <body>
+      <p><strong>Dear {$full_name},</strong></p>
+      <p>Thanks for registration! Verify your email to access our website. Click below link to verify your email.</p>
+      <p><a href='{$base_url}verify-email.php?token={$token}'>Verify Email</a></p>
+      </body>
+      </html>
+      ";
 
       // Always set content-type when sending HTML email
       $headers = "MIME-Version: 1.0" . "\r\n";
@@ -155,12 +165,6 @@ if (isset($_POST["signin"])) {
             <input type="password" placeholder="Password" name="signup_password" value="<?php echo $_POST["signup_password"]; ?>" required id = "signup_password" pattern ="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title = "at least 8" required/>
           </div>
 
-          <!--
-          <div class="input-field">
-            <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Confirm Password" name="signup_cpassword" value="<?php echo $_POST["signup_cpassword"]; ?>" required />
-          </div>
-          -->
 
           <input type="submit" class="btn" name="signup" value="Sign up" />
         </form>
