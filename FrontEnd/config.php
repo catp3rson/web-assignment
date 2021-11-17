@@ -1,13 +1,13 @@
 <?php
-$hostname = "localhost";
-$username = "root";
-$password = "";
-$database = "tutor_booking_system";
-$conn = new mysqli($hostname, $username, $password);
-$sql = "CREATE DATABASE IF NOT EXISTS tutor_booking_system;";
-$conn->query($sql);
-$conn = mysqli_connect($hostname, $username, $password, $database);
-if (!$conn) {
-	echo "Connection failed!";
-}
+	$mysql_addr = "localhost";
+	$mysql_user = "root";
+	$mysql_password = "an0kumene";
+	$mysql_db = "tutor_booking_system";
+	$conn = new mysqli($mysql_addr, $mysql_user, $mysql_password);
+	$sql = "CREATE DATABASE IF NOT EXISTS tutor_booking_system;";
+	$conn->query($sql);
+	$conn = mysqli_connect($mysql_addr, $mysql_user, $mysql_password, $mysql_db);
+	if (!$conn) {
+		echo "Connection failed!";
+	}
 ?>

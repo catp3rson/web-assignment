@@ -1,3 +1,4 @@
+DROP DATABASE tutor_booking_system;
 CREATE DATABASE tutor_booking_system;
 USE tutor_booking_system;
 CREATE TABLE courses (
@@ -162,6 +163,66 @@ VALUES
 		'2021-11-15',
 		'2022-02-14'
 	),
+    (
+		'MA0002',
+		'Advanced Math for Grade 10',
+        'math',
+		2,
+		'A 3-month Math course for Grade 10 students.',
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
+		6000000,
+		'{"Monday": ["18:00-20:00"], "Thursday":["18:00-20:00"]}',
+		'2021-11-15',
+		'2022-02-14'
+	),
+    (
+		'MA0003',
+		'Advanced Math for Grade 11',
+        'math',
+		2,
+		'A 3-month Math course for Grade 11 students.',
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
+		6000000,
+		'{"Monday": ["18:00-20:00"], "Thursday":["18:00-20:00"]}',
+		'2021-11-15',
+		'2022-02-14'
+	),
+    (
+		'MA0004',
+		'Advanced Math for Grade 12',
+        'math',
+		2,
+		'A 3-month Math course for Grade 12 students.',
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
+		6000000,
+		'{"Monday": ["18:00-20:00"], "Thursday":["18:00-20:00"]}',
+		'2021-11-15',
+		'2022-02-14'
+	),
+    (
+		'MA0005',
+		'Advanced Math for Grade 7',
+        'math',
+		2,
+		'A 3-month Math course for Grade 7 students.',
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
+		6000000,
+		'{"Monday": ["18:00-20:00"], "Thursday":["18:00-20:00"]}',
+		'2021-11-15',
+		'2022-02-14'
+	),
+    (
+		'MA0006',
+		'Advanced Math for Grade 8',
+        'math',
+		2,
+		'A 3-month Math course for Grade 8 students.',
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.',
+		6000000,
+		'{"Monday": ["18:00-20:00"], "Thursday":["18:00-20:00"]}',
+		'2021-11-15',
+		'2022-02-14'
+	),
 	(
 		'PH0001',
 		'Physics crash course for Grade 12',
@@ -224,7 +285,7 @@ VALUES
 	),
     (
 		'EN0005',
-		'English course for Grade 12',
+		'English course for Grade 11',
         'english',
 		4,
 		'A fun online English course for kids aged 5-10.',

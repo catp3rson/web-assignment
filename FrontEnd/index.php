@@ -96,13 +96,14 @@
                             <li class="header__nav-item"> 
                                 <a href="#news" class="header__nav-item--link">NEWS</a>
                             </li>  
-     
+
+                            <li class="header__nav-item"> 
+                                <a href="#map_location" class="header__nav-item--link">LOCATIONS</a>
+                            </li>  
+
                             <li class="header__nav-item"> 
                                 <a href="#contact" class="header__nav-item--link">CONTACT</a>
                             </li>       
-                            <li class="header__nav-item"> 
-                                <a href="#map_location" class="header__nav-item--link">LOCATION</a>
-                            </li>   
                         </ul>
 
 
@@ -437,7 +438,7 @@
                 <!-- Google Map -->
                 <div class="product__heading">
                     <i class="product__heading-icon fas fa-map-marked-alt"></i>
-                    <span class="heading-title" >Location</span>
+                    <span class="heading-title" >Locations</span>
                 </div>
                 <div id="map"></div>
                 <div class="map-menu">

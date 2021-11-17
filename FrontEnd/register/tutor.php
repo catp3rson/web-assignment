@@ -2,7 +2,7 @@
     //connection details
     $mysql_addr = "localhost";
     $mysql_user = "root";
-    $mysql_password = "";
+    $mysql_password = "an0kumene";
     $mysql_db = "tutor_booking_system";
 
 
@@ -122,10 +122,10 @@
             <div class="collapse navbar-collapse" id="navbar-supported-content">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="../#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Courses</a>
+                        <a class="nav-link" href="../#courses">Courses</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contacts</a>

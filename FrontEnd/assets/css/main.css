@@ -276,23 +276,23 @@
     color: var(--white-color);
 }
 .Courses-name-math{
-    margin-left: 26px ;
+    text-align: center;
     color: black;
 }
 .Courses-name-physical{
-    margin-left: 14px ;
+    text-align: center;
     color: black;
 }
 .Courses-name-chemistry{
-    margin-left: 8px ;
+    text-align: center;
     color: black;
 }
 .Courses-name-biology{
-    margin-left: 17px ;
+    text-align: center;
     color: black;
 }
 .Courses-name-languages{
-    margin-left: 7px ;
+    text-align: center;
     color: black;
 }
 
