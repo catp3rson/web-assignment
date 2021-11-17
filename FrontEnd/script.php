@@ -37,6 +37,7 @@ const menuTabMath = async ()=>{
             }
         ?>
     ]
+    console.log(newJson);
     const html = newJson.map((items) =>{
     return `
         <a href="./register/tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
@@ -341,6 +342,7 @@ menuTabChemistry();
 menuTabBiology();
 menuTabLanguages();
 handleNews();
+console.log(1);
 
 
 

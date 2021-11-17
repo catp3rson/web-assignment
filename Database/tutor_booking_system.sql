@@ -11,7 +11,7 @@ CREATE TABLE courses (
 	course_fee           int UNSIGNED NOT NULL    ,
 	schedule             json  NOT NULL    ,
 	start_date           date  NOT NULL    ,
-	end_date             date  NOT NULL   
+	end_date             date  NOT NULL    
  ) engine=InnoDB;
 
 
@@ -46,6 +46,7 @@ ALTER TABLE subjects MODIFY num_courses int UNSIGNED NOT NULL   COMMENT 'Number 
 
 CREATE TABLE users ( 
 	user_id              int UNSIGNED NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
+	username                varchar(100)  NOT NULL    ,
 	password             varchar(100)  NOT NULL    ,
 	email                varchar(100)  NOT NULL    ,
 	full_name            varchar(100)  NOT NULL    ,
@@ -53,16 +54,101 @@ CREATE TABLE users (
 	phone                varchar(11)  NOT NULL     ,
 	address              varchar(2000)  NOT NULL   ,
 	role                 int UNSIGNED NOT NULL DEFAULT 2   ,
-	description          varchar(5000)      	   
-
-	#CONSTRAINT unq_users_phone UNIQUE ( phone ) 
+	description          varchar(5000)      	   ,
+	CONSTRAINT unq_users_username UNIQUE ( username ) ,
+	CONSTRAINT unq_users_phone UNIQUE ( phone ) 
  ) engine=InnoDB;
+
+ALTER TABLE users COMMENT 'Contains information of application users';
+
+ALTER TABLE users MODIFY role int UNSIGNED NOT NULL DEFAULT 2  COMMENT 'The role of the user in the system. There are 3 roles: admin (system admin), tutor, user (regular user of the application).\n\nThe code for each role is\n_ admin: 0\n_ tutor: 1\n_ user: 2';
 
 
 -- Insert the data
 -- real password of admin is admin123
 -- real password of math123, physics123, english123 is tutor123
 -- real password of user1, user2, user3 is user123
+
+
+INSERT INTO users (username, password, email, full_name, birthday, phone, address, role, description) 
+VALUES 
+	(
+		'admin',
+		'240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9',
+		'nguyenvana@gmail.com',
+        'Nguyen Van A',
+		'1995-10-20',
+		'01234567890',
+		'506 Hong Bang street ward 16 district 11',
+		0,
+		NULL
+	),
+	(
+		'math123',
+		'537d26965fd30bf9ebe78b86a8b56ca954cd886ed6d57e43fd37924f1dc2fcbf',
+		'tranvanb@gmail.com',
+        'Tran Van B',
+		'1996-11-21',
+		'01112223333',
+		'No. 331 Ben Van Don, Ward 1, District 48',
+		1,
+		'Math tutor for secondary students.'
+	),
+	(
+		'physics123',
+		'537d26965fd30bf9ebe78b86a8b56ca954cd886ed6d57e43fd37924f1dc2fcbf',
+		'lethic@gmail.com',
+        'Le Thi C',
+		'1990-12-01',
+		'03334445555',
+		'565B Au Co Street, Ward 10',
+		1,
+		'Physics tutor for high school students (from grade 10-12). I have crash courses for university entrance test.'
+	),
+	(
+		'english123',
+		'537d26965fd30bf9ebe78b86a8b56ca954cd886ed6d57e43fd37924f1dc2fcbf',
+		'nguyend@gmail.com',
+        'Nguyen Thanh D',
+		'1992-02-03',
+		'04445556666',
+		'1051-1021 Nguyen Trai St., Ward 14, Dist. 5',
+		1,
+		'English teacher for kids aged 5 to 10.'
+	),
+	(
+		'user1',
+		'e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446',
+		'trane@gmail.com',
+        'Tran Thi E',
+		'1990-07-19',
+		'05556667777',
+		'165B Phan Dang luu, Ward 3',
+		2,
+		NULL
+	),
+	(
+		'user2',
+		'e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446',
+        'lef@gmail.com',
+		'Le Phu F',
+		'1998-12-02',
+		'06667778888',
+		'21 Nguyen Bieu, Nam Ha Ward',
+		2,
+		NULL
+	),
+	(
+		'user3',
+		'e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446',
+        'nguyeng@gmail.com',
+		'Nguyen Minh G',
+		'1996-07-07',
+		'07778889999',
+		'268 Cao Xuan Duc street, Ward 12, District 8',
+		2,
+		NULL
+	);
 
 INSERT INTO `courses` (`course_code`, `course_name`, `course_category`, `tutor_id`, `brief`, `description`, `course_fee`, `schedule`, `start_date`, `end_date`) VALUES
 ('BI0001', 'Introduction to Biology - The Secret of Life', 'biology', 5, 'A 2-month Biology crash course ', 'Introduction to Biology – The Secret of Life will let you explore the mysteries of biochemistry, genetics, molecular biology, recombinant DNA technology and genomics, and rational medicine. Good luck in your journey!', 4000000, '{\"Monday\": [\"20:00-22:00\"], \"Tuesday\":[\"20:00-22:00\"], \"Thursday\":[\"18:00-20:00\"]}', '2021-11-22', '2021-01-04'),
