@@ -59,7 +59,7 @@ const menuTabMath = async ()=>{
                 <br>
                 <span id="product-name">
                     <i class="fa fa-calendar"></i>
-                    <b>From</b>: ${items.start_date} To: ${items.end_date}
+                    <b>From</b>: ${items.start_date} 
                 </span>
                 <br>
                 <span id="product-name">
@@ -82,7 +82,15 @@ const menuTabPhysics = async ()=>{
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo '{"course_code": "'.$row['course_code'].'","course_name": "'.$row['course_name'].'","course_fee": new Number('.$row['course_fee'].'),"brief": "'.$row['brief'].'"},';
+                    echo '{
+                        "course_code": "'.$row['course_code'].'",
+                        "course_name": "'.$row['course_name'].'",
+                        "course_fee": new Number('.$row['course_fee'].'),
+                        "brief": "'.$row['brief'].'",
+                        "tutor_name": "'.retrieveTutor($row['tutor_id'])['full_name'].'",
+                        "start_date": "'.$row['start_date'].'",
+                        "end_date": "'.$row['end_date'].'",
+                    },';
                 }
             }
         ?>
@@ -97,11 +105,25 @@ const menuTabPhysics = async ()=>{
     
                 <span style="color:#EF6A3E;" id="product-name"><b>${items.course_name}</b></span>
                 </br>
-                <span  id="product-name"> Price: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
-                <div class="info-tutor">
-                    <p id="product-name"> ${items.brief} </p>
-                </div>
-                
+                <span id="product-name">
+                    <i class="fa fa-dollar"></i>
+                    <b>Price</b>: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})}
+                </span>
+                <br>
+                <span id="product-name">
+                    <i class="fa fa-person" ></i>
+                    <b>Teacher</b>: ${items.tutor_name}
+                </span>
+                <br>
+                <span id="product-name">
+                    <i class="fa fa-calendar"></i>
+                    <b>From</b>: ${items.start_date} 
+                </span>
+                <br>
+                <span id="product-name">
+                    <i class="fa fa-calendar"></i>
+                    <b>To</b>: ${items.end_date}
+                </span>
             </div>
         </div></a>
     `;
@@ -119,7 +141,15 @@ const menuTabChemistry = async ()=>{
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo '{"course_code": "'.$row['course_code'].'","course_name": "'.$row['course_name'].'","course_fee": new Number('.$row['course_fee'].'),"brief": "'.$row['brief'].'"},';
+                    echo '{
+                        "course_code": "'.$row['course_code'].'",
+                        "course_name": "'.$row['course_name'].'",
+                        "course_fee": new Number('.$row['course_fee'].'),
+                        "brief": "'.$row['brief'].'",
+                        "tutor_name": "'.retrieveTutor($row['tutor_id'])['full_name'].'",
+                        "start_date": "'.$row['start_date'].'",
+                        "end_date": "'.$row['end_date'].'",
+                    },';
                 }
             }
         ?>
@@ -134,11 +164,25 @@ const menuTabChemistry = async ()=>{
     
                 <span style="color:#EF6A3E;" id="product-name"><b>${items.course_name}</b></span>
                 </br>
-                <span  id="product-name"> Price: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
-                <div class="info-tutor">
-                    <p id="product-name"> ${items.brief} </p>
-                </div>
-                
+                <span id="product-name">
+                    <i class="fa fa-dollar"></i>
+                    <b>Price</b>: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})}
+                </span>
+                <br>
+                <span id="product-name">
+                    <i class="fa fa-person" ></i>
+                    <b>Teacher</b>: ${items.tutor_name}
+                </span>
+                <br>
+                <span id="product-name">
+                    <i class="fa fa-calendar"></i>
+                    <b>From</b>: ${items.start_date} 
+                </span>
+                <br>
+                <span id="product-name">
+                    <i class="fa fa-calendar"></i>
+                    <b>To</b>: ${items.end_date}
+                </span>
             </div>
         </div></a>
     `;
@@ -156,7 +200,15 @@ const menuTabBiology = async ()=>{
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo '{"course_code": "'.$row['course_code'].'","course_name": "'.$row['course_name'].'","course_fee": new Number('.$row['course_fee'].'),"brief": "'.$row['brief'].'"},';
+                    echo '{
+                        "course_code": "'.$row['course_code'].'",
+                        "course_name": "'.$row['course_name'].'",
+                        "course_fee": new Number('.$row['course_fee'].'),
+                        "brief": "'.$row['brief'].'",
+                        "tutor_name": "'.retrieveTutor($row['tutor_id'])['full_name'].'",
+                        "start_date": "'.$row['start_date'].'",
+                        "end_date": "'.$row['end_date'].'",
+                    },';
                 }
             }
         ?>
@@ -171,11 +223,25 @@ const menuTabBiology = async ()=>{
     
                 <span style="color:#EF6A3E;" id="product-name"><b>${items.course_name}</b></span>
                 </br>
-                <span  id="product-name"> Price: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
-                <div class="info-tutor">
-                    <p id="product-name"> ${items.brief} </p>
-                </div>
-                
+                <span id="product-name">
+                    <i class="fa fa-dollar"></i>
+                    <b>Price</b>: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})}
+                </span>
+                <br>
+                <span id="product-name">
+                    <i class="fa fa-person" ></i>
+                    <b>Teacher</b>: ${items.tutor_name}
+                </span>
+                <br>
+                <span id="product-name">
+                    <i class="fa fa-calendar"></i>
+                    <b>From</b>: ${items.start_date} 
+                </span>
+                <br>
+                <span id="product-name">
+                    <i class="fa fa-calendar"></i>
+                    <b>To</b>: ${items.end_date}
+                </span>
             </div>
         </div></a>
     `;
@@ -193,7 +259,15 @@ const  menuTabLanguages = async ()=>{
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo '{"course_code": "'.$row['course_code'].'","course_name": "'.$row['course_name'].'","course_fee": new Number('.$row['course_fee'].'),"brief": "'.$row['brief'].'"},';
+                    echo '{
+                        "course_code": "'.$row['course_code'].'",
+                        "course_name": "'.$row['course_name'].'",
+                        "course_fee": new Number('.$row['course_fee'].'),
+                        "brief": "'.$row['brief'].'",
+                        "tutor_name": "'.retrieveTutor($row['tutor_id'])['full_name'].'",
+                        "start_date": "'.$row['start_date'].'",
+                        "end_date": "'.$row['end_date'].'",
+                    },';
                 }
             }
         ?>
@@ -208,11 +282,25 @@ const  menuTabLanguages = async ()=>{
     
                 <span style="color:#EF6A3E;" id="product-name"><b>${items.course_name}</b></span>
                 </br>
-                <span  id="product-name"> Price: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})} </span>
-                <div class="info-tutor">
-                    <p id="product-name"> ${items.brief} </p>
-                </div>
-                
+                <span id="product-name">
+                    <i class="fa fa-dollar"></i>
+                    <b>Price</b>: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})}
+                </span>
+                <br>
+                <span id="product-name">
+                    <i class="fa fa-person" ></i>
+                    <b>Teacher</b>: ${items.tutor_name}
+                </span>
+                <br>
+                <span id="product-name">
+                    <i class="fa fa-calendar"></i>
+                    <b>From</b>: ${items.start_date} 
+                </span>
+                <br>
+                <span id="product-name">
+                    <i class="fa fa-calendar"></i>
+                    <b>To</b>: ${items.end_date}
+                </span>
             </div>
         </div></a>
     `;
