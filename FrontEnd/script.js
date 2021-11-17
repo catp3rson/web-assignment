@@ -14,7 +14,7 @@ function myValidation()
     signup_password = document.getElementById("signup_password"), 
     confirm_password = document.getElementById("confirm_password");
     if(!phone_regex.test(signup_phone.value)) {
-        document.getElementById("regex-phone").innerHTML = "Phone number can not contain letter.";
+        document.getElementById("regex-phone").innerHTML = "No letter.";
     }
     else document.getElementById("regex-phone").innerHTML = "";
     if(!email_regex.test(signup_email.value)) {
@@ -22,7 +22,7 @@ function myValidation()
     }
     else document.getElementById("regex-email").innerHTML = "";
     if(!password_regex.test(signup_password.value)) {
-        document.getElementById("regex-pass").innerHTML = "Password must contains at least 8 characters, a symbol,<br> upper and lower case letters and a number.";
+        document.getElementById("regex-pass").innerHTML = "At least 8 characters, a symbol, upper and lower case letters, a number.";
     }
     else document.getElementById("regex-pass").innerHTML = "";
     if(signup_password.value != confirm_password.value) {

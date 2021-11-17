@@ -12,7 +12,6 @@ if (isset($_SESSION["user_id"])) {
 if (isset($_POST["signup"])) {
 	$full_name = mysqli_real_escape_string($conn, $_POST["signup_full_name"]);
 	$birthday = mysqli_real_escape_string($conn, $_POST["signup_birthday"]);
-	$address = mysqli_real_escape_string($conn, $_POST["signup_address"]);
 	$phone = mysqli_real_escape_string($conn, $_POST["signup_phone"]);
 	$email = mysqli_real_escape_string($conn, $_POST["signup_email"]);
 	$password = mysqli_real_escape_string($conn, md5($_POST["signup_password"]));
@@ -22,12 +21,11 @@ if (isset($_POST["signup"])) {
 	if ($check_email > 0) {
 		echo "<script>alert('Email already exists in out database.');</script>";
 	} else {
-		$sql = "INSERT INTO users (password, email, full_name, birthday, phone, address)  VALUES ( '$password','$email', '$full_name', '$birthday', '$phone', '$address')";
+		$sql = "INSERT INTO users (password, email, full_name, birthday, phone)  VALUES ( '$password','$email', '$full_name', '$birthday', '$phone')";
 		$result = mysqli_query($conn, $sql);
 		if ($result) {
 			$_POST["signup_full_name"] = "";
 			$_POST["signup_birthday"] = "";
-			$_POST["signup_address"] = "";
 			$_POST["signup_phone"] = "";
 			$_POST["signup_email"] = "";
 			$_POST["signup_password"] = "";
@@ -120,7 +118,6 @@ if (isset($_POST["signin"])) {
 					}
 					myValidation();
 				'>
-					<h2 class="title">Sign up</h2>
 
 					<div class="input-field">
 						<i class="fas fa-user"></i>
@@ -132,36 +129,33 @@ if (isset($_POST["signin"])) {
 						<input type="date" placeholder="Date of birth" name="signup_birthday" value="<?php echo $_POST["signup_birthday"]; ?>" required />
 					</div>
 
-					<div class="input-field">
-						<i class="fas fa-map-marker"></i>
-						<input type="text" placeholder="Address" name="signup_address" value="<?php echo $_POST["signup_address"]; ?>" required />
-					</div>
+
 
 					<div class="input-field">
 						<i class="fas fa-mobile"></i>
 						<input type="text" placeholder="Phone" name="signup_phone" id="signup_phone" value="<?php echo $_POST["signup_phone"];?>" required />
 					</div>
-					<p style="color: red;" id="regex-phone"></p>
+					<p style="color: red; font-size: 10px;" id="regex-phone"></p>
 
 					<div class="input-field">
 						<i class="fas fa-envelope"></i>
 						<input type="text" placeholder="Email Address" name="signup_email" id="signup_email" value="<?php echo $_POST["signup_email"];?>" required />
 					</div>
-					<p style="color: red;" id="regex-email"></p>
+					<p style="color: red; font-size: 10px;" id="regex-email"></p>
 
 					<div class="input-field">
 						<i class="fas fa-lock"></i>
 						<input type="password" placeholder="Password" name="signup_password" id="signup_password" value="<?php echo $_POST["signup_password"]; ?>" required/>
 					</div>
-					<p style="color: red;" id="regex-pass"></p>
+					<p style="color: red; font-size: 10px;" id="regex-pass"></p>
 
 					<div class="input-field">
 						<i class="fas fa-lock"></i>
 						<input type="password" placeholder="Confirm Password" name="confirm_password" id="confirm_password" required/>
 					</div>
-					<p style="color: red;" id="compare-pass"></p>
+					<p style="color: red; font-size: 10px;" id="compare-pass"></p>
 
-					<input type="submit" class="btn" name="signup" value="Sign up" />
+					<input type="submit" class="btn" name="signup" value="Sign up"/>
 				</form>
 			</div>
 		</div>

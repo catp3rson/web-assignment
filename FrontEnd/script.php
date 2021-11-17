@@ -46,7 +46,7 @@ const menuTabMath = async ()=>{
             </div>
             <div class="product-card--info">
     
-                <span style="color:#EF6A3E;" id="product-name"><b>${items.course_name}</b></span>
+                <span style="color:#EF6A3E;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;" id="product-name"><b>${items.course_name}</b></span>
                 </br>
                 <span id="product-name">
                     <i class="fa fa-dollar"></i>
@@ -104,7 +104,7 @@ const menuTabPhysics = async ()=>{
             </div>
             <div class="product-card--info">
     
-                <span style="color:#EF6A3E;" id="product-name"><b>${items.course_name}</b></span>
+                <span style="color:#EF6A3E;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;" id="product-name"><b>${items.course_name}</b></span>
                 </br>
                 <span id="product-name">
                     <i class="fa fa-dollar"></i>
@@ -163,7 +163,7 @@ const menuTabChemistry = async ()=>{
             </div>
             <div class="product-card--info">
     
-                <span style="color:#EF6A3E;" id="product-name"><b>${items.course_name}</b></span>
+                <span style="color:#EF6A3E;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;" id="product-name"><b>${items.course_name}</b></span>
                 </br>
                 <span id="product-name">
                     <i class="fa fa-dollar"></i>
@@ -222,7 +222,7 @@ const menuTabBiology = async ()=>{
             </div>
             <div class="product-card--info">
     
-                <span style="color:#EF6A3E;" id="product-name"><b>${items.course_name}</b></span>
+                <span style="color:#EF6A3E;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;" id="product-name"><b>${items.course_name.substr(0,40) + ' ...'}</b></span>
                 </br>
                 <span id="product-name">
                     <i class="fa fa-dollar"></i>
@@ -281,7 +281,7 @@ const  menuTabLanguages = async ()=>{
             </div>
             <div class="product-card--info">
     
-                <span style="color:#EF6A3E;" id="product-name"><b>${items.course_name}</b></span>
+                <span style="color:#EF6A3E;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;" id="product-name"><b>${items.course_name}</b></span>
                 </br>
                 <span id="product-name">
                     <i class="fa fa-dollar"></i>

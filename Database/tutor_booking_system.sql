@@ -52,7 +52,6 @@ CREATE TABLE users (
 	full_name            varchar(100)  NOT NULL    ,
 	birthday             date NOT NULL  		   ,
 	phone                varchar(11)  NOT NULL     ,
-	address              varchar(2000)  NOT NULL   ,
 	role                 int UNSIGNED NOT NULL DEFAULT 2   ,
 	description          varchar(5000)      	   ,
 	CONSTRAINT unq_users_username UNIQUE ( username ) ,
