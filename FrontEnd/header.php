@@ -99,34 +99,41 @@
 
             
             <ul class="header__nav-list">
+                <?php
+                    if(isset($_SESSION["email"])) {
+                        echo '<li class="header__nav-user" style="margin-right: 20px">
+                            <p>Hello '.$_SESSION["email"].'</p>
+                        </li>';
+                    }
+                    else {
+                        echo '<li class="header__nav-user" style="margin-right: 20px">
+                            <p>You are not signed in.</p>
+                        </li>';
+                    }
+                ?>
                     <li class="header__nav-user"> 
-                    
-                        <img src="./assets/images/Login.70dc3d8.png" alt="login" onclick="clickLogin()" class="header__nav-login" >
-                        <div class="popup-login">
-                            <img data-v-1c02541c="" onClick="closeClickLogin()" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMTUuMzg0NkwxNS4zODQ2IDBMMTYgMC42MTUzODRMMC42MTUzODQgMTZMMCAxNS4zODQ2WiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTYuNjM5NzVlLTA2IDAuNjE1Mzk1TDE1LjM4NDYgMTZMMTYgMTUuMzg0NkwwLjYxNTM5MSAxLjAzNzQ2ZS0wNUw2LjYzOTc1ZS0wNiAwLjYxNTM5NVoiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo=" class="icon-close-card">
-                            <ul>
-                                <li class="fas fa-history"> Courses history</li>
-                                
-                                <?php 
-                                    
-                                if (!isset($_SESSION["user_id"])) { ?>
-                                <a href="login.php"><li class="fas fa-sign-in-alt"> Login</li></a>
-                                <?php } ?>
-                                
-                                <?php 
-                                    if (isset($_SESSION["user_id"]))
-                                    echo $_SESSION['user_id'];
-                                if (isset($_SESSION["user_id"])) { ?>
-                                <a href="logout.php"><li class="fas fa-sign-in-alt"> Logout</li></a>
-                                <?php } ?>
-                                
-                            </ul>
-                        </div>
-                    </li>       
+                
+                    <img src="./assets/images/Login.70dc3d8.png" alt="login" onclick="clickLogin()" class="header__nav-login" >
+                    <div class="popup-login">
+                        <img data-v-1c02541c="" onClick="closeClickLogin()" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMTUuMzg0NkwxNS4zODQ2IDBMMTYgMC42MTUzODRMMC42MTUzODQgMTZMMCAxNS4zODQ2WiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTYuNjM5NzVlLTA2IDAuNjE1Mzk1TDE1LjM4NDYgMTZMMTYgMTUuMzg0NkwwLjYxNTM5MSAxLjAzNzQ2ZS0wNUw2LjYzOTc1ZS0wNiAwLjYxNTM5NVoiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo=" class="icon-close-card">
+                        <ul>
+                            <?php 
+                            if (!isset($_SESSION["user_id"])) { ?>
+                            <a href="index.php?page=login"><li class="fas fa-sign-in-alt"> Login</li></a>
+                            <?php } ?>
+                            
+                            <?php 
+                                if (isset($_SESSION["user_id"]))
+                                echo $_SESSION['user_id'];
+                            if (isset($_SESSION["user_id"])) { ?>
+                            <a href="index.php?page=logout"><li class="fas fa-sign-in-alt"> Logout</li></a>
+                            <?php } ?>
+                            
+                        </ul>
+                    </div>
+                </li>       
 
-                        <li class="header__nav-user">
-                        <img data-v-1c02541c="" src="./assets/images/Carticon.373916c.png" alt="cart" class="header__nav-cart" >
-                        </li>
+                
             </ul>
         </nav>
         

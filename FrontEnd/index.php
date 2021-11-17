@@ -37,10 +37,16 @@ else if(isset($_POST['page']))
 </head>
 <body>
     <div class="app">
-        <?php include "header.php" ?>
-        <?php include $direct . ".php" ?>
-        
-        <?php include "footer.php" ?>
+        <?php
+            if($direct == "login" || $direct == "logout") {
+                echo '<script>location.replace("'.$direct.'.php")</script>';
+            }
+            else {
+                include "header.php";
+                include $direct . ".php";
+                include "footer.php";
+            }
+        ?>
     </div>
     
 </body>
