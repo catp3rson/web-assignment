@@ -1,3 +1,9 @@
+<?php 
+
+session_start();
+
+?>
+
 <?php
     include "config.php";
 ?>
@@ -189,7 +195,19 @@
                                     <ul>
                                         <li class="fas fa-history"> Courses history</li>
                                         
-                                        <a href="./components/login/login.html"><li class="fas fa-sign-in-alt"> Login</li></a>
+                                         <?php 
+                                            session_start();
+                                        if (!isset($_SESSION["user_id"])) { ?>
+                                        <a href="login.php"><li class="fas fa-sign-in-alt"> Login</li></a>
+                                        <?php } ?>
+                                        
+                                        <?php 
+                                            session_start();
+                                            echo $_SESSION['user_id'];
+                                        if (isset($_SESSION["user_id"])) { ?>
+                                        <a href="logout.php"><li class="fas fa-sign-in-alt"> Logout</li></a>
+                                        <?php } ?>
+                                        
                                     </ul>
                                 </div>
                             </li>       
