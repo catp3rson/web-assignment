@@ -81,10 +81,21 @@
                                 </a>
                             </li> 
                             <li class="nav__mobile-item"> 
-                                <a href="#" class="nav__mobile-item--link">
-                                    <i class="nav__mobile-icon fas fa-user-circle"></i>
-                                    Login
-                                </a>
+                                
+                                <?php 
+                                            session_start();
+                                        if (!isset($_SESSION["user_id"])) { ?>
+                                        <a href="login.php" class="nav__mobile-item--link"><i class="nav__mobile-icon fas fa-user-circle"></i>
+                                    Login</a>
+                                    <?php } ?>
+
+                                    <?php 
+                                            session_start();
+                                        if (isset($_SESSION["user_id"])) { ?>
+                                        <a href="logout.php" class="nav__mobile-item--link"><i class="nav__mobile-icon fas fa-user-circle"></i>
+                                    Logout</a>
+                                    <?php } ?>
+                                
                             </li>   
                             
                             <li class="nav__mobile-item"> 
