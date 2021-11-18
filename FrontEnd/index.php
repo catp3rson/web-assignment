@@ -6,10 +6,6 @@ if(isset($_GET['page']))
 {
     $direct = $_GET['page'];
 }
-else if(isset($_POST['page']))
-{
-    $direct = $_POST['page'];
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -55,18 +55,15 @@
                     <br>
                     
                     <li class="footer__logo-item">
-                        <a class="footer__link" href="#">HOME</a>
+                        <a class="footer__link" href="index.php?page=home">HOME</a>
                     </li>
 
                     <li class="footer__logo-item">
-                        <a class="footer__link" href="#courses">COURSE</a>
+                        <a class="footer__link" href="index.php?page=courses">COURSES</a>
                     </li>
 
                     <li class="footer__logo-item"> 
-                        <a class="footer__link" href="#news">NEWS</a>
-                    </li> 
-                    <li class="footer__logo-item"> 
-                        <a class="footer__link" href="#map_location">LOCATIONS</a>
+                        <a class="footer__link" href="index.php?page=map">LOCATIONS</a>
                     </li>      
                 </ul>
                 </div>

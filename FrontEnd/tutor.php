@@ -89,7 +89,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"  rel="stylesheet"/>
         <!-- ********************************************************************************************************** -->
 
-
+        <script type="text/javascript" src="scripts.js"></script>
         <link rel="icon" href="./assets/images/LOGO.png" type="image/x-icon" />
         <link rel="stylesheet" href="./assets/css/base.css">
         <link rel="stylesheet" href="./assets/css/main.css">
@@ -280,7 +280,7 @@
                                             </div>
                                             <div class="row">
                                                 <div id="trial-login-btn" class="col-md-8 col-sm-8 col-8 offset-md-2 offset-sm-2 offset-2">
-                                                    <a href="./login.php">
+                                                    <a href="index.php?page=login">
                                                         <button type="button" class="btn">
                                                             Login
                                                         </button>
@@ -293,7 +293,7 @@
                                             <div class="row">
                                                 <h5 id="trial-modal-description">Do you want to register for a free trial?</h5>
                                             </div>
-                                            <form action="register_success.php" method="get">
+                                            <form action="index.php?page=register_success" method="get">
                                                 <div class="row">
                                                     <div id="trial-register-btn" class="col-md-8 col-sm-8 col-8 offset-md-2 offset-sm-2 offset-2">
                                                         <input type="submit" class="btn" value="Yes, sign me up!">
@@ -311,7 +311,7 @@
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                     Cancel
                                 </button>
-                                <a href="./login.php">
+                                <a href="<?= $is_logged_in? 'index.php?page=register_success': 'index.php?page=login'?>">
                                     <button id="trial-login-btn-footer" type="button" class="btn btn-primary">
                                         <?= $is_logged_in? 'Register': 'Login'?>
                                     </button>
@@ -347,7 +347,7 @@
                                             </div>
                                             <div class="row">
                                                 <div id="trial-login-btn" class="col-md-8 col-sm-8 col-8 offset-md-2 offset-sm-2 offset-2">
-                                                    <a href="./login.php">
+                                                    <a href="index.php?page=login">
                                                         <button type="button" class="btn">
                                                             Login
                                                         </button>
@@ -360,7 +360,7 @@
                                             <div class="row">
                                                 <h5 id="trial-modal-description">Do you want to register for this course?</h5>
                                             </div>
-                                            <form action="register_success.php" method="get">
+                                            <form action="index.php?page=register_success" method="get">
                                                 <div class="row">
                                                     <div id="trial-register-btn" class="col-md-8 col-sm-8 col-8 offset-md-2 offset-sm-2 offset-2">
                                                         <input type="submit" class="btn" value="Yes, sign me up!">
@@ -378,7 +378,7 @@
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                     Cancel
                                 </button>
-                                <a href="./login.php">
+                                <a href="<?= $is_logged_in? 'index.php?page=register_success': 'index.php?page=login'?>">
                                     <button id="trial-login-btn-footer" type="button" class="btn btn-primary">
                                         <?= $is_logged_in? 'Register': 'Login'?>
                                     </button>

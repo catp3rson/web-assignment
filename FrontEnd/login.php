@@ -50,7 +50,12 @@ if (isset($_POST["signin"])) {
 		$_SESSION["user_id"] = $row['user_id'];
 		$_SESSION["email"] = $row['email'];
 
-		header("Location: index.php");
+		if(isset($_GET['prev'])) {
+			header("Location: ".$_GET['prev'].".php");
+		}
+		else {
+			header("Location: index.php");
+		}
 	} else {
 		echo "<script>alert('Login details is incorrect. Please try again.');</script>";
 	}

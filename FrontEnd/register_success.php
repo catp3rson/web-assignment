@@ -14,27 +14,6 @@
 
     <body>
         <!-- navigation bar -->
-        <nav id="top" class="navbar navbar-expand-lg fixed-top">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-supported-content" aria-controls="navbar-supported-content" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbar-supported-content">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../#courses">Courses</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contacts</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
         <div id="main-container" >
             <div class="container">
                 <div class="row">
