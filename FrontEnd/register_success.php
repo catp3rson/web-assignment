@@ -14,7 +14,7 @@
 
     <body>
         <!-- navigation bar -->
-        <div id="main-container" >
+        <div id="main-container">
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-sm-10 col-10 offset-md-1 offset-sm-1 offset-1 p-0">

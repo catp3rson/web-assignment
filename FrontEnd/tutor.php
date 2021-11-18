@@ -293,10 +293,11 @@
                                             <div class="row">
                                                 <h5 id="trial-modal-description">Do you want to register for a free trial?</h5>
                                             </div>
-                                            <form action="index.php?page=register_success" method="get">
+                                            <form action="index.php" method="get">
                                                 <div class="row">
                                                     <div id="trial-register-btn" class="col-md-8 col-sm-8 col-8 offset-md-2 offset-sm-2 offset-2">
                                                         <input type="submit" class="btn" value="Yes, sign me up!">
+                                                        <input type="hidden" name="page" value="register_success">
                                                     </div>
                                                 </div>
                                             </form>
@@ -360,10 +361,11 @@
                                             <div class="row">
                                                 <h5 id="trial-modal-description">Do you want to register for this course?</h5>
                                             </div>
-                                            <form action="index.php?page=register_success" method="get">
+                                            <form action="index.php" method="get">
                                                 <div class="row">
                                                     <div id="trial-register-btn" class="col-md-8 col-sm-8 col-8 offset-md-2 offset-sm-2 offset-2">
                                                         <input type="submit" class="btn" value="Yes, sign me up!">
+                                                        <input type="hidden" name="page" value="register_success">
                                                     </div>
                                                 </div>
                                             </form>
