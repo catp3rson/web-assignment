@@ -54,17 +54,13 @@
                             </li>
         
                             <li class="nav__mobile-item">
-                                <a href="#courses" class="nav__mobile-item--link">
+                                <a href="index.php?page=courses" class="nav__mobile-item--link">
                                     <i class="nav__mobile-icon fas fa-book"></i>
                                     Course
                                 </a>
                             </li>
         
                             <li class="nav__mobile-item"> 
-                                <a href="#news" class="nav__mobile-item--link">
-                                    <i class="nav__mobile-icon fas fa-newspaper"></i>
-                                    News
-                                </a>
                             </li>   
 
                             <li class="nav__mobile-item"> 
@@ -75,24 +71,40 @@
                             </li>  
                             
                             <li class="nav__mobile-item"> 
-                                <a href="#map_location" class="nav__mobile-item--link">
+                                <a href="index.php?page=map" class="nav__mobile-item--link">
                                     <i class="nav__mobile-icon fas fa-map-marked-alt"></i>
-                                    Map
+                                    Locations
                                 </a>
                             </li> 
                             <li class="nav__mobile-item"> 
                                 
+                                <?php
+                                    if(isset($_SESSION["email"])) {
+                                        echo '<li class="header__nav-user" style=" color: var(--white-color);">
+                                            <p style="margin-left: 8px; padding-top: 15px; font-size: 1.8rem;">Hello '.$_SESSION["email"].'</p>
+                                        </li>';
+                                    }
+                                    else {
+                                        echo '<li class="header__nav-user" style=" color: var(--white-color);">
+                                            <p style="margin-left: 8px; padding-top: 15px; font-size: 1.8rem;">You are not signed in.</p>
+                                        </li>';
+                                    }
+                                ?>
+                                
+                            </li> 
+                            <li class="nav__mobile-item"> 
+                                
                                 <?php 
-                                            session_start();
+                                            // session_start();
                                         if (!isset($_SESSION["user_id"])) { ?>
-                                        <a href="login.php" class="nav__mobile-item--link"><i class="nav__mobile-icon fas fa-user-circle"></i>
+                                        <a href="index.php?page=login" class="nav__mobile-item--link"><i class="nav__mobile-icon fas fa-user-circle"></i>
                                     Login</a>
                                     <?php } ?>
 
                                     <?php 
-                                            session_start();
+                                            // session_start();
                                         if (isset($_SESSION["user_id"])) { ?>
-                                        <a href="logout.php" class="nav__mobile-item--link"><i class="nav__mobile-icon fas fa-user-circle"></i>
+                                        <a href="index.php?page=logout" class="nav__mobile-item--link"><i class="nav__mobile-icon fas fa-user-circle"></i>
                                     Logout</a>
                                     <?php } ?>
                                 
