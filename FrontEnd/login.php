@@ -106,7 +106,7 @@ if (isset($_POST["signin"])) {
 					</div>
 					<p style="color: red;" id="regex-password-login"></p>
 					<input type="submit" value="Login" name="signin" class="btn solid" />
-					<p style="display: flex;justify-content: center;align-items: center;margin-top: 20px;"><a href="forgot-password.php" style="color: #4590ef;">Forgot Password?</a></p>
+					<p style="display: flex;justify-content: center;align-items: center;margin-top: 20px;"><a href="forgot-password.php" style="color: var(--black-color);">Forgot Password?</a></p>
 				</form>
 
 

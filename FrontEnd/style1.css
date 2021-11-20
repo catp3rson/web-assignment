@@ -155,7 +155,7 @@ form.sign-in-form {
 }
 
 .btn:hover {
-  background-color: #EF6A3E;
+  opacity: 0.9;
 }
 .panels-container {
   position: absolute;
