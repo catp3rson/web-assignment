@@ -102,3 +102,9 @@
         </div>
     </div>
 </div>
+<script type="text/JavaScript">
+    var $li = $('#pills-tab li').click(function() {
+        $li.removeClass('selected');
+        $(this).addClass('selected');
+    });
+</script>

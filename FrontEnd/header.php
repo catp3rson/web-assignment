@@ -47,7 +47,7 @@
                         </label>
                         <ul class="nav__mobile-list ">
                             <li class="nav__mobile-item">
-                                <a href="#" class="nav__mobile-item--link">
+                                <a href="index.php?page=home" class="nav__mobile-item--link">
                                     <i class="nav__mobile-icon fas fa-home"></i>
                                     Home
                                 </a>
