@@ -2,7 +2,7 @@
     <div class="container">
         <nav class="header__nav">
             <div class="header__info">
-                <a href=""class ="header__nav-logo--link hide-on-mobile">
+                <a href=""class ="header__nav-logo--link hide-on-mobile-tablet">
                     <img src="./assets/images/LOGO.png" alt="logo" class ="header__nav-logo" >
                 </a>
                     
@@ -21,7 +21,11 @@
 
                     <li class="header__nav-item"> 
                         <a href="#contact" class="header__nav-item--link">CONTACT</a>
-                    </li>       
+                    </li>  
+
+                    <li class="header__nav-item"> 
+                        <a href="#" class="header__nav-item--link">MANAGE</a>
+                    </li>     
                 </ul>
 
 
@@ -29,7 +33,7 @@
                                             
                     <!-- Logo mobile -->
                     <div class="nav-mobile-logo">
-                        <a href="" class="nav-mobile-logo--link">
+                        <a href="#" class="nav-mobile-logo--link">
                             <img class="nav-mobile-logo--icon" src="./assets/images/footer-logo.png" alt="logo" >
                         </a>        
                     </div>
@@ -77,6 +81,13 @@
                                 </a>
                             </li> 
                             <li class="nav__mobile-item"> 
+                                <a href="#" class="nav__mobile-item--link">
+                                    <i class="nav__mobile-icon fas fa-tasks"></i>
+                                    Manage 
+                                </a>
+                            </li> 
+
+                            <li class="nav__mobile-item"> 
                                 
                                 <?php
                                     if(isset($_SESSION["email"])) {
@@ -110,10 +121,10 @@
                                 
                             </li>   
                             
-                            <li class="nav__mobile-item"> 
+                            <!-- <li class="nav__mobile-item"> 
                                 <img src="./assets/images/footer-logo.png" alt="logo" class ="footer-logo" >
                                 <h1 >EDUCATION BK HCMC</h1>                      
-                            </li>     
+                            </li>      -->
                         </ul>
                     </div>
                 <!--  -->

@@ -54,16 +54,16 @@
     font-size: 1.8rem;
 }
 
-.nav__mobile-item:nth-child(5){
+.nav__mobile-item:nth-child(6){
     border-bottom: 0.3px solid var(--white-color);
     padding-bottom: 10px;
 }
 
-.nav__mobile-item:last-child{
+/* .nav__mobile-item:last-child{
     margin-left: 25px;
     margin-top: 180px;
     
-}
+} */
 
 .nav__mobile-item h1{
     color: var(--white-color);
@@ -113,19 +113,6 @@
 /* Mobile and Tablets */
 @media (max-width: 1023px){
     .hide-on-mobile-tablet{
-        display: none;
-    }
-}
-/*  Tablets */
-@media (min-width: 740px) and (max-width: 1023px){
-    .hide-on-tablet{
-        display: none;
-    }
-}
-
-/* Mobile */
-@media (max-width: 739px){
-    .hide-on-mobile{
         display: none;
     }
 
