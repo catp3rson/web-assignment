@@ -3,7 +3,7 @@
         <nav class="header__nav">
             <div class="header__info">
                 <a href=""class ="header__nav-logo--link hide-on-mobile-tablet">
-                    <img style="position: absolute;top: 10px;left: 10px;" src="./assets/images/LOGO.png" alt="logo" class ="header__nav-logo" >
+                    <img  src="./assets/images/LOGO.png" alt="logo" class ="header__nav-logo" >
                 </a>
                     
                 <ul class="header__nav-list ">
@@ -34,7 +34,7 @@
                     <!-- Logo mobile -->
                     <div class="nav-mobile-logo">
                         <a href="#" class="nav-mobile-logo--link">
-                            <img class="nav-mobile-logo--icon" src="./assets/images/footer-logo.png" alt="logo" >
+                            <img style="position: absolute;top: 10px;left: 10px;" class="nav-mobile-logo--icon" src="./assets/images/footer-logo.png" alt="logo" >
                         </a>        
                     </div>
                     <!--  -->
