@@ -3,7 +3,7 @@
         <nav class="header__nav">
             <div class="header__info">
                 <a href=""class ="header__nav-logo--link hide-on-mobile-tablet">
-                    <img src="./assets/images/LOGO.png" alt="logo" class ="header__nav-logo" >
+                    <img style="position: absolute;top: 10px;left: 10px;" src="./assets/images/LOGO.png" alt="logo" class ="header__nav-logo" >
                 </a>
                     
                 <ul class="header__nav-list ">
