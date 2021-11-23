@@ -49,6 +49,7 @@ if (isset($_POST["signin"])) {
 		$row = mysqli_fetch_assoc($check_email);
 		$_SESSION["user_id"] = $row['user_id'];
 		$_SESSION["email"] = $row['email'];
+		$_SESSION["role"] = $row['role'];
 
 		if(isset($_GET['prev'])) {
 			header("Location: ".$_GET['prev'].".php");
@@ -78,10 +79,6 @@ if (isset($_POST["signin"])) {
 	<div class="container">
 		<div class="forms-container">
 			<div class="signin-signup">
-
-
-
-
 				<form action="" method="post" class="sign-in-form"onsubmit = '
 					var email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 					password_regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
@@ -92,7 +89,6 @@ if (isset($_POST["signin"])) {
 						event.preventDefault();
 					}
 					myValidation2();
-
 				'>
 					<h2 class="title">Sign in</h2>
 					<div class="input-field">
@@ -106,7 +102,6 @@ if (isset($_POST["signin"])) {
 					</div>
 					<p style="color: red;" id="regex-password-login"></p>
 					<input type="submit" value="Login" name="signin" class="btn solid" />
-					<p style="display: flex;justify-content: center;align-items: center;margin-top: 20px;"><a href="forgot-password.php" style="color: var(--black-color);">Forgot Password?</a></p>
 				</form>
 
 
