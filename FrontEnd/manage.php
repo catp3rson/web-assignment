@@ -4,9 +4,6 @@
     }
     if(isset($_GET["action"]) or isset($_POST["action"])) {
         if($_POST["action"] == "add") {
-            echo "<div class='body'>";
-            // print_r($_POST);
-            echo "</div>";
             $can_query = false;
             $course_schedule = '{';
             if(isset($_POST['monday'])) { $can_query = true; $course_schedule = $course_schedule . '"Monday": ["' . $_POST['course_schedule_monday'] . '-' . $_POST['course_schedule_monday2'] . '"], '; }
@@ -18,10 +15,8 @@
             if(isset($_POST['sunday'])) { $can_query = true; $course_schedule = $course_schedule . '"Sunday": ["' . $_POST['course_schedule_sunday'] . '-' . $_POST['course_schedule_sunday2'] . '"], '; }
             if($can_query) {
                 $course_schedule = substr($course_schedule, 0, -2) . '}';
-                print($course_schedule);
                 $sql = "INSERT INTO tutor_booking_system.courses (`course_code`, `course_name`, `course_category`, `tutor_id`, `brief`, `description`, `course_fee`, `schedule`, `start_date`, `end_date`) VALUES
                 ('".$_POST['course_code']."', '".$_POST['course_name']."', '".$_POST['category']."', ".$_POST['tutor_id'].", '".$_POST['course_brief']."', '".$_POST['course_description']."', ".$_POST['course_fee'].", '$course_schedule', '".$_POST['start_date']."', '".$_POST['end_date']."');";
-                print($sql);
                 if (!$result = $conn->query($sql)) {
                     echo("Error description: " . $result -> error);
                 }

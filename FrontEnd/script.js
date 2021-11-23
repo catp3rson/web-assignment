@@ -57,8 +57,6 @@ function myValidation2()
         returnToPreviousPage();
         return false;
     }
-    alert("Login as " + email_login.value + " successfully!");
-
 }
 
 const clickLogin = ()=>{

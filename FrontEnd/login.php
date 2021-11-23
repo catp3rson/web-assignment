@@ -95,12 +95,12 @@ if (isset($_POST["signin"])) {
 						<i class="fas fa-user"></i>
 						<input type="text" placeholder="Email Address" name="email" id="email_login" value="<?php echo $_POST['email']; ?>" required />
 					</div>
-					<p style="color: red;" id="regex-email-login"></p>
+					<p style="color: white;" id="regex-email-login"></p>
 					<div class="input-field">
 						<i class="fas fa-lock"></i>
 						<input type="password" placeholder="Password" name="password" id="password_login" value="<?php echo $_POST['password']; ?>" required />
 					</div>
-					<p style="color: red;" id="regex-password-login"></p>
+					<p style="color: white;" id="regex-password-login"></p>
 					<input type="submit" value="Login" name="signin" class="btn solid" />
 				</form>
 
@@ -139,25 +139,25 @@ if (isset($_POST["signin"])) {
 						<i class="fas fa-mobile"></i>
 						<input type="text" placeholder="Phone" name="signup_phone" id="signup_phone" value="<?php echo $_POST["signup_phone"];?>" required />
 					</div>
-					<p style="color: red; font-size: 10px;" id="regex-phone"></p>
+					<p style="color: white; font-size: 10px;" id="regex-phone"></p>
 
 					<div class="input-field">
 						<i class="fas fa-envelope"></i>
 						<input type="text" placeholder="Email Address" name="signup_email" id="signup_email" value="<?php echo $_POST["signup_email"];?>" required />
 					</div>
-					<p style="color: red; font-size: 10px;" id="regex-email"></p>
+					<p style="color: white; font-size: 10px;" id="regex-email"></p>
 
 					<div class="input-field">
 						<i class="fas fa-lock"></i>
 						<input type="password" placeholder="Password" name="signup_password" id="signup_password" value="<?php echo $_POST["signup_password"]; ?>" required/>
 					</div>
-					<p style="color: red; font-size: 10px;" id="regex-pass"></p>
+					<p style="color: white; font-size: 10px;" id="regex-pass"></p>
 
 					<div class="input-field">
 						<i class="fas fa-lock"></i>
 						<input type="password" placeholder="Confirm Password" name="confirm_password" id="confirm_password" required/>
 					</div>
-					<p style="color: red; font-size: 10px;" id="compare-pass"></p>
+					<p style="color: white; font-size: 10px;" id="compare-pass"></p>
 
 					<input type="submit" class="btn" name="signup" value="Sign up"/>
 				</form>
