@@ -37,12 +37,11 @@ const menuTabMath = async ()=>{
             }
         ?>
     ]
-    console.log(newJson);
     const html = newJson.map((items) =>{
     return `
         <a href="tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
             <div class="product-card--image">
-                <img margin-right: auto; width="256" height="256" src="https://image.freepik.com/free-vector/math-background_23-2148146270.jpg" alt="User Icon free icon" title="User Icon free icon" class="loaded">
+                <img margin-right: auto; width="256" height="256" src="https://image.freepik.com/free-vector/math-background_23-2148146270.jpg" alt="List of available math courses" title="User Icon free icon" class="loaded">
             </div>
             <div class="product-card--info">
     
