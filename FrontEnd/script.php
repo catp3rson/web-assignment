@@ -32,6 +32,7 @@ const menuTabMath = async ()=>{
                         "tutor_name": "'.retrieveTutor($row['tutor_id'])['full_name'].'",
                         "start_date": "'.$row['start_date'].'",
                         "end_date": "'.$row['end_date'].'",
+                        "image": "'.$row['image'].'",
                     },';
                 }
             }
@@ -41,7 +42,7 @@ const menuTabMath = async ()=>{
     return `
         <a href="tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
             <div class="product-card--image">
-                <img margin-right: auto; width="256" height="256" src="https://image.freepik.com/free-vector/math-background_23-2148146270.jpg" alt="List of available math courses" title="User Icon free icon" class="loaded">
+                <img margin-right: auto; width="256" height="256" src="image_course/math/${items.image}" alt="List of available math courses" title="User Icon free icon" class="loaded">
             </div>
             <div class="product-card--info">
     
@@ -90,6 +91,7 @@ const menuTabPhysics = async ()=>{
                         "tutor_name": "'.retrieveTutor($row['tutor_id'])['full_name'].'",
                         "start_date": "'.$row['start_date'].'",
                         "end_date": "'.$row['end_date'].'",
+                        "image": "'.$row['image'].'",
                     },';
                 }
             }
@@ -99,7 +101,7 @@ const menuTabPhysics = async ()=>{
         return `
         <a href="tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
             <div class="product-card--image">
-                <img margin-right: auto; width="256" height="256" src="https://static.vecteezy.com/system/resources/thumbnails/003/297/662/small_2x/physics-concept-with-icon-set-with-big-word-free-vector.jpg" alt="User Icon free icon" title="User Icon free icon" class="loaded">
+                <img margin-right: auto; width="256" height="256" src="image_course/physics/${items.image}" alt="User Icon free icon" title="User Icon free icon" class="loaded">
             </div>
             <div class="product-card--info">
     
@@ -149,6 +151,7 @@ const menuTabChemistry = async ()=>{
                         "tutor_name": "'.retrieveTutor($row['tutor_id'])['full_name'].'",
                         "start_date": "'.$row['start_date'].'",
                         "end_date": "'.$row['end_date'].'",
+                        "image": "'.$row['image'].'",
                     },';
                 }
             }
@@ -158,7 +161,7 @@ const menuTabChemistry = async ()=>{
         return `
         <a href="tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
             <div class="product-card--image">
-                <img margin-right: auto; width="256" height="256" src="https://thumbs.dreamstime.com/b/chemistry-concept-modern-vector-horizontal-banner-creative-chemical-illustration-145532385.jpg" alt="User Icon free icon" title="User Icon free icon" class="loaded">
+                <img margin-right: auto; width="256" height="256" src="image_course/chemistry/${items.image}" alt="User Icon free icon" title="User Icon free icon" class="loaded">
             </div>
             <div class="product-card--info">
     
@@ -208,6 +211,7 @@ const menuTabBiology = async ()=>{
                         "tutor_name": "'.retrieveTutor($row['tutor_id'])['full_name'].'",
                         "start_date": "'.$row['start_date'].'",
                         "end_date": "'.$row['end_date'].'",
+                        "image": "'.$row['image'].'",
                     },';
                 }
             }
@@ -217,7 +221,7 @@ const menuTabBiology = async ()=>{
         return `
         <a href="tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
             <div class="product-card--image">
-                <img margin-right: auto; width="256" height="256" src="https://img.timviec.com.vn/2020/04/biology-la-gi.jpg" alt="User Icon free icon" title="User Icon free icon" class="loaded">
+                <img margin-right: auto; width="256" height="256" src="image_course/biology/${items.image}" alt="User Icon free icon" title="User Icon free icon" class="loaded">
             </div>
             <div class="product-card--info">
     
@@ -267,6 +271,7 @@ const  menuTabLanguages = async ()=>{
                         "tutor_name": "'.retrieveTutor($row['tutor_id'])['full_name'].'",
                         "start_date": "'.$row['start_date'].'",
                         "end_date": "'.$row['end_date'].'",
+                        "image": "'.$row['image'].'",
                     },';
                 }
             }
@@ -276,7 +281,7 @@ const  menuTabLanguages = async ()=>{
         return `
         <a href="tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
             <div class="product-card--image">
-                <img margin-right: auto; width="256" height="256" src="https://sandla.org/wp-content/uploads/2021/08/english-e1629469809834.jpg" alt="User Icon free icon" title="User Icon free icon" class="loaded">
+                <img margin-right: auto; width="256" height="256" src="image_course/english/${items.image}" alt="User Icon free icon" title="User Icon free icon" class="loaded">
             </div>
             <div class="product-card--info">
     
