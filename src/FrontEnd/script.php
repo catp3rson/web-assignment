@@ -16,339 +16,60 @@
     }
 ?> 
 <script>
-const menuTabMath = async ()=>{
-    const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item');
-    let newJson = [
-        <?php
-            $sql = "SELECT * FROM courses WHERE course_category = 'math'";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo '{
-                        "course_code": "'.$row['course_code'].'",
-                        "course_name": "'.$row['course_name'].'",
-                        "course_fee": new Number('.$row['course_fee'].'),
-                        "brief": "'.$row['brief'].'",
-                        "tutor_name": "'.retrieveTutor($row['tutor_id'])['full_name'].'",
-                        "start_date": "'.$row['start_date'].'",
-                        "end_date": "'.$row['end_date'].'",
-                        "image": "'.$row['image'].'",
-                    },';
-                }
-            }
-        ?>
-    ]
-    const html = newJson.map((items) =>{
-    return `
-        <a href="tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
-            <div class="product-card--image">
-                <img margin-right: auto; width="256" height="256" src="image_course/math/${items.image}" alt="List of available math courses" title="User Icon free icon" class="loaded">
-            </div>
-            <div class="product-card--info">
-    
-                <span style="color:#EF6A3E;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;" id="product-name"><b>${items.course_name}</b></span>
-                </br>
-                <span id="product-name">
-                    <i class="fa fa-dollar"></i>
-                    <b>Price</b>: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})}
-                </span>
-                <br>
-                <span id="product-name">
-                    <i class="fa fa-person" ></i>
-                    <b>Teacher</b>: ${items.tutor_name}
-                </span>
-                <br>
-                <span id="product-name">
-                    <i class="fa fa-calendar"></i>
-                    <b>From</b>: ${items.start_date} 
-                </span>
-                <br>
-                <span id="product-name">
-                    <i class="fa fa-calendar"></i>
-                    <b>To</b>: ${items.end_date}
-                </span>
-            </div>
-        </div></a>
-    `;
-                }).join(" ");
-    let a = document.querySelector("#first-menu-tab");
-    a.innerHTML = html;          
-};
 
-const menuTabPhysics = async ()=>{
-    const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item2');
-    let newJson = [
-        <?php
-            $sql = "SELECT * FROM courses WHERE course_category = 'physics'";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo '{
-                        "course_code": "'.$row['course_code'].'",
-                        "course_name": "'.$row['course_name'].'",
-                        "course_fee": new Number('.$row['course_fee'].'),
-                        "brief": "'.$row['brief'].'",
-                        "tutor_name": "'.retrieveTutor($row['tutor_id'])['full_name'].'",
-                        "start_date": "'.$row['start_date'].'",
-                        "end_date": "'.$row['end_date'].'",
-                        "image": "'.$row['image'].'",
-                    },';
-                }
-            }
-        ?>
-    ]
-    const html = newJson.map((items) =>{
-        return `
-        <a href="tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
-            <div class="product-card--image">
-                <img margin-right: auto; width="256" height="256" src="image_course/physics/${items.image}" alt="User Icon free icon" title="User Icon free icon" class="loaded">
-            </div>
-            <div class="product-card--info">
-    
-                <span style="color:#EF6A3E;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;" id="product-name"><b>${items.course_name}</b></span>
-                </br>
-                <span id="product-name">
-                    <i class="fa fa-dollar"></i>
-                    <b>Price</b>: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})}
-                </span>
-                <br>
-                <span id="product-name">
-                    <i class="fa fa-person" ></i>
-                    <b>Teacher</b>: ${items.tutor_name}
-                </span>
-                <br>
-                <span id="product-name">
-                    <i class="fa fa-calendar"></i>
-                    <b>From</b>: ${items.start_date} 
-                </span>
-                <br>
-                <span id="product-name">
-                    <i class="fa fa-calendar"></i>
-                    <b>To</b>: ${items.end_date}
-                </span>
-            </div>
-        </div></a>
-    `;
-                }).join(" ");
-    let a = document.querySelector("#second-menu-tab");
-    a.innerHTML = html;          
-};
+function myValidation()
+{
+    var phone_regex = /^[0-9]*$/,
+    email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    password_regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    var 
+    signup_phone = document.getElementById("signup_phone"),
+    signup_email = document.getElementById("signup_email"),
+    signup_password = document.getElementById("signup_password"), 
+    confirm_password = document.getElementById("confirm_password");
+    if(!phone_regex.test(signup_phone.value)) {
+        document.getElementById("regex-phone").innerHTML = "No letter.";
+    }
+    else document.getElementById("regex-phone").innerHTML = "";
+    if(!email_regex.test(signup_email.value)) {
+        document.getElementById("regex-email").innerHTML = "Wrong email format.";
+    }
+    else document.getElementById("regex-email").innerHTML = "";
+    if(!password_regex.test(signup_password.value)) {
+        document.getElementById("regex-pass").innerHTML = "At least 8 characters, a symbol, upper and lower case letters, a number.";
+    }
+    else document.getElementById("regex-pass").innerHTML = "";
+    if(signup_password.value != confirm_password.value) {
+        document.getElementById("compare-pass").innerHTML = "The two passwords are different.";
+    }
+    else document.getElementById("compare-pass").innerHTML = "";
+    if(!phone_regex.test(signup_phone.value) || !email_regex.test(signup_email.value) || !password_regex.test(signup_password.value) || signup_password.value != confirm_password.value)
+    {
+        return false;
+    }
 
-const menuTabChemistry = async ()=>{
-    const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item3');
-    const myJson = await response.json();
-    let newJson = [
-        <?php
-            $sql = "SELECT * FROM courses WHERE course_category = 'chemistry'";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo '{
-                        "course_code": "'.$row['course_code'].'",
-                        "course_name": "'.$row['course_name'].'",
-                        "course_fee": new Number('.$row['course_fee'].'),
-                        "brief": "'.$row['brief'].'",
-                        "tutor_name": "'.retrieveTutor($row['tutor_id'])['full_name'].'",
-                        "start_date": "'.$row['start_date'].'",
-                        "end_date": "'.$row['end_date'].'",
-                        "image": "'.$row['image'].'",
-                    },';
-                }
-            }
-        ?>
-    ]
-    const html = newJson.map((items) =>{
-        return `
-        <a href="tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
-            <div class="product-card--image">
-                <img margin-right: auto; width="256" height="256" src="image_course/chemistry/${items.image}" alt="User Icon free icon" title="User Icon free icon" class="loaded">
-            </div>
-            <div class="product-card--info">
-    
-                <span style="color:#EF6A3E;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;" id="product-name"><b>${items.course_name}</b></span>
-                </br>
-                <span id="product-name">
-                    <i class="fa fa-dollar"></i>
-                    <b>Price</b>: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})}
-                </span>
-                <br>
-                <span id="product-name">
-                    <i class="fa fa-person" ></i>
-                    <b>Teacher</b>: ${items.tutor_name}
-                </span>
-                <br>
-                <span id="product-name">
-                    <i class="fa fa-calendar"></i>
-                    <b>From</b>: ${items.start_date} 
-                </span>
-                <br>
-                <span id="product-name">
-                    <i class="fa fa-calendar"></i>
-                    <b>To</b>: ${items.end_date}
-                </span>
-            </div>
-        </div></a>
-    `;
-                }).join(" ");
-    let a = document.querySelector("#third-menu-tab");
-    a.innerHTML = html;          
-};
+    return true;
+}
 
-const menuTabBiology = async ()=>{
-    const response = await fetch('https://619104b741928b001768ff0f.mockapi.io/chemistry/bi');
-    const myJson = await response.json();
-    let newJson = [
-        <?php
-            $sql = "SELECT * FROM courses WHERE course_category = 'biology'";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo '{
-                        "course_code": "'.$row['course_code'].'",
-                        "course_name": "'.$row['course_name'].'",
-                        "course_fee": new Number('.$row['course_fee'].'),
-                        "brief": "'.$row['brief'].'",
-                        "tutor_name": "'.retrieveTutor($row['tutor_id'])['full_name'].'",
-                        "start_date": "'.$row['start_date'].'",
-                        "end_date": "'.$row['end_date'].'",
-                        "image": "'.$row['image'].'",
-                    },';
-                }
-            }
-        ?>
-    ]
-    const html = newJson.map((items) =>{
-        return `
-        <a href="tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
-            <div class="product-card--image">
-                <img margin-right: auto; width="256" height="256" src="image_course/biology/${items.image}" alt="User Icon free icon" title="User Icon free icon" class="loaded">
-            </div>
-            <div class="product-card--info">
-    
-                <span style="color:#EF6A3E;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;" id="product-name"><b>${items.course_name.substr(0,40) + ' ...'}</b></span>
-                </br>
-                <span id="product-name">
-                    <i class="fa fa-dollar"></i>
-                    <b>Price</b>: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})}
-                </span>
-                <br>
-                <span id="product-name">
-                    <i class="fa fa-person" ></i>
-                    <b>Teacher</b>: ${items.tutor_name}
-                </span>
-                <br>
-                <span id="product-name">
-                    <i class="fa fa-calendar"></i>
-                    <b>From</b>: ${items.start_date} 
-                </span>
-                <br>
-                <span id="product-name">
-                    <i class="fa fa-calendar"></i>
-                    <b>To</b>: ${items.end_date}
-                </span>
-            </div>
-        </div></a>
-    `;
-                }).join(" ");
-    let a = document.querySelector("#fourth-menu-tab");
-    a.innerHTML = html;          
-};
-
-const  menuTabLanguages = async ()=>{
-    const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item3');
-    const myJson = await response.json();
-    let newJson = [
-        <?php
-            $sql = "SELECT * FROM courses WHERE course_category = 'english'";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo '{
-                        "course_code": "'.$row['course_code'].'",
-                        "course_name": "'.$row['course_name'].'",
-                        "course_fee": new Number('.$row['course_fee'].'),
-                        "brief": "'.$row['brief'].'",
-                        "tutor_name": "'.retrieveTutor($row['tutor_id'])['full_name'].'",
-                        "start_date": "'.$row['start_date'].'",
-                        "end_date": "'.$row['end_date'].'",
-                        "image": "'.$row['image'].'",
-                    },';
-                }
-            }
-        ?>
-    ]
-    const html = newJson.map((items) =>{
-        return `
-        <a href="tutor.php?code=${items.course_code}" style="text-decoration:inherit; color:inherit;"><div class="product-card">
-            <div class="product-card--image">
-                <img margin-right: auto; width="256" height="256" src="image_course/english/${items.image}" alt="User Icon free icon" title="User Icon free icon" class="loaded">
-            </div>
-            <div class="product-card--info">
-    
-                <span style="color:#EF6A3E;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;" id="product-name"><b>${items.course_name}</b></span>
-                </br>
-                <span id="product-name">
-                    <i class="fa fa-dollar"></i>
-                    <b>Price</b>: ${items.course_fee.toLocaleString('en-VN', {style: 'currency',currency: 'VND', minimumFractionDigits: 0})}
-                </span>
-                <br>
-                <span id="product-name">
-                    <i class="fa fa-person" ></i>
-                    <b>Teacher</b>: ${items.tutor_name}
-                </span>
-                <br>
-                <span id="product-name">
-                    <i class="fa fa-calendar"></i>
-                    <b>From</b>: ${items.start_date} 
-                </span>
-                <br>
-                <span id="product-name">
-                    <i class="fa fa-calendar"></i>
-                    <b>To</b>: ${items.end_date}
-                </span>
-            </div>
-        </div></a>
-    `;
-                }).join(" ");
-    let a = document.querySelector("#fifth-menu-tab");
-    a.innerHTML = html;          
-};
-const  handleNews = async ()=>{
-    const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/news');
-    const myJson = await response.json();
-    let newJson = [];
-    if(myJson.length>6)
-        newJson = myJson.slice(0,4);
-    const html = newJson.map((items) =>{
-        // console.log(items);
-    return `
-    <div class="news-card">
-                        <img width="256" height="256" src="https://cdn-icons-png.flaticon.com/512/1074/1074106.png" alt="Newspaper free icon" title="Newspaper free icon" class="loaded">
-                        <div class="news-content">
-                            <h5>${items.title}</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pretium ex ac urna tempor, ac ultrices justo aliquet. Aenean viverra urna eu est tincidunt venenatis. </p>
-                            <div class="more-button">
-                                <button>
-                                    <a href="#">More</a>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-    `;
-                }).join(" ");
-    let a = document.querySelector(".news-container");
-    a.innerHTML = html;          
-};
-
-menuTabMath();
-menuTabPhysics();
-menuTabChemistry();
-menuTabBiology();
-menuTabLanguages();
-handleNews();
-console.log(1);
-
-
+function myValidation2()
+{
+    var email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    password_regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    var email_login = document.getElementById("email_login"),
+    password_login = document.getElementById("password_login");
+    if(!email_regex.test(email_login.value)) {
+        document.getElementById("regex-email-login").innerHTML = "Wrong email format.";
+    }
+    else document.getElementById("regex-email-login").innerHTML = "";
+    if(!password_regex.test(password_login.value)) {
+        document.getElementById("regex-password-login").innerHTML = "Password must contains at least 8 characters, a symbol,<br> upper and lower case letters and a number.";
+    }
+    else document.getElementById("regex-password-login").innerHTML = "";
+    if(!email_regex.test(email_login.value) || !password_regex.test(password_login.value))
+    {
+        return false;
+    }
+}
 
 const clickLogin = ()=>{
     let loginbox = document.querySelector('.popup-login');
@@ -363,46 +84,7 @@ const closeClickLogin = ()=>{
     loginbox.style.display = "none";
 }
 
-function initMap() {
-    var markers = new Array();
-    var mapOptions = {
-        zoom: 16,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        center: new google.maps.LatLng(10.760126435947619, 106.66319203208252)
-    };
-    <?php
-        $sql = "SELECT * FROM locations";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            echo 'var locations = [';
-            $style = "'font-size: 15px; font-weight: 5px;'";
-            while($row = $result->fetch_assoc()) {
-                echo '[new google.maps.LatLng('. $row['latitude']. ','. $row['longtitude']. '), "'.$row['location_name'].'",'.'"<h1 style='.$style.'>'.$row['location_name'].'</h1><hr>'. '<p>Address: '.$row['location_description'].'</p>"'. '],';
-                
-            }
-            echo '];';
-        }
-    ?>
-    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    var infowindow = new google.maps.InfoWindow();
-    for (var i = 0; i < locations.length; i++) {
-        $('#markers').append('<a class="marker-link" data-markerid="' + i + '" href="#maps">' + locations[i][1] + '</a> ');
-        var marker = new google.maps.Marker({
-            position: locations[i][0],
-            map: map,
-            title: locations[i][1],
-        });
-        google.maps.event.addListener(marker, 'click', (function (marker, i) {
-            return function () {
-                infowindow.setContent(locations[i][2]);
-                infowindow.open(map, marker);
-            }
-        })(marker, i));
-        markers.push(marker);
-    }
 
-    $('.marker-link').on('click', function () {
-        google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
-    });
-}
+
+
 </script>

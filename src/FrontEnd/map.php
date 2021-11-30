@@ -1,3 +1,4 @@
+<?php include "getmap.php"; ?>
 <div id="map_location" class="location">
     <div class="container">
         <!-- Google Map -->
