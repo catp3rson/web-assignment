@@ -72,6 +72,6 @@ Other methods are using the `@test` annotation in the method’s docblock or cal
 [3] https://phpunit.de/getting-started/phpunit-9.html<br>
 [4] https://docs.oracle.com/javase/10/install/installation-jdk-and-jre-microsoft-windows-platforms.htm<br>
 [5] https://www.guru99.com/desired-capabilities-selenium.html<br>
-[6] https://www.lambdatest.com/blog/locators-in-selenium-webdriver-with-examples/
-[7] https://stackoverflow.com/questions/33016300/selenium-change-language-browser-chrome-firefox
-[8] https://github.com/php-webdriver/php-webdriver
+[6] https://www.lambdatest.com/blog/locators-in-selenium-webdriver-with-examples/<br>
+[7] https://stackoverflow.com/questions/33016300/selenium-change-language-browser-chrome-firefox<br>
+[8] https://github.com/php-webdriver/php-webdriver<br>
