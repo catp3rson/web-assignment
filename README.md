@@ -31,9 +31,9 @@ composer update --no-dev
 - Download the webdrivers and put them in the `testing_setup` folder<br>
 <i>Note for Chrome ver 64: The file chromedriver_win32.zip also works for 64-bit Windows</i>
 - Download the Selenium standalone server (https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar) and put it in the `testing_setup` folder
-- After setting up, the `project`  folder should look like this
+- After setting up, the `project`  folder should look like this<br>
 ![project folder](./misc/project_folder.png)
-- After setting up, the `testing_setup` folder should look like this
+- After setting up, the `testing_setup` folder should look like this<br>
 ![testing_setup folder](./misc/testing_setup_folder.png)
 <i>Note: In the figure above, there are three webdrivers for three browsers: Chrome, Firefox</i>
 
