@@ -4,6 +4,7 @@
 
 
     //autoload the required classes thanks to composer
+    require dirname(__FILE__) . '/../test_config.php';
     require 'vendor/autoload.php'; 
 
     
@@ -41,10 +42,10 @@
         //executed when starting the browser session
         public function setUp(): void
         {
+            global $selenium_addr;
+            
             $capabilities = $this->build_chrome_capabilities();
-            //the URL of the Selenium server must be specified
-            $host = 'http://localhost:4444/wd/hub';
-            $this->webDriver = RemoteWebDriver::create($host, $capabilities);
+            $this->webDriver = RemoteWebDriver::create($selenium_addr, $capabilities);
         }
         
         //executed when closing the browser session after all the tests are done

@@ -25,9 +25,9 @@
                 
             </div>
 
-            <!-- Inner -->
+        <!-- Inner -->
             <div class="carousel-inner">
-        <!-- Single item -->
+            <!-- Single item -->
             <div class="carousel-item promotion-carousel--item active">
                 <div class="index-container image1 new-bg">
                     <h1>21 Million<br> Sessions</h1>
@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-        <!-- Single item -->
+            <!-- Single item -->
             <div class="carousel-item promotion-carousel--item">
                 <div class="index-container image2 new-bg">
                     <h1>21 Million<br> Sessions</h1>
@@ -49,24 +49,25 @@
 
         <!-- Controls -->
                 <button
-                class="carousel-control-prev"
-                type="button"
-                data-mdb-target="#carouselBasicExample"
-                data-mdb-slide="prev"
+                    class="carousel-control-prev"
+                    type="button"
+                    data-mdb-target="#carouselBasicExample"
+                    data-mdb-slide="prev"
                 >
-                <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
-                <i class="fas fa-chevron-left"></i>
-                <span class="visually-hidden">Previous</span>
+                    <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+                    <i class="fas fa-chevron-left"></i>
+                    <span class="visually-hidden">Previous</span>
                 </button>
+
                 <button
-                class="carousel-control-next"
-                type="button"
-                data-mdb-target="#carouselBasicExample"
-                data-mdb-slide="next"
+                    class="carousel-control-next"
+                    type="button"
+                    data-mdb-target="#carouselBasicExample"
+                    data-mdb-slide="next"
                 >
-                <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
-                <i class="fas fa-chevron-right"></i>
-                <span class="visually-hidden">Next</span>
+                    <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+                    <i class="fas fa-chevron-right"></i>
+                    <span class="visually-hidden">Next</span>
                 </button>
                 </div>
         <!-- Carousel wrapper -->
