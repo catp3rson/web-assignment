@@ -38,10 +38,15 @@ composer update --no-dev
 <i>Note: In the figure above, there are three webdrivers for three browsers: Chrome, Firefox</i>
 
 ## Writing the test cases
-- Create a folder named `Test` in the `project` folder. This is where we store the test cases written in PHP.
-- Start writing test cases :^)
-<i>In the `Test` folder, there are files names `GoogleSearchxxxxTest.php` where xxxx is the browser's name. Execute these files first to check if the setup is correct.</i>
-
+- Create a folder named `test` in the `project` folder. This is where we store the test cases written in PHP.
+- Test cases should be grouped into test suites. Define the test suites in `phpunit.xml`. Each test suite corresponds to a seperate folder inside `test`. The `test` folder should look like this.<br>
+![test folder](./misc/test_folder.png)
+And the `phpunit.xml` looks something like this<br>
+![phpunit.xml](./misc/phpunit.xml.png)
+- Start writing test cases :^)<br>
+<i>Note: In the `test/test_setup` folder, there are test cases named `GoogleSearchxxxxTest.php` where xxxx is the browser's name. Execute these test cases first to check if the setup is correct. PHPUnit should output something like this</i><br><br>
+![test_setup output](./misc/test_setup_output.png)
+ 
 ## Executing the test cases
 - First, run the Selenium server using the following command (run the command in the `testing_setup` folder):
 ```
@@ -49,9 +54,17 @@ java -jar selenium-server-standalone-3.141.59.jar
 ```
 - Run a specific test case using the following command (run the command in the `project` folder):
 ```
-.\vendor\bin\phpunit --debug .\tests\xxxxTest.php
+.\vendor\bin\phpunit --debug .\test\xxxxTest.php
 ```
-where `xxxxTest.php` is the php file contained in `Test` folder corresponding to the test case you want to run.
+where `xxxxTest.php` is the php file contained in `test` folder corresponding to the test case you want to run.
+- Run a test suite using the following command (run the command in the `project` folder):
+```
+.\vendor\bin\phpunit --bootstrap .\vendor\autoload.php --testsuite <name of test suite>
+```
+For example,
+```
+.\vendor\bin\phpunit --bootstrap .\vendor\autoload.php --testsuite home
+```
 
 
 # Notes
@@ -75,3 +88,4 @@ Other methods are using the `@test` annotation in the method’s docblock or cal
 [6] https://www.lambdatest.com/blog/locators-in-selenium-webdriver-with-examples/<br>
 [7] https://stackoverflow.com/questions/33016300/selenium-change-language-browser-chrome-firefox<br>
 [8] https://github.com/php-webdriver/php-webdriver<br>
+[9] https://github.com/sebastianbergmann/phpunit/commit/80754cf323fe96003a2567f5e57404fddecff3bf<br>

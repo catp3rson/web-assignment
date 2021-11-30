@@ -1,0 +1,1 @@
+{"version":1,"defects":{"GoogleSearchFirefoxTest::test_searchTextOnGoogle":3},"times":{"GoogleSearchChromeTest::test_searchTextOnGoogle":6.319,"GoogleSearchFirefoxTest::test_searchTextOnGoogle":5.72}}

@@ -8,27 +8,32 @@
 
     
     use PHPUnit\Framework\TestCase;
-    use Facebook\WebDriver\Chrome\ChromeOptions;        //used for customizing the browser’s DesiredCapabilities
+    use Facebook\WebDriver\Firefox\FirefoxDriver;
+    use Facebook\WebDriver\Firefox\FirefoxProfile;
     use Facebook\WebDriver\Remote\DesiredCapabilities;
     use Facebook\WebDriver\Remote\RemoteWebDriver;      //The RemoteWebDriver class is primarily responsible for handling all the interactions with the Selenium server
     use Facebook\WebDriver\WebDriverBy;
  
 
     //a test case is presented as a class which extends the TestCase class imported from PHPUnit
-    class GoogleSearchChromeTest extends TestCase
+    class GoogleSearchFirefoxTest extends TestCase
     {
-    
         protected $webDriver;
         
         public function build_chrome_capabilities(){
-            $options = new ChromeOptions();
-            //set the browser language to English
-            $options->addArguments(array(
-                'lang=en-GB',
-                '--headless' //use Chrome without the GUI
-            ));
-            $capabilities = DesiredCapabilities::chrome();
-            $capabilities->setCapability(ChromeOptions::CAPABILITY, $options);
+            $profile = new FirefoxProfile();
+            $profile->setPreference("intl.accept_languages", "en-GB");
+
+            $capabilities = DesiredCapabilities::firefox();
+            $capabilities->setCapability(FirefoxDriver::PROFILE, $profile);
+            $capabilities->setCapability( 
+                "moz:firefoxOptions",
+                [
+                    'args' => [     //arguments added on startup
+                        '-headless'     //use Firefox without the GUI
+                    ]
+                ]
+            );
 
             return $capabilities;
         }
@@ -72,8 +77,6 @@
             
             sleep(1);
 
-            //get the window's title
-            print $this->webDriver->getTitle();
             //check if the window's title is correct
             $this->assertEquals('ElnoSabe - Google Search', $this->webDriver->getTitle());
         }
