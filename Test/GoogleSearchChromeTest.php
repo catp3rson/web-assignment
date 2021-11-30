@@ -24,7 +24,8 @@
             $options = new ChromeOptions();
             //set the browser language to English
             $options->addArguments(array(
-                'lang=en-GB'
+                'lang=en-GB',
+                '--headless' //use Chrome without the GUI
             ));
             $capabilities = DesiredCapabilities::chrome();
             $capabilities->setCapability(ChromeOptions::CAPABILITY, $options);

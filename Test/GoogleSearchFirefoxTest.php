@@ -26,6 +26,14 @@
 
             $capabilities = DesiredCapabilities::firefox();
             $capabilities->setCapability(FirefoxDriver::PROFILE, $profile);
+            $capabilities->setCapability( 
+                "moz:firefoxOptions",
+                [
+                    'args' => [     //arguments added on startup
+                        '-headless'
+                    ]
+                ]
+            );
 
             return $capabilities;
         }
