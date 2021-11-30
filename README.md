@@ -31,22 +31,32 @@ composer update --no-dev
 - Download the webdrivers and put them in the `testing_setup` folder<br>
 <i>Note for Chrome ver 64: The file chromedriver_win32.zip also works for 64-bit Windows</i>
 - Download the Selenium standalone server (https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar) and put it in the `testing_setup` folder
-- After setting up, the `project`  folder should look like this<br>
+- After setting up, the `project`  folder should look like this
+<br><br>
 ![project folder](./misc/project_folder.png)
-- After setting up, the `testing_setup` folder should look like this<br>
+<br><br>
+- After setting up, the `testing_setup` folder should look like this
+<br><br>
 ![testing_setup folder](./misc/testing_setup_folder.png)
+<br><br>
 <i>Note: In the figure above, there are three webdrivers for three browsers: Chrome, Firefox</i>
 
 ## Writing the test cases
 - Create a folder named `test` in the `project` folder. This is where we store the test cases written in PHP.
-- Test cases should be grouped into test suites. Define the test suites in `phpunit.xml`. Each test suite corresponds to a seperate folder inside `test`. The `test` folder should look like this.<br>
+- Test cases should be grouped into test suites. Define the test suites in `phpunit.xml`. Each test suite corresponds to a seperate folder inside `test`. The `test` folder should look like this.
+<br><br>
 ![test folder](./misc/test_folder.png)
-And the `phpunit.xml` looks something like this<br>
+<br><br>
+And the `phpunit.xml` looks something like this
+<br><br>
 ![phpunit.xml](./misc/phpunit.xml.png)
+<br><br>
 - Start writing test cases :^)<br>
-<i>Note: In the `test/test_setup` folder, there are test cases named `GoogleSearchxxxxTest.php` where xxxx is the browser's name. Execute these test cases first to check if the setup is correct. PHPUnit should output something like this</i><br><br>
+<i>Note: In the `test/test_setup` folder, there are test cases named `GoogleSearchxxxxTest.php` where xxxx is the browser's name. Execute these test cases first to check if the setup is correct. PHPUnit should output something like this</i>
+<br><br>
 ![test_setup output](./misc/test_setup_output.png)
- 
+<br><br>
+
 ## Executing the test cases
 - First, run the Selenium server using the following command (run the command in the `testing_setup` folder):
 ```
