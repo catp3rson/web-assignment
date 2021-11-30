@@ -21,7 +21,7 @@
                         </li>
                         <li class="footer__logo-item">
                             Email: 
-                            <a class="footer__email" href="mailto:tuvan@oisp.edu.vn">tuvan@oisp.edu.vn</a>
+                            <a class="footer__email" href="mailto:tuvan@oisp.edu.vn">tuvan@hcmut.edu.vn</a>
                         </li>
                     </ul>
                     
@@ -72,11 +72,10 @@
             </div>
         </div>
     </div>
-    <script src="./script.js"></script>
 
     <div class="footer__bottom">
         <div class="container">                   
             <p class="footer__text">© 2021 - BK EDUCATION SYSTEM - INTERNATIONAL PROGRAM - HCM UNIVERSITY OF TECHNOLOGY</p>
     </div>
     </div>
-</div>
+</div> 

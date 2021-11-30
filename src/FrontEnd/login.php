@@ -72,7 +72,7 @@ if (isset($_POST["signin"])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="style1.css" />
 	<title>Sign in & Sign up Form</title>
-	<script src="./script.js"></script>
+	<?php include "script.php" ?>
 </head>
 
 <body>
