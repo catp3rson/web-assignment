@@ -1,6 +1,6 @@
 <?php
 
-include 'config.php';
+include '../BackEnd/config.php';
 session_start();
 
 error_reporting(0);
@@ -193,7 +193,19 @@ if (isset($_POST["signin"])) {
 	</div>
 
 	<script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-	<script src="app.js"></script>
+	<script>
+		const sign_in_btn = document.querySelector("#sign-in-btn");
+		const sign_up_btn = document.querySelector("#sign-up-btn");
+		const container = document.querySelector(".container");
+
+		sign_up_btn.addEventListener("click", () => {
+		container.classList.add("sign-up-mode");
+		});
+
+		sign_in_btn.addEventListener("click", () => {
+		container.classList.remove("sign-up-mode");
+		});
+	</script>
 </body>
 
 </html>

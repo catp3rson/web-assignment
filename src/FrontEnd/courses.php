@@ -1,4 +1,4 @@
-<?php include "getcourses.php"; ?>
+<?php include "../BackEnd/getcourses.php"; ?>
 <div id="courses"  class="product">
     <div  class="container">
         <div class="product__heading">

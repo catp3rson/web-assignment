@@ -1,18 +1,15 @@
 <?php 
-    session_start();
-    $direct = 'home';
-    require "config.php";
-
-    if(isset($_GET['page']))
-    {
-        $direct = $_GET['page'];
-    }
-    else if(isset($_POST['page']))
-    {
-        $direct = $_POST['page'];
-    }else{
-        $direct = 'home';
-    }
+session_start();
+$direct = 'home';
+include '../BackEnd/config.php';
+if(isset($_GET['page']))
+{
+    $direct = $_GET['page'];
+}
+else if(isset($_POST['page']))
+{
+    $direct = $_POST['page'];
+}
 ?>
 
 <!DOCTYPE html>

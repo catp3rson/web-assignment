@@ -12,7 +12,7 @@ CREATE TABLE courses (
 	schedule             json  NOT NULL    ,
 	start_date           date  NOT NULL    ,
 	end_date             date  NOT NULL   ,
-	image				 longtext NOT NULL 
+	image				 longtext
  ) engine=InnoDB;
 
 

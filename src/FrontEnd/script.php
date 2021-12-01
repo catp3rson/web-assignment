@@ -1,5 +1,5 @@
 <?php 
-    include "config.php";
+    include '../BackEnd/config.php';
     function retrieveTutor($tutor_id){
         global $mysql_addr, $mysql_user, $mysql_password, $mysql_db;
         
