@@ -2,10 +2,8 @@
     //connection details
     $mysql_addr = "localhost";
     $mysql_user = "root";
-    $mysql_password = "";
+    $mysql_password = "an0kumene";
     $mysql_db = "tutor_booking_system";
-
-
     function retrieveCourse($course_code){
         //function to retrieve the information of a course
         //return an associated array
@@ -25,8 +23,6 @@
 
         return $course;
     }
-
-
     function retrieveTutor($tutor_id){
         //function to retrieve info about a tutor
         //retur an associated array
@@ -43,7 +39,6 @@
     
         return mysqli_fetch_assoc($query);
     }
-
 ?>
 
 

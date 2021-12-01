@@ -37,7 +37,6 @@ function initMap() {
         })(marker, i));
         markers.push(marker);
     }
-
     $('.marker-link').on('click', function () {
         google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
     });
