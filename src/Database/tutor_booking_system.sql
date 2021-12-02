@@ -63,12 +63,6 @@ ALTER TABLE users COMMENT 'Contains information of application users';
 
 ALTER TABLE users MODIFY role int UNSIGNED NOT NULL DEFAULT 2  COMMENT 'The role of the user in the system. There are 3 roles: admin (system admin), tutor, user (regular user of the application).\n\nThe code for each role is\n_ admin: 0\n_ tutor: 1\n_ user: 2';
 
--- Insert the data
--- real password of admin is admin123
--- real password of math123, physics123, english123 is tutor123
--- real password of user1, user2, user3 is user123
-
-
 INSERT INTO `users` (`password`, `email`, `full_name`, `birthday`, `phone`, `role`, `description`,`image`) 
 VALUES 
 	(
@@ -179,9 +173,7 @@ INSERT INTO `courses` (`course_code`, `course_name`, `course_category`, `tutor_i
 ('PH0004', 'Physics crash course for grade 9', 'physics', 3, 'A 2-month Physics crash course for Grade 9 ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.', 3500000, '{\"Monday\": [\"18:00-20:00\"], \"Tuesday\":[\"18:00-20:00\"], \"Thursday\":[\"18:00-20:00\"]}', '2021-11-22', '2021-01-04','Physics crash course for grade 9.jpeg'),
 ('PH0005', 'ADVANCED physics crash course for  grade 11', 'physics', 3, 'A 2-month Physics crash course for Grade 11 ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.', 5000000, '{\"Monday\": [\"20:00-22:00\"], \"Tuesday\":[\"20:00-22:00\"], \"Thursday\":[\"20:00-22:00\"]}', '2021-11-22', '2021-01-04','ADVANCED physics crash course for  grade 11.png'),
 ('PH0006', 'ADVANCED physics revision test for grade 12', 'physics', 3, 'A 2-month Physics crash course for Grade 12, practice and prepare for graduation test ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque. Venenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Elit at imperdiet dui accumsan sit. Tortor id aliquet lectus proin nibh nisl condimentum. Nibh venenatis cras sed felis eget. Sed enim ut sem viverra. At risus viverra adipiscing at. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Sociis natoque penatibus et magnis dis parturient montes nascetur. Elit eget gravida cum sociis natoque penatibus et. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Purus viverra accumsan in nisl nisi scelerisque. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Risus ultricies tristique nulla aliquet.', 7000000, '{\"Monday\": [\"20:00-22:00\"], \"Tuesday\":[\"20:00-22:00\"], \"Thursday\":[\"20:00-22:00\"]}', '2021-11-22', '2021-01-04','ADVANCED physics revision test for grade 12.jpeg');
-
-
-    
+ 
 INSERT INTO `locations` (`location_id`, `location_name`, `longtitude`, `latitude`, `location_description`) VALUES
 (1, 'Nha Trang branch', 109.18676734631, 12.249520736579708, '71 Yersin Street, Nha Trang City'),
 (2, 'Head Quarter at Ho Chi Minh City', 106.66068367301231, 10.773922365553329, '268 Ly Thuong Kiet Street, District 10, Ho Chi Minh City'),
@@ -197,3 +189,4 @@ INSERT INTO `subjects` (`subject_code`, `subject_name`, `num_courses`) VALUES
 ('EN', 'English', 6),
 ('MA', 'Math', 6),
 ('PH', 'Physics', 6);
+

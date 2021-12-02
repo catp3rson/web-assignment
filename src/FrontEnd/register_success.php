@@ -8,8 +8,21 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
         <link rel="stylesheet" type="text/css" href="register_success.css"/>
+        <script>
+            const clickLogin = ()=> {
+                let loginbox = document.querySelector('.popup-login');
+                
+                loginbox.style.display = loginbox.style.display == "block" ? "none":"block";
+            }
+
+
+            const closeClickLogin = ()=> {
+                let loginbox = document.querySelector('.popup-login');
+                
+                loginbox.style.display = "none";
+            }
+        </script>
     </head>
 
     <body>

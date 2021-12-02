@@ -4,6 +4,9 @@
     }
 </script>
 <?php
+    if($_SESSION["role"] != 1) {
+        die("Wrong role!");
+    }
     include "../BackEnd/manage_course_processing.php";
     if(isset($_POST["action"])) {
         if($_POST["action"] == "add") {
