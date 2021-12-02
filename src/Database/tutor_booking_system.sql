@@ -54,7 +54,8 @@ CREATE TABLE users (
 	phone                varchar(11)  NOT NULL     ,
 	role                 int UNSIGNED NOT NULL DEFAULT 2   ,
 	description          varchar(5000)      	   ,
-	CONSTRAINT unq_users_phone UNIQUE ( phone ) 
+	CONSTRAINT unq_users_phone UNIQUE ( phone ), 
+    CONSTRAINT unq_users_email UNIQUE ( email ) 
  ) engine=InnoDB;
 
 ALTER TABLE users COMMENT 'Contains information of application users';
