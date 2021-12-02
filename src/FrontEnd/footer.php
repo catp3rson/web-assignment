@@ -8,7 +8,7 @@
                             <img src="./assets/images/footer-logo.png" alt="logo" class ="footer-logo" >
                         </li>
                         <li class="footer__logo-item">
-                            <h1 >EDUCATION BK HCMC</h1>
+                            <h2 style="font-size: calc(1.375rem + 1.5vw);" >EDUCATION BK HCMC</h2>
                         </li>
                         <br>
                         <li class="footer__logo-item">
