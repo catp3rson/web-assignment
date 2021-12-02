@@ -69,11 +69,11 @@ java -jar selenium-server-standalone-3.141.59.jar
 where `xxxxTest.php` is the php file contained in `test` folder corresponding to the test case you want to run.
 - Run a test suite using the following command (run the command in the `project` folder):
 ```
-.\vendor\bin\phpunit --bootstrap .\vendor\autoload.php --testsuite <name of test suite>
+.\vendor\bin\phpunit --testsuite <name of test suite>
 ```
 For example,
 ```
-.\vendor\bin\phpunit --bootstrap .\vendor\autoload.php --testsuite home
+.\vendor\bin\phpunit --testsuite test_setup
 ```
 
 

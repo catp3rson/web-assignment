@@ -1,5 +1,5 @@
 <!-- Test suites are configured here -->
-<phpunit bootstrap="src/autoload.php">
+<phpunit bootstrap="vendor/autoload.php">
     <testsuites>
         <!-- test suite to test if Selenium and PHPUnit are set up correctly -->
         <testsuite name="test_setup">
@@ -28,4 +28,3 @@
 
     </testsuites>
 </phpunit>
-
