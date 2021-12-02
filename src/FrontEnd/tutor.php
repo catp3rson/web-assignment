@@ -198,7 +198,7 @@
                         </div>
                         <div class="row mt-3 mb-3">
                             <div class="col-lg-3 col-md-3 col-sm-4 col-4 mx-auto">
-                                <img src="favicon.ico" alt="<?= $tutor["full_name"] ?>">
+                                <img src="image_tutor/<?=$tutor["image"] ?>" alt="<?= $tutor["full_name"] ?>">
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-8 col-8 mx-auto">
                                 <h4><?= $tutor["full_name"] ?></h4>
