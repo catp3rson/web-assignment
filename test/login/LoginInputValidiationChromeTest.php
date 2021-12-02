@@ -39,10 +39,7 @@
             $this->webDriver->quit();
         }
 
-        //test method
-        /*
-        * @test
-        */ 
+        
         public function test_searchTextOnGoogle()
         {
             $this->webDriver->get("https://www.google.com/");
