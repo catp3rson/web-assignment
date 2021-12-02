@@ -1,3 +1,8 @@
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, 'index.php?page=manage' );
+    }
+</script>
 <?php
     include "../BackEnd/manage_course_processing.php";
     if(isset($_POST["action"])) {
@@ -41,6 +46,7 @@
                 </script>';
             }
         }
+        unset($_POST["action"]);
     }
 ?>
 <div class="body">
