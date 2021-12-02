@@ -10,71 +10,50 @@
 	<?php include "script.php" ?>
 </head>
 
-<?php
-$sign_up_page = false; // true: go to signup page, false: go to login page.
-$sign_up_successful = false; // true: go to signup page, false: go to login page.
-$wrong_email = false;
-$wrong_password = false;
-include '../BackEnd/config.php';
-session_start();
-error_reporting(0);
-
-if (isset($_SESSION["user_id"])) {
-	header("Location: index.php");
-}
-
-if (isset($_POST["signup"])) {
-	$full_name = mysqli_real_escape_string($conn, $_POST["signup_full_name"]);
-	$birthday = mysqli_real_escape_string($conn, $_POST["signup_birthday"]);
-	$phone = mysqli_real_escape_string($conn, $_POST["signup_phone"]);
-	$email = mysqli_real_escape_string($conn, $_POST["signup_email"]);
-	$password = mysqli_real_escape_string($conn, password_hash($_POST["signup_password"], PASSWORD_DEFAULT));
-
-	$check_email = mysqli_num_rows(mysqli_query($conn, "SELECT email FROM users WHERE email='$email'"));
-	$check_phone = mysqli_num_rows(mysqli_query($conn, "SELECT phone FROM users WHERE phone='$phone'"));
-
-	if ($check_email == 0 and $check_phone == 0) {
-		$sql = "INSERT INTO users (password, email, full_name, birthday, phone)  VALUES ( '$password','$email', '$full_name', '$birthday', '$phone')";
-		$result = mysqli_query($conn, $sql);
-		
-		if ($result) {
-			$_POST["signup_full_name"] = "";
-			$_POST["signup_birthday"] = "";
-			$_POST["signup_phone"] = "";
-			$_POST["signup_email"] = "";
-			$_POST["signup_password"] = "";
-
-			$sign_up_successful = true;
-		}
-	}
-}
-
-if (isset($_POST["signin"])) {
-	$email = mysqli_real_escape_string($conn, $_POST["email"]);
-	$password = mysqli_real_escape_string($conn, $_POST["password"]);
-
-	$check_email = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
-
-	if (mysqli_num_rows($check_email) === 1) {
-		$row = mysqli_fetch_assoc($check_email);
-		if(password_verify($password, $row['password'])) {
-			$_SESSION["user_id"] = $row['user_id'];
-			$_SESSION["email"] = $row['email'];
-			$_SESSION["role"] = $row['role'];
-			header("Location: index.php");
-		}
-		else {
-			$wrong_password = true;
-		}
-	} else {
-		$wrong_email = true;
-	}
-}
-
-?>
+<?php include "../BackEnd/login_processing.php"; ?>
 
 <body>
 	<?php // Alerts
+		if (isset($_POST["signup"]) and $invalid_birthday) {
+			echo '<script>
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "Invalid birthday!",
+				});
+			</script>';
+			$sign_up_page = true;
+		}
+		if (isset($_POST["signup"]) and $invalid_phone) {
+			echo '<script>
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "Invalid phone number!",
+				});
+			</script>';
+			$sign_up_page = true;
+		}
+		if ($invalid_email) {
+			echo '<script>
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "Invalid email address!",
+				});
+			</script>';
+			$sign_up_page = true;
+		}
+		if ($invalid_password) {
+			echo '<script>
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "Invalid password!",
+				});
+			</script>';
+			$sign_up_page = true;
+		}
 		if (isset($_POST["signup"]) and $check_email > 0) {
 			echo '<script>
 				Swal.fire({

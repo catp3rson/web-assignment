@@ -54,19 +54,14 @@ CREATE TABLE users (
 	phone                varchar(11)  NOT NULL     ,
 	role                 int UNSIGNED NOT NULL DEFAULT 2   ,
 	description          varchar(5000)      	   ,
+	image				longtext					,
 	CONSTRAINT unq_users_phone UNIQUE ( phone ), 
-    CONSTRAINT unq_users_email UNIQUE ( email ) 
+    CONSTRAINT unq_users_email UNIQUE ( email )
  ) engine=InnoDB;
 
 ALTER TABLE users COMMENT 'Contains information of application users';
 
 ALTER TABLE users MODIFY role int UNSIGNED NOT NULL DEFAULT 2  COMMENT 'The role of the user in the system. There are 3 roles: admin (system admin), tutor, user (regular user of the application).\n\nThe code for each role is\n_ admin: 0\n_ tutor: 1\n_ user: 2';
-
--- CREATE TABLE `images` (
---   `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
---   `name` varchar(200) NOT NULL,
---   `image` longtext NOT NULL
--- ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Insert the data
 -- real password of admin is admin123
@@ -74,7 +69,7 @@ ALTER TABLE users MODIFY role int UNSIGNED NOT NULL DEFAULT 2  COMMENT 'The role
 -- real password of user1, user2, user3 is user123
 
 
-INSERT INTO users (password, email, full_name, birthday, phone, role, description) 
+INSERT INTO `users` (`password`, `email`, `full_name`, `birthday`, `phone`, `role`, `description`,`image`) 
 VALUES 
 	(
 
@@ -84,7 +79,8 @@ VALUES
 		'1995-10-20',
 		'01234567890',
 		0,
-		NULL
+		NULL,
+		'admin.jpeg'
 	),
 	(
 
@@ -94,7 +90,8 @@ VALUES
 		'1996-11-21',
 		'01112223333',
 		1,
-		'Math tutor for secondary students.'
+		'Math tutor for secondary students.',
+		'tutor2.jpeg'
 	),
 	(
 
@@ -104,7 +101,8 @@ VALUES
 		'1990-12-01',
 		'03334445555',
 		1,
-		'Physics tutor for high school students (from grade 10-12). I have crash courses for university entrance test.'
+		'Physics tutor for high school students (from grade 10-12). I have crash courses for university entrance test.',
+		'tutor1.jpeg'
 	),
 	(
 		'537d26965fd30bf9ebe78b86a8b56ca954cd886ed6d57e43fd37924f1dc2fcbf',
@@ -113,7 +111,8 @@ VALUES
 		'1992-02-03',
 		'04445556666',
 		1,
-		'English teacher for kids aged 5 to 10.'
+		'English teacher for kids aged 5 to 10.',
+		'tutor5.jpeg'
 	),
 	(
 
@@ -123,7 +122,8 @@ VALUES
 		'1990-07-19',
 		'05556667777',
 		2,
-		NULL
+		NULL,
+		'tutor4.jpeg'
 	),
 	(
 
@@ -133,7 +133,8 @@ VALUES
 		'1998-12-02',
 		'06667778888',
 		2,
-		NULL
+		NULL,
+		'tutor3.jpeg'
 	),
 	(
 
@@ -143,7 +144,8 @@ VALUES
 		'1996-07-07',
 		'07778889999',
 		2,
-		NULL
+		NULL,
+		'tutor6.jpeg'
 	);
 
 INSERT INTO `courses` (`course_code`, `course_name`, `course_category`, `tutor_id`, `brief`, `description`, `course_fee`, `schedule`, `start_date`, `end_date`, `image`) VALUES
