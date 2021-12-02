@@ -6,19 +6,24 @@
             <directory>test/test_setup</directory>
         </testsuite>
 
-        <!-- test suite for Home page -->
-        <testsuite name="home">
+        <testsuite name="routing">
             <directory>test/home</directory>
         </testsuite>
 
-        <!-- test suite for Login page -->
-        <testsuite name="login">
-            <directory>test/login</directory>
+        <testsuite name="login_logout">
+            <directory>test/login_logout</directory>
         </testsuite>
 
-        <!-- test suite for Courses -->
-        <testsuite name="courses">
-            <directory>test/courses</directory>
+        <testsuite name="signup">
+            <directory>test/signup</directory>
+        </testsuite>
+
+        <testsuite name="register_course">
+            <directory>test/register_course</directory>
+        </testsuite>
+
+        <testsuite name="manage_course">
+            <directory>test/manage_course</directory>
         </testsuite>
 
     </testsuites>
