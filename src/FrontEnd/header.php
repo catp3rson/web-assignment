@@ -103,6 +103,7 @@
                                     if(isset($_SESSION["email"])) {
                                         echo '<li class="header__nav-user" style=" color: var(--white-color);">
                                             <p style="margin-left: 8px; padding-top: 15px; font-size: 1.8rem;">Hello '.$_SESSION["email"].'</p>
+                                            <p style="margin-left: 8px; font-size: 1.8rem;">Role: '.$_SESSION["role"].'</p>
                                         </li>';
                                     }
                                     else {
@@ -126,7 +127,8 @@
                                             // session_start();
                                         if (isset($_SESSION["user_id"])) { ?>
                                         <a href="index.php?page=logout" class="nav__mobile-item--link"><i class="nav__mobile-icon fas fa-user-circle"></i>
-                                    Logout</a>
+                                        Logout </a>
+                                    
                                     <?php } ?>
                                 
                             </li>   
@@ -160,17 +162,18 @@
                     <img src="./assets/images/Login.70dc3d8.png" alt="login" onclick="clickLogin()" class="header__nav-login" >
                     <div class="popup-login">
                         <img data-v-1c02541c="" onClick="closeClickLogin()" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMTUuMzg0NkwxNS4zODQ2IDBMMTYgMC42MTUzODRMMC42MTUzODQgMTZMMCAxNS4zODQ2WiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTYuNjM5NzVlLTA2IDAuNjE1Mzk1TDE1LjM4NDYgMTZMMTYgMTUuMzg0NkwwLjYxNTM5MSAxLjAzNzQ2ZS0wNUw2LjYzOTc1ZS0wNiAwLjYxNTM5NVoiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo=" class="icon-close-card">
-                        <ul>
+                        <ul style="padding-left: 0;">
                             <?php 
                             if (!isset($_SESSION["user_id"])) { ?>
-                            <a href="index.php?page=login"><li class="fas fa-sign-in-alt"> Login</li></a>
+                            <a style=" margin-left: 20px;" href="index.php?page=login"><li class="fas fa-sign-in-alt"> Login</li></a>
                             <?php } ?>
                             
                             <?php 
                                 if (isset($_SESSION["user_id"]))
                                 echo $_SESSION['user_id'];
                             if (isset($_SESSION["user_id"])) { ?>
-                            <a href="index.php?page=logout"><li class="fas fa-sign-in-alt"> Logout</li></a>
+                            <a href="index.php?page=logout"><li class="fas fa-sign-in-alt"> Logout</li></a> <br>
+                            <?php echo '<li style="font-size: 10px;list-style: none; color: black; margin-left: 20px; cursor:initial;"class="fas fa-user"> Role: '.$_SESSION["role"].' </li>'?>
                             <?php } ?>
                             
                         </ul>
