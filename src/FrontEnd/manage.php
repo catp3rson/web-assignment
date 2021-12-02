@@ -1,79 +1,91 @@
 <?php
-    if($_SESSION["role"] != 0) {
-        die("Wrong role!");
-    }
-    if(isset($_GET["action"]) or isset($_POST["action"])) {
+    include "../BackEnd/manage_course_processing.php";
+    if(isset($_POST["action"])) {
         if($_POST["action"] == "add") {
-            $can_query = false;
-            $course_schedule = '{';
-            if(isset($_POST['monday'])) { $can_query = true; $course_schedule = $course_schedule . '"Monday": ["' . $_POST['course_schedule_monday'] . '-' . $_POST['course_schedule_monday2'] . '"], '; }
-            if(isset($_POST['tuesday'])) { $can_query = true; $course_schedule = $course_schedule . '"Tuesday": ["' . $_POST['course_schedule_tuesday'] . '-' . $_POST['course_schedule_tuesday2'] . '"], '; }
-            if(isset($_POST['wednesday'])) { $can_query = true; $course_schedule = $course_schedule . '"Wednesday": ["' . $_POST['course_schedule_wednesday'] . '-' . $_POST['course_schedule_wednesday2'] . '"], '; }
-            if(isset($_POST['thursday'])) { $can_query = true; $course_schedule = $course_schedule . '"Thursday": ["' . $_POST['course_schedule_thursday'] . '-' . $_POST['course_schedule_thursday2'] . '"], '; }
-            if(isset($_POST['friday'])) { $can_query = true; $course_schedule = $course_schedule . '"Friday": ["' . $_POST['course_schedule_friday'] . '-' . $_POST['course_schedule_friday2'] . '"], '; }
-            if(isset($_POST['saturday'])) { $can_query = true; $course_schedule = $course_schedule . '"Saturday": ["' . $_POST['course_schedule_saturday'] . '-' . $_POST['course_schedule_saturday2'] . '"], '; }
-            if(isset($_POST['sunday'])) { $can_query = true; $course_schedule = $course_schedule . '"Sunday": ["' . $_POST['course_schedule_sunday'] . '-' . $_POST['course_schedule_sunday2'] . '"], '; }
-            if($can_query) {
-                $course_schedule = substr($course_schedule, 0, -2) . '}';
-                $sql = "INSERT INTO tutor_booking_system.courses (`course_code`, `course_name`, `course_category`, `tutor_id`, `brief`, `description`, `course_fee`, `schedule`, `start_date`, `end_date`) VALUES
-                ('".$_POST['course_code']."', '".$_POST['course_name']."', '".$_POST['category']."', ".$_POST['tutor_id'].", '".$_POST['course_brief']."', '".$_POST['course_description']."', ".$_POST['course_fee'].", '$course_schedule', '".$_POST['start_date']."', '".$_POST['end_date']."');";
-                if (!$result = $conn->query($sql)) {
-                    echo("Error description: " . $result -> error);
-                }
+            if($add_successful) {
+                echo '<script>
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: "Course added successfully!",
+                    });
+                </script>';
             }
-            else {
-                echo("Can't query");
+            else if($add_successful === false) {
+                echo '<script>
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Course added unsuccessfully!",
+                    });
+                </script>';
             }
         }
-        else if($_GET["action"] == "remove") {
-            $code = $_GET["code"];
-            $sql = "DELETE FROM tutor_booking_system.courses WHERE course_code = '$code';";
-            $result = $conn->query($sql);
-            if (!$result = $conn->query($sql)) {
-                echo("Error description: " . $result -> error);
+        else if($_POST["action"] == "remove") {
+            if($remove_successful) {
+                echo '<script>
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: "Course removed successfully!",
+                    });
+                </script>';
+            }
+            else if($remove_successful === false) {
+                echo '<script>
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Course removed unsuccessfully!",
+                    });
+                </script>';
             }
         }
-        else {
-            die("Invalid action");
-        }
-        echo "<script>window.history.pushState('', '', 'index.php?page=manage');</script>";
     }
 ?>
 <div class="body">
     <h1 style="font-size: 50px; text-align: center">Manage courses</h1>
     <hr style="width: 80%; margin: 20px auto;">
-    <table id="table">
-        <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Tutor ID</th>
-            <th>Remove</th>
-        </tr>
-        <?php
-            $sql = "SELECT course_code, course_name, course_category, tutor_id, course_fee FROM tutor_booking_system.courses;";
-            $result = $conn->query($sql);
-            if (!$result = $conn->query($sql)) {
-                echo("Error description: " . $result -> error);
-            }
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo "
-                        <tr>
-                            <td>".$row['course_code']."</td>
-                            <td>".$row['course_name']."</td>
-                            <td>".$row['course_category']."</td>
-                            <td>".$row['tutor_id']."</td>
-                            ";
-                            echo "<td><button><a class='no-style-hyperlink' href='index.php?page=manage&code=".$row['course_code']."&action=remove'>
-                            Remove</a></button></td>";
-                        echo "</tr>
-                    ";
+    <div style="overflow-y:auto; height: 600px;width:80%; margin: 0 auto">
+        <table id="table">
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Tutor ID</th>
+                <th>Remove</th>
+            </tr>
+            <?php
+                $sql = "SELECT course_code, course_name, course_category, tutor_id, course_fee FROM tutor_booking_system.courses;";
+                $result = $conn->query($sql);
+                if (!$result = $conn->query($sql)) {
+                    echo("Error description: " . $result -> error);
                 }
-            }
-        ?>
-    </table>
-    <h1 style="font-size: 50px; text-align: center">Add courses</h1>
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo "
+                            <tr>
+                                <td>".$row['course_code']."</td>
+                                <td>".$row['course_name']."</td>
+                                <td>".$row['course_category']."</td>
+                                <td>".$row['tutor_id']."</td>
+                                ";
+                                echo "<td>
+                                    <form action='index.php' method='post'>
+                                        <input type='hidden' name='code' value='".$row['course_code']."'>
+                                        <input type='hidden' name='action' value='remove'>
+                                        <input type='hidden' name='page' value='manage'>
+                                        <input type='submit' value='Remove'>
+                                    </form>
+                                </td>";
+                            echo "</tr>
+                        ";
+                    }
+                }
+            ?>
+        </table>
+    </div>
+    <h1 style="font-size: 50px; text-align: center">Add courses</h1>    
     <hr style="width: 80%; margin: 20px auto;">
     <div class="container manage-form">
         <form action="index.php" method="post">
@@ -82,7 +94,7 @@
                     <label class="manage-form" for="course_code">Course code</label>
                 </div>
                 <div class="col-75 manage-form">
-                    <input class="manage-form" type="text" id="course_code" name="course_code" placeholder="Course code..." required>
+                    <input class="manage-form" type="text" id="course_code" name="course_code" placeholder="Course code..." maxlength="6" required>
                 </div>
             </div>
             <div class="row manage-form">
