@@ -10,13 +10,9 @@
 
 
     //test case to test if user can access home from different locations
-    class HomeAcessTest extends TestCase
+    class HomeAccessChromeTest extends TestCase
     {
         protected $webDriver;
-        protected $browser = array(
-            'browserName' => 'chrome',
-            'sessionStrategy' => 'shared'
-        );
         
         public function build_chrome_capabilities(){
             $options = new ChromeOptions();
@@ -29,7 +25,7 @@
 
             return $capabilities;
         }
-        
+
         //executed when starting the browser session
         public function setUp(): void
         {
@@ -56,14 +52,16 @@
             //the ideal loading time is 1-2 seconds
             sleep(1);
 
-            $element = $this->webDriver->findElement(WebDriverBy::className("promotion"));
-            $load_success = FALSE;
+            $load_success = TRUE;
 
-            if ($element){
-                $load_success = TRUE;
+            try{
+                $element = $this->webDriver->findElement(WebDriverBy::className("promotion"));
+            }
+            catch(Exception $e){
+                $load_success = FALSE;
             }
             
-            $this->assertEquals(TRUE, $load_success);
+            $this->assertTrue($load_success);
         }
     }
 ?>
