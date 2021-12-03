@@ -88,33 +88,55 @@
         {
             global $test_addr;
 
-            //login with correct credentials
-            $this->webDriver->get($test_addr . 'login.php/');
-            $this->webDriver->manage()->window()->maximize();    
-            
-            sleep(1);
-            
-            try{
-                $this->fillLoginEmail("nguyenvana@gmail.com");
-                $this->fillLoginPassword("Admin@123");
-                $this->submitLogin();
-            }
-            catch(Exception $error){
-                $this->fail("Error occurred: " . $error);
-            }
+            $accounts = array(
+                array(
+                    "email" => "nguyenvana@gmail.com",
+                    "password" => "Admin@123",
+                    "role" => "Admin"
+                ),
+                array(
+                    "email" => "tranvanb@gmail.com",
+                    "password" => "Tutor@123",
+                    "role" => "Tutor"
+                ),
+                array(
+                    "email" => "lef@gmail.com",
+                    "password" => "User@123",
+                    "role" => "User"
+                )
+            );
 
-            sleep(1);
+            foreach($accounts as $account){
+                //login with correct credentials
+                $this->webDriver->get($test_addr . 'login.php/');
+                $this->webDriver->manage()->window()->maximize();    
+                
+                sleep(1);
+                
+                try{
+                    $this->fillLoginEmail($account['email']);
+                    $this->fillLoginPassword($account['password']);
+                    $this->submitLogin();
+                }
+                catch(Exception $error){
+                    $this->fail("Error occurred: " . $error);
+                }
 
-            //verify by checking the email and role displayed on navbar
-            try{
-                $displayed_creds = $this->getDisplayedCreds();  
-            }
-            catch (Execption $error){
-                $this->fail("Error occurred: " . $error);
-            }
+                sleep(1);
 
-            $this->assertEquals("Hello nguyenvana@gmail.com", $displayed_creds['email']);
-            $this->assertEquals("Role: Admin", $displayed_creds['role']);
+                //verify by checking the email and role displayed on navbar
+                try{
+                    $displayed_creds = $this->getDisplayedCreds();  
+                }
+                catch (Execption $error){
+                    $this->fail("Error occurred: " . $error);
+                }
+
+                $this->assertEquals("Hello " . $account['email'], $displayed_creds['email']);
+                $this->assertEquals("Role: " . $account['role'], $displayed_creds['role']);
+
+                $this->webDriver->manage()->deleteAllCookies();
+            }
         }
         
 

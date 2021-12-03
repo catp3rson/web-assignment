@@ -3,24 +3,22 @@
     require 'vendor/autoload.php'; 
     
     use PHPUnit\Framework\TestCase;
-    use Facebook\WebDriver\Chrome\ChromeOptions;        
+    use Facebook\WebDriver\Firefox\FirefoxDriver;
+    use Facebook\WebDriver\Firefox\FirefoxProfile;
     use Facebook\WebDriver\Remote\DesiredCapabilities;
-    use Facebook\WebDriver\Remote\RemoteWebDriver;     
+    use Facebook\WebDriver\Remote\RemoteWebDriver; 
     use Facebook\WebDriver\WebDriverBy;
 
 
-    class ChromeLoginInputFromValidiationTest extends TestCase {
+    class FirefoxLoginInputFormValidiationTest extends TestCase {
         protected $webDriver;
         
         public function build_chrome_capabilities(){
-            $options = new ChromeOptions();
-            //set the browser language to English
-            $options->addArguments(array(
-                'lang=en-GB'
-            ));
+            $profile = new FirefoxProfile();
+            $profile->setPreference("intl.accept_languages", "en-GB");
 
-            $capabilities = DesiredCapabilities::chrome();
-            $capabilities->setCapability(ChromeOptions::CAPABILITY, $options);
+            $capabilities = DesiredCapabilities::firefox();
+            $capabilities->setCapability(FirefoxDriver::PROFILE, $profile);
 
             return $capabilities;
         }
@@ -165,7 +163,7 @@
         }
 
 
-        public function test_passwordWrongFormatFront()
+        public function test_passwordWrongFormat()
         {
             //check that user is notified when password format is wrong (front end)
             global $test_addr;
@@ -204,37 +202,6 @@
                 $this->assertEquals($expected_msg, $password_valid_msg);
             }
         }
-
-
-        // public function test_passwordWrongFormatBack()
-        // {
-        //     //check that user is notified when password format is wrong (back end)
-        //     global $test_addr;
-
-        //     //login with empty fields
-        //     $this->webDriver->get($test_addr . 'login.php/');
-        //     $this->webDriver->manage()->window()->maximize();    
-            
-        //     sleep(1);
-
-        //    //send POST request directly without filling the form
-        //     $js_script = sprintf("var xhr = new XMLHttpRequest();
-        //     xhr.open('POST', '%s', false);
-        //     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        //     xhr.send('signin=1&email=nguyenvana@gmail.com&password=admin123');
-            
-        //     return xhr.response;", $test_addr . 'login.php/');
-
-        //     $response = $this->webDriver->executeScript($js_script);
-            
-        //     print $response;
-
-        //     sleep(5);
-
-        //     $this->assertTrue(TRUE);
-        // }
-
-
 
     }
 ?>

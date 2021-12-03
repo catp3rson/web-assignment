@@ -110,12 +110,12 @@ VALUES
 		'tutor5.jpeg'
 	),
 	(
-		'$2y$10$adYTyNo1BngkwLn7v4z5ruOpoS4ZU8SxV8J.i2Zt/pR0UzQWqDCj6',
+		'$2y$10$5VuH4CzD7yQS4tExUIjAB.pB3r1cu1vDBKyaNNlAc/kIfQ5H2dh3e',
 		'trane@gmail.com',
         'Tran Thi E',
 		'1990-07-19',
 		'05556667777',
-		2,
+		1,
 		NULL,
 		'tutor4.jpeg'
 	),
@@ -127,7 +127,7 @@ VALUES
 		'06667778888',
 		2,
 		NULL,
-		'tutor3.jpeg'
+		NULL
 	),
 	(
 		'$2y$10$adYTyNo1BngkwLn7v4z5ruOpoS4ZU8SxV8J.i2Zt/pR0UzQWqDCj6',
@@ -137,7 +137,7 @@ VALUES
 		'07778889999',
 		2,
 		NULL,
-		'tutor6.jpeg'
+		NULL
 	);
 
 INSERT INTO `courses` (`course_code`, `course_name`, `course_category`, `tutor_id`, `brief`, `description`, `course_fee`, `schedule`, `start_date`, `end_date`, `image`) VALUES

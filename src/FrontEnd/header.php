@@ -170,8 +170,8 @@
                             <a style=" margin-left: 25px;"><li class="fas "> Role: <?php
                                 $role_table = array(
                                     0 => "Admin",
-                                    1 => "Teacher",
-                                    2 => "Student"
+                                    1 => "Tutor",
+                                    2 => "User"
                                 );
                                 echo $role_table[$_SESSION["role"]];
                             ?> </li></a>
