@@ -8,6 +8,7 @@
     use Facebook\WebDriver\Remote\RemoteWebDriver;     
     use Facebook\WebDriver\WebDriverBy;
 
+
     class LoginInputValidiationChromeTest extends TestCase {
         protected $webDriver;
         
@@ -40,61 +41,44 @@
         }
 
         
-        public function test_searchTextOnGoogle()
+        public function test_loginCorrectCred()
         {
-            $this->webDriver->get("https://www.google.com/");
-            //maximize the browser window => reduce the chance of missing out web elements when testing
+            //login with correct credentials
+            $this->webDriver->get($test_addr . 'login.php/');
+
             $this->webDriver->manage()->window()->maximize();    
             
             sleep(1);
             
-            //select the search bar element using the name locator
-            $element = $this->webDriver->findElement(WebDriverBy::name("q"));
-            
-            if($element) {
-                //type in the search bar
-                $element->sendKeys("ElnoSabe");
-                //submit
-                $element->submit();
+            try{
+                $email_field = $this->webDriver->findElement(WebDriverBy::id("email_login"));
+                $password_field = $this->webDriver->findElement(webDriverBy::id("password_login"));
+                $submit_btn = $this->webDriver->findElement(webDriverBy::name("signin"));
             }
+            catch(Exception $e){
+                
+    
+            }
+
+            $email_field->sendKeys("nguyenvana@gmail.com");
+            $password_field->sendKeys("admin123");
+
+            $submit_btn->submit();
             
             sleep(1);
 
-            //check if the window's title is correct
-            $this->assertEquals('ElnoSabe - Google Search', $this->webDriver->getTitle());
+            
         }
 
-        public function test_searchTextOnGoogle2()
+
+        public function test_loginIncorrectCred()
         {
-            $this->webDriver->get("https://www.google.com/");
-            //maximize the browser window => reduce the chance of missing out web elements when testing
-            $this->webDriver->manage()->window()->maximize();    
-            
-            sleep(1);
-            
-            //select the search bar element using the name locator
-            $element = $this->webDriver->findElement(WebDriverBy::name("q"));
-            
-            if($element) {
-                //type in the search bar
-                $element->sendKeys("ElnoSabe");
-                //submit
-                $element->submit();
-            }
-            
-            sleep(1);
-
-            //check if the window's title is correct
-            $this->assertEquals('ElnoSabe - Google Search', $this->webDriver->getTitle());
+            //login with incorrect credentials
         }
+
+
+        
+
     }
-
-
-   
-  
-
-
-
-
 
 ?>
