@@ -14,7 +14,7 @@ function initMap() {
             echo 'var locations = [';
             $style = "'font-size: 15px; font-weight: 5px;'";
             while($row = $result->fetch_assoc()) {
-                echo '[new google.maps.LatLng('. $row['latitude']. ','. $row['longtitude']. '), "'.$row['location_name'].'",'.'"<h1 style='.$style.'>'.$row['location_name'].'</h1><hr>'. '<p>Address: '.$row['location_description'].'</p>"'. '],';
+                echo '[new google.maps.LatLng('. $row['latitude']. ','. $row['longtitude']. '), "'.$row['location_name'].'",'.'"<h2 style='.$style.'>'.$row['location_name'].'</h2><hr>'. '<p>Address: '.$row['location_description'].'</p>"'. '],';
                 
             }
             echo '];';

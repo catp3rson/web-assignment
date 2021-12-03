@@ -24,7 +24,7 @@
                     </li>  
                     <?php
                         if(isset($_SESSION["role"])) {
-                            if($_SESSION["role"] == 0) {
+                            if($_SESSION["role"] == 1) {
                                 echo '<li class="header__nav-item"> 
                                     <a href="index.php?page=manage" class="header__nav-item--link">MANAGE</a>
                                 </li>';   
@@ -87,7 +87,7 @@
                             </li>
                             <?php
                                 if(isset($_SESSION["role"])) {
-                                    if($_SESSION["role"] == 0) {
+                                    if($_SESSION["role"] == 1) {
                                         echo '<li class="nav__mobile-item"> 
                                             <a href="index.php?page=manage" class="nav__mobile-item--link">
                                                 <i class="nav__mobile-icon fas fa-tasks"></i>
