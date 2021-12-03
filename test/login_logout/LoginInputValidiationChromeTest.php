@@ -55,14 +55,12 @@
                 $password_field = $this->webDriver->findElement(webDriverBy::id("password_login"));
                 $submit_btn = $this->webDriver->findElement(webDriverBy::name("signin"));
             }
-            catch(Exception $e){
-                
-    
+            catch(Exception $error){
+                $this->fail("Error occurred: " . $error);
             }
 
             $email_field->sendKeys("nguyenvana@gmail.com");
             $password_field->sendKeys("admin123");
-
             $submit_btn->submit();
             
             sleep(1);

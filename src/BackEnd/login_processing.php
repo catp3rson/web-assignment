@@ -67,6 +67,7 @@
     
         if (mysqli_num_rows($check_email) === 1 and $invalid_email === false and $invalid_password === false) {
             $row = mysqli_fetch_assoc($check_email);
+            
             if(password_verify($password, $row['password'])) {
                 $_SESSION["user_id"] = $row['user_id'];
                 $_SESSION["email"] = $row['email'];

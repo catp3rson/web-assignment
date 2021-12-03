@@ -12,7 +12,7 @@ CREATE TABLE courses (
 	schedule             json  NOT NULL    ,
 	start_date           date  NOT NULL    ,
 	end_date             date  NOT NULL   ,
-	image				 longtext
+	image				 varchar(255)
  ) engine=InnoDB;
 
 
@@ -48,13 +48,13 @@ ALTER TABLE subjects MODIFY num_courses int UNSIGNED NOT NULL   COMMENT 'Number 
 CREATE TABLE users ( 
 	user_id              int UNSIGNED NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
 	password             varchar(100)  NOT NULL    ,
-	email                varchar(100)  NOT NULL    ,
+	email                varchar(255)  NOT NULL    ,
 	full_name            varchar(100)  NOT NULL    ,
 	birthday             date NOT NULL  		   ,
-	phone                varchar(11)  NOT NULL     ,
+	phone                varchar(50)  NOT NULL     ,
 	role                 int UNSIGNED NOT NULL DEFAULT 2   ,
 	description          varchar(5000)      	   ,
-	image				longtext					,
+	image				 varchar(255)			   ,
 	CONSTRAINT unq_users_phone UNIQUE ( phone ), 
     CONSTRAINT unq_users_email UNIQUE ( email )
  ) engine=InnoDB;
@@ -63,10 +63,14 @@ ALTER TABLE users COMMENT 'Contains information of application users';
 
 ALTER TABLE users MODIFY role int UNSIGNED NOT NULL DEFAULT 2  COMMENT 'The role of the user in the system. There are 3 roles: admin (system admin), tutor, user (regular user of the application).\n\nThe code for each role is\n_ admin: 0\n_ tutor: 1\n_ user: 2';
 
+-- Real password of admin is Admin@123
+-- Real password of tutors is Tutor@123
+-- Real password of users is User@123 
+
 INSERT INTO `users` (`password`, `email`, `full_name`, `birthday`, `phone`, `role`, `description`,`image`) 
 VALUES 
 	(
-		'240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9',
+		'$2y$10$hvHIT/SgASY77RwYWZFySuKaa0OU92ajM/wpanxhdxhltG0BBlKIi',
 		'nguyenvana@gmail.com',
         'Nguyen Van A',
 		'1995-10-20',
@@ -76,7 +80,7 @@ VALUES
 		'admin.jpeg'
 	),
 	(
-		'537d26965fd30bf9ebe78b86a8b56ca954cd886ed6d57e43fd37924f1dc2fcbf',
+		'$2y$10$5VuH4CzD7yQS4tExUIjAB.pB3r1cu1vDBKyaNNlAc/kIfQ5H2dh3e',
 		'tranvanb@gmail.com',
         'Tran Van B',
 		'1996-11-21',
@@ -86,7 +90,7 @@ VALUES
 		'tutor2.jpeg'
 	),
 	(
-		'537d26965fd30bf9ebe78b86a8b56ca954cd886ed6d57e43fd37924f1dc2fcbf',
+		'$2y$10$5VuH4CzD7yQS4tExUIjAB.pB3r1cu1vDBKyaNNlAc/kIfQ5H2dh3e',
 		'lethic@gmail.com',
         'Le Thi C',
 		'1990-12-01',
@@ -96,7 +100,7 @@ VALUES
 		'tutor1.jpeg'
 	),
 	(
-		'537d26965fd30bf9ebe78b86a8b56ca954cd886ed6d57e43fd37924f1dc2fcbf',
+		'$2y$10$5VuH4CzD7yQS4tExUIjAB.pB3r1cu1vDBKyaNNlAc/kIfQ5H2dh3e',
 		'nguyend@gmail.com',
         'Nguyen Thanh D',
 		'1992-02-03',
@@ -106,7 +110,7 @@ VALUES
 		'tutor5.jpeg'
 	),
 	(
-		'e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446',
+		'$2y$10$adYTyNo1BngkwLn7v4z5ruOpoS4ZU8SxV8J.i2Zt/pR0UzQWqDCj6',
 		'trane@gmail.com',
         'Tran Thi E',
 		'1990-07-19',
@@ -116,7 +120,7 @@ VALUES
 		'tutor4.jpeg'
 	),
 	(
-		'e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446',
+		'$2y$10$adYTyNo1BngkwLn7v4z5ruOpoS4ZU8SxV8J.i2Zt/pR0UzQWqDCj6',
         'lef@gmail.com',
 		'Le Phu F',
 		'1998-12-02',
@@ -126,7 +130,7 @@ VALUES
 		'tutor3.jpeg'
 	),
 	(
-		'e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446',
+		'$2y$10$adYTyNo1BngkwLn7v4z5ruOpoS4ZU8SxV8J.i2Zt/pR0UzQWqDCj6',
         'nguyeng@gmail.com',
 		'Nguyen Minh G',
 		'1996-07-07',
