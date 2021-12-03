@@ -7,7 +7,7 @@
         data-mdb-ride="carousel"
         >
         <!-- Indicators -->
-            <div class="carousel-indicators promotion-indicator">
+            <!-- <div class="carousel-indicators promotion-indicator">
                 <button
                     type="button"
                     data-mdb-target="#carouselBasicExample"
@@ -23,7 +23,7 @@
                     aria-label="Slide 2"
                 ></button>
                 
-            </div>
+            </div> -->
 
         <!-- Inner -->
             <div class="carousel-inner">
@@ -36,25 +36,25 @@
             </div>
 
             <!-- Single item -->
-            <div class="carousel-item promotion-carousel--item">
+            <!-- <div class="carousel-item promotion-carousel--item">
                 <div class="index-container image2 new-bg">
                     <h2>21 Million<br> Sessions</h2>
                     <h2>Helping students achieve and persist<br> One learner at a time</h2>
                 </div>
                 
-            </div>
+            </div> -->
 
             </div>
         <!-- Inner -->
 
         <!-- Controls -->
-                <button
+                <!-- <button
                     class="carousel-control-prev"
                     type="button"
                     data-mdb-target="#carouselBasicExample"
                     data-mdb-slide="prev"
                 >
-                    <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+                    
                     <i class="fas fa-chevron-left"></i>
                     <span class="visually-hidden">Previous</span>
                 </button>
@@ -65,10 +65,10 @@
                     data-mdb-target="#carouselBasicExample"
                     data-mdb-slide="next"
                 >
-                    <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+                    
                     <i class="fas fa-chevron-right"></i>
                     <span class="visually-hidden">Next</span>
-                </button>
+                </button> -->
                 </div>
         <!-- Carousel wrapper -->
     </div>
