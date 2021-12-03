@@ -2,8 +2,10 @@
 <div id="courses"  class="product">
     <div  class="container">
         <div class="product__heading">
-            <i class="product__heading-icon fas fa-book"></i>
-            <span class="heading-title" >Courses</span>
+            <h1 style="font-size: 28px;font-weight: 600;" class="heading-title">
+                 <i class="product__heading-icon fas fa-book"></i>
+                 Courses
+            </h1>
         </div>
 
         <div >
