@@ -3,8 +3,10 @@
     <div class="container">
         <!-- Google Map -->
         <div class="product__heading">
-            <i class="product__heading-icon fas fa-map-marked-alt"></i>
-            <span class="heading-title" >Locations</span>
+            <h1 style="font-size: 28px;font-weight: 600;" class="heading-title" >
+                <i class="product__heading-icon fas fa-map-marked-alt"></i>
+                Locations
+            </h1>
         </div>
         <div id="map"></div>
         <div class="map-menu">

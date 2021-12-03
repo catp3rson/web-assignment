@@ -4,6 +4,9 @@
     }
 </script>
 <?php
+    if($_SESSION["role"] != 1) {
+        die("Wrong role!");
+    }
     include "../BackEnd/manage_course_processing.php";
     if(isset($_POST["action"])) {
         if($_POST["action"] == "add") {
@@ -52,6 +55,7 @@
 <div class="body">
     <h1 style="font-size: 50px; text-align: center">Manage courses</h1>
     <hr style="width: 80%; margin: 20px auto;">
+    <h2 style="font-size: 30px; text-align: center; margin: 20px 0 20px 0;">Remove courses</h2>    
     <div style="overflow-y:auto; height: 600px;width:80%; margin: 0 auto">
         <table id="table">
             <tr>
@@ -91,8 +95,8 @@
             ?>
         </table>
     </div>
-    <h1 style="font-size: 50px; text-align: center">Add courses</h1>    
     <hr style="width: 80%; margin: 20px auto;">
+    <h2 style="font-size: 30px; text-align: center; margin: 20px 0 20px 0;">Add courses</h2>    
     <div class="container manage-form">
         <form action="index.php" method="post">
             <div class="row manage-form">

@@ -20,7 +20,7 @@ else if(isset($_POST['page']))
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A tutor booking system helps you find a suitable tutor and prepare you for your upcoming test. Our company includes the best teachers from the country with no doubt can help you achieve your dream.">
         <meta name="robots" content="index, follow">
-        <title>EDUBK - A tutor booking system</title>
+        <?php include "titles.php" ?>
         <link rel="icon" href="./assets/images/LOGO.png" type="image/x-icon" />
         <link rel="stylesheet" href="./assets/css/base.css">
         <link rel="stylesheet" href="./assets/css/main.css">

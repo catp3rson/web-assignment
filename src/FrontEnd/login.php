@@ -119,7 +119,7 @@
     				password_login = document.getElementById("password_login");
 					myValidation2(email_login, password_login);
 				'>
-					<h2 class="title">Sign in</h2>
+					<h1 class="title">Sign in</h1>
 					<div class="input-field">
 						<i class="fas fa-user"></i>
 						<input type="text" placeholder="Email Address" name="email" id="email_login" value="<?php echo $_POST['email']; ?>" required />

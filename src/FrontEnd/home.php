@@ -30,7 +30,7 @@
             <!-- Single item -->
             <div class="carousel-item promotion-carousel--item active">
                 <div class="index-container image1 new-bg">
-                    <h1>21 Million<br> Sessions</h1>
+                    <h2>21 Million<br> Sessions</h2>
                     <h2>Helping students achieve and persist<br> One learner at a time</h2>
                 </div>
             </div>
@@ -38,7 +38,7 @@
             <!-- Single item -->
             <div class="carousel-item promotion-carousel--item">
                 <div class="index-container image2 new-bg">
-                    <h1>21 Million<br> Sessions</h1>
+                    <h2>21 Million<br> Sessions</h2>
                     <h2>Helping students achieve and persist<br> One learner at a time</h2>
                 </div>
                 

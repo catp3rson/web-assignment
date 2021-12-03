@@ -24,7 +24,7 @@
                     </li>  
                     <?php
                         if(isset($_SESSION["role"])) {
-                            if($_SESSION["role"] == 0) {
+                            if($_SESSION["role"] == 1) {
                                 echo '<li class="header__nav-item"> 
                                     <a href="index.php?page=manage" class="header__nav-item--link">MANAGE</a>
                                 </li>';   
@@ -87,7 +87,7 @@
                             </li>
                             <?php
                                 if(isset($_SESSION["role"])) {
-                                    if($_SESSION["role"] == 0) {
+                                    if($_SESSION["role"] == 1) {
                                         echo '<li class="nav__mobile-item"> 
                                             <a href="index.php?page=manage" class="nav__mobile-item--link">
                                                 <i class="nav__mobile-icon fas fa-tasks"></i>
@@ -101,9 +101,14 @@
                                 
                                 <?php
                                     if(isset($_SESSION["email"])) {
+                                        $role_table = array(
+                                            0 => "Admin",
+                                            1 => "Teacher",
+                                            2 => "Student"
+                                        );
                                         echo '<li class="header__nav-user" style=" color: var(--white-color);">
                                             <p style="margin-left: 8px; padding-top: 15px; font-size: 1.8rem;">Hello '.$_SESSION["email"].'</p>
-                                            <p style="margin-left: 8px; font-size: 1.8rem;">Role: '.$_SESSION["role"].'</p>
+                                            <p style="margin-left: 8px; font-size: 1.8rem;">Role: '.$role_table[$_SESSION["role"]].'</p>
                                         </li>';
                                     }
                                     else {
@@ -115,28 +120,17 @@
                                 
                             </li> 
                             <li class="nav__mobile-item"> 
-                                
                                 <?php 
-                                            // session_start();
-                                        if (!isset($_SESSION["user_id"])) { ?>
-                                        <a href="index.php?page=login" class="nav__mobile-item--link"><i class="nav__mobile-icon fas fa-user-circle"></i>
-                                    Login</a>
+                                    if (!isset($_SESSION["user_id"])) { ?>
+                                        <a href="index.php?page=login" class="nav__mobile-item--link"><i class="nav__mobile-icon fas fa-user-circle"></i>Login</a>
                                     <?php } ?>
 
                                     <?php 
-                                            // session_start();
-                                        if (isset($_SESSION["user_id"])) { ?>
-                                        <a href="index.php?page=logout" class="nav__mobile-item--link"><i class="nav__mobile-icon fas fa-user-circle"></i>
-                                        Logout </a>
-                                    
-                                    <?php } ?>
-                                
+                                    if (isset($_SESSION["user_id"])) { ?>
+                                        <a href="index.php?page=logout" class="nav__mobile-item--link"><i class="nav__mobile-icon fas fa-user-circle"></i>Logout</a>
+                                <?php } ?>
                             </li>   
                             
-                            <!-- <li class="nav__mobile-item"> 
-                                <img src="./assets/images/footer-logo.png" alt="logo" class ="footer-logo" >
-                                <h1 >EDUCATION BK HCMC</h1>                      
-                            </li>      -->
                         </ul>
                     </div>
                 <!--  -->
@@ -172,8 +166,15 @@
                                 if (isset($_SESSION["user_id"]))
                                 echo $_SESSION['user_id'];
                             if (isset($_SESSION["user_id"])) { ?>
-                            <a href="index.php?page=logout"><li class="fas fa-sign-in-alt"> Logout</li></a> <br>
-                            <?php echo '<li style="font-size: 10px;list-style: none; color: black; margin-left: 20px; cursor:initial;"class="fas fa-user"> Role: '.$_SESSION["role"].' </li>'?>
+                            <a href="index.php?page=logout"><li class="fas fa-sign-in-alt"> Logout</li></a><br>
+                            <a style=" margin-left: 25px;"><li class="fas "> Role: <?php
+                                $role_table = array(
+                                    0 => "Admin",
+                                    1 => "Teacher",
+                                    2 => "Student"
+                                );
+                                echo $role_table[$_SESSION["role"]];
+                            ?> </li></a>
                             <?php } ?>
                             
                         </ul>

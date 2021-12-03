@@ -1,9 +1,7 @@
 <?php
     $add_successful = false;
     $remove_successful = false;
-    if($_SESSION["role"] != 0) {
-        die("Wrong role!");
-    }
+
     if(isset($_POST["action"])) {
         if($_POST["action"] == "add") {
             $can_query = false;

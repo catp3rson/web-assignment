@@ -63,12 +63,6 @@ ALTER TABLE users COMMENT 'Contains information of application users';
 
 ALTER TABLE users MODIFY role int UNSIGNED NOT NULL DEFAULT 2  COMMENT 'The role of the user in the system. There are 3 roles: admin (system admin), tutor, user (regular user of the application).\n\nThe code for each role is\n_ admin: 0\n_ tutor: 1\n_ user: 2';
 
--- Insert the data
--- real password of admin is admin123
--- real password of math123, physics123, english123 is tutor123
--- real password of user1, user2, user3 is user123
-
-
 INSERT INTO `users` (`password`, `email`, `full_name`, `birthday`, `phone`, `role`, `description`,`image`) 
 VALUES 
 	(
@@ -189,3 +183,4 @@ INSERT INTO `subjects` (`subject_code`, `subject_name`, `num_courses`) VALUES
 ('EN', 'English', 6),
 ('MA', 'Math', 6),
 ('PH', 'Physics', 6);
+

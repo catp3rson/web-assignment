@@ -75,7 +75,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+        <title><?= $course["course_name"] ?> - EDUBK</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -84,15 +84,27 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"  rel="stylesheet"/>
         <!-- ********************************************************************************************************** -->
 
-        <script type="text/javascript" src="scripts.js"></script>
         <link rel="icon" href="./assets/images/LOGO.png" type="image/x-icon" />
         <link rel="stylesheet" href="./assets/css/base.css">
         <link rel="stylesheet" href="./assets/css/main.css">
         <link rel="stylesheet" type="text/css" href="tutor.css"/>
         <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.0.0-beta2-web/css/all.css">
         <link rel="stylesheet" href="./assets/css/responsive.css">
-    </head>
+        <script>
+            const clickLogin = ()=> {
+                let loginbox = document.querySelector('.popup-login');
+                
+                loginbox.style.display = loginbox.style.display == "block" ? "none":"block";
+            }
 
+
+            const closeClickLogin = ()=> {
+                let loginbox = document.querySelector('.popup-login');
+                
+                loginbox.style.display = "none";
+            }
+        </script>
+    </head>
 
     <body>
         <!-- navigation bar -->
@@ -102,7 +114,7 @@
         <div id="main-container" class="container">
             <!-- The course name -->
             <div class="row">
-                <h2 id="course-name"><?= $course["course_name"] ?></h2>
+                <h1 id="course-name"><?= $course["course_name"] ?></h1>
             </div>
 
             <!-- The course's brief description and tutor's name -->
@@ -138,7 +150,7 @@
                     <div id="course-description" class="container">
                         <!-- Course description -->
                         <div class="row">
-                            <h5>Course description</h5>
+                            <h2 style="color: gray">Course description</h2>
                         </div>
                         <div class="row">
                             <p>
