@@ -4,6 +4,7 @@
     $mysql_user = "root";
     $mysql_password = "";
     $mysql_db = "tutor_booking_system";
+
     function retrieveCourse($course_code){
         //function to retrieve the information of a course
         //return an associated array
@@ -108,7 +109,9 @@
 
     <body>
         <!-- navigation bar -->
-        <?php include "./header.php" ?>
+        <?php 
+            require dirname(__FILE__) . "/header.php";
+        ?>
 
 
         <div id="main-container" class="container">
@@ -401,7 +404,8 @@
 
             </div>
         </div>
-        <?php include "footer.php"; ?>
+
+        <?php require dirname(__FILE__) . "/footer.php"; ?>
 
     </body>
 </html>

@@ -1,4 +1,7 @@
-<?php include "../BackEnd/getmap.php"; ?>
+<?php 
+    require dirname(__FILE__) . "/../BackEnd/getmap.php";
+?>
+
 <div id="map_location" class="location">
     <div class="container">
         <!-- Google Map -->

@@ -1,4 +1,6 @@
 <?php
+    require dirname(__FILE__) . '/config.php';
+
     $sign_up_page = false; // true: go to signup page, false: go to login page.
     $sign_up_successful = false; // true: go to signup page, false: go to login page.
     $wrong_email = false;
@@ -7,12 +9,12 @@
     $invalid_phone = false;
     $invalid_email = false;
     $invalid_password = false;
-    include '../BackEnd/config.php';
+    
     session_start();
     error_reporting(0);
     
     if (isset($_SESSION["user_id"])) {
-        header("Location: index.php");
+        header("Location: " . $ROOT_URL . "index.php?page=home");
     }
     
     if (isset($_POST["signup"])) {
@@ -72,7 +74,8 @@
                 $_SESSION["user_id"] = $row['user_id'];
                 $_SESSION["email"] = $row['email'];
                 $_SESSION["role"] = $row['role'];
-                header("Location: index.php");
+
+                header("Location: " . $ROOT_URL . "index.php?page=home");
             }
             else {
                 $wrong_password = true;

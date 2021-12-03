@@ -1,5 +1,6 @@
 <?php 
-    include '../BackEnd/config.php';
+    require dirname(__FILE__) . '/../BackEnd/config.php';
+
     function retrieveTutor($tutor_id){
         global $mysql_addr, $mysql_user, $mysql_password, $mysql_db;
         
@@ -15,6 +16,8 @@
         return mysqli_fetch_assoc($query);
     }
 ?> 
+
+
 <script>
 
 function myValidation(signup_phone, signup_email, signup_password, confirm_password) {

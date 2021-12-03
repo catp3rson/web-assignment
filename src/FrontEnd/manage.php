@@ -7,7 +7,9 @@
     if($_SESSION["role"] != 1) {
         die("Wrong role!");
     }
-    include "../BackEnd/manage_course_processing.php";
+
+    require dirname(__FILE__) . "/../BackEnd/manage_course_processing.php";
+
     if(isset($_POST["action"])) {
         if($_POST["action"] == "add") {
             if($add_successful) {

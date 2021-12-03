@@ -1,4 +1,7 @@
-<?php include "../BackEnd/getcourses.php"; ?>
+<?php 
+    require dirname(__FILE__) . "/../BackEnd/getcourses.php"; 
+?>
+
 <div id="courses"  class="product">
     <div  class="container">
         <div class="product__heading">
@@ -105,6 +108,7 @@
         </div>
     </div>
 </div>
+
 <script type="text/JavaScript">
     var $li = $('#pills-tab li').click(function() {
         $li.removeClass('selected');

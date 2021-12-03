@@ -7,9 +7,14 @@
 	<title>Sign in & Sign up</title>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-	<?php include "script.php" ?>
 </head>
-<?php include "../BackEnd/login_processing.php"; ?>
+
+
+<?php 
+	require dirname(__FILE__) . "/script.php";
+	require dirname(__FILE__) . "/../BackEnd/login_processing.php";
+?>
+
 
 <body>
 	<?php // Alerts
@@ -101,12 +106,14 @@
 			</script>';
 		}
 	?>
+
+
 	<div class="container <?php echo  $sign_up_page ? 'sign-up-mode' : ''; ?>">
 		<div class="forms-container">
 			<div class="signin-signup">
 
 				<!-- Begin login form -->
-				<form action="" method="post" class="sign-in-form"onsubmit = '
+				<form action="" method="post" class="sign-in-form" onsubmit = '
 					var email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 					password_regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 					var email_login = document.getElementById("email_login"),
@@ -134,6 +141,7 @@
 				</form>
 				<!-- End login form -->
 				
+
 				<!-- Begin signup form -->
 				<form action="" class="sign-up-form" method="post" onsubmit = '
     				var phone_regex = /^[0-9]*$/,
@@ -218,6 +226,8 @@
 
 	</div>
 </body>
+
+
 <script>
 	const sign_in_btn = document.querySelector("#sign-in-btn");
 	const sign_up_btn = document.querySelector("#sign-up-btn");
@@ -231,4 +241,6 @@
 	container.classList.remove("sign-up-mode");
 	});
 </script>
+
+
 </html>
