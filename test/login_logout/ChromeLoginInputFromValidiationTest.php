@@ -84,97 +84,157 @@
             $btn->click();
         }
 
-        public function test_loginCorrectCred()
+        public function test_requiredFields()
         {
+            //check that all input fields of login form are required
             global $test_addr;
 
-            //login with correct credentials
+            //login with empty fields
             $this->webDriver->get($test_addr . 'login.php/');
             $this->webDriver->manage()->window()->maximize();    
             
             sleep(1);
             
+            //check validiation
             try{
-                $this->fillLoginEmail("nguyenvana@gmail.com");
-                $this->fillLoginPassword("Admin@123");
-                $this->submitLogin();
+                $email_field = $this->webDriver->findElement(webDriverBy::id("email_login"));
+                $password_field = $this->webDriver->findElement(webDriverBy::id("password_login"));
             }
-            catch(Exception $error){
+            catch (Exception $error) {
                 $this->fail("Error occurred: " . $error);
             }
 
-            sleep(1);
-
-            //verify by checking the email and role displayed on navbar
-            try{
-                $displayed_creds = $this->getDisplayedCreds();  
-            }
-            catch (Execption $error){
-                $this->fail("Error occurred: " . $error);
-            }
-
-            $this->assertEquals("Hello nguyenvana@gmail.com", $displayed_creds['email']);
-            $this->assertEquals("Role: Admin", $displayed_creds['role']);
+            $this->assertEquals('true', $email_field->getAttribute("required"));
+            $this->assertEquals('true', $password_field->getAttribute("required"));
         }
-        
 
-        public function test_loginIncorrectCred()
+        /**
+         * @doesNotPerformAssertions
+         */
+        public function test_emailWrongFormatFront()
         {
+            //check that user is notified when password format is wrong (front end)
             global $test_addr;
 
-            //login with incorrect credentials
+            //login with empty fields
             $this->webDriver->get($test_addr . 'login.php/');
-
             $this->webDriver->manage()->window()->maximize();    
             
             sleep(1);
-            
-            //wrong password
-            try{
-                $this->fillLoginEmail("nguyenvana@gmail.com");
-                $this->fillLoginPassword("User@123");
-                $this->submitLogin();
-            }
-            catch(Exception $error){
-                $this->fail("Error occurred: " . $error);
-            }
 
-            sleep(1);
+            $expected_msg = "Wrong email format.";
 
-            try{
-                $alert_msg = $this->getAlertMessage();
+            //trying out different wrong email formats
+            $emails = array(
+                "plainaddress",
+                "#@%^%#$@#$@#.com",
+                "@example.com",
+                "Joe Smith <email@example.com>",
+                "email.example.com",
+                "email@example@example.com",
+                ".email@example.com",
+                "email.@example.com",
+                "email..email@example.com",
+                "email@example.com (Joe Smith)",
+                "email@example",
+                "email@111.222.333.44444",
+                "email@example..com",
+                "Abc..123@example.com",
+                '”(),:;<>[\]@example.com',
+                'this\ is"really"not\allowed@example.com'
+            );
+
+            foreach ($emails as $email) {
+                try{
+                    $this->fillLoginEmail($email);
+                    $this->fillLoginPassword("Admin@123");
+                    $this->submitLogin();
+                    $password_field = $this->webDriver->findElement(webDriverBy::id("email_login"));
+                    $password_regex = $this->webDriver->findElement(webDriverBy::id("regex-email-login"));
+                }
+                catch (Exception $error){
+                    $this->fail("Error occurred: " . $error);
+                }
+                
+                $password_valid_msg = str_replace(array("\r", "\n"), ' ', $password_regex->getText());
+
+                if ($password_valid_msg !== $expected_msg){
+                    $this->fail("Regex failed to detect invalid email: " . $email);
+                }
             }
-            catch(Exception $error){
-                $this->fail("Error occurred: " . $error);
-            }
-
-            //there should be an alert to notify user about the wrong password
-            $this->assertEquals("Wrong password for this email!", $alert_msg);
-            $this->dismissAlert('confirm');
-
-
-            //wrong email
-            try{
-                $this->fillLoginEmail("nguyenvanb@gmail.com");
-                $this->fillLoginPassword("Admin@123");
-                $this->submitLogin();
-            }
-            catch(Exception $error){
-                $this->fail("Error occurred: " . $error);
-            }
-
-            sleep(1);
-
-            try{
-                $alert_msg = $this->getAlertMessage();
-            }
-            catch(Exception $error){
-                $this->fail("Error occurred: " . $error);
-            }
-
-            //there should be an alert to notify user about the wrong password
-            $this->assertEquals("Can not find any account with this email!", $alert_msg);
-            $this->dismissAlert('confirm');
         }
+
+
+        public function test_passwordWrongFormatFront()
+        {
+            //check that user is notified when password format is wrong (front end)
+            global $test_addr;
+
+            //login with empty fields
+            $this->webDriver->get($test_addr . 'login.php/');
+            $this->webDriver->manage()->window()->maximize();    
+            
+            sleep(1);
+
+            $expected_msg = "Password must contain at least 8 characters, a special character, an uppercase, lowercase letter and a digit.";
+
+            //trying out different wrong password formats
+            $passwords = array(
+                "Admin123",
+                "admin@123",
+                "Admin@1",
+                "AAAAAAAAAAAAA",
+                "AdminAAAAAAAA"
+            );
+
+            foreach ($passwords as $password) {
+                try{
+                    $this->fillLoginEmail("nguyenvana@gmail.com");
+                    $this->fillLoginPassword($password);
+                    $this->submitLogin();
+                    $password_field = $this->webDriver->findElement(webDriverBy::id("password_login"));
+                    $password_regex = $this->webDriver->findElement(webDriverBy::id("regex-password-login"));
+                }
+                catch (Exception $error){
+                    $this->fail("Error occurred: " . $error);
+                }
+                
+                $password_valid_msg = str_replace(array("\r", "\n"), ' ', $password_regex->getText());
+
+                $this->assertEquals($expected_msg, $password_valid_msg);
+            }
+        }
+
+
+        // public function test_passwordWrongFormatBack()
+        // {
+        //     //check that user is notified when password format is wrong (back end)
+        //     global $test_addr;
+
+        //     //login with empty fields
+        //     $this->webDriver->get($test_addr . 'login.php/');
+        //     $this->webDriver->manage()->window()->maximize();    
+            
+        //     sleep(1);
+
+        //    //send POST request directly without filling the form
+        //     $js_script = sprintf("var xhr = new XMLHttpRequest();
+        //     xhr.open('POST', '%s', false);
+        //     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        //     xhr.send('signin=1&email=nguyenvana@gmail.com&password=admin123');
+            
+        //     return xhr.response;", $test_addr . 'login.php/');
+
+        //     $response = $this->webDriver->executeScript($js_script);
+            
+        //     print $response;
+
+        //     sleep(5);
+
+        //     $this->assertTrue(TRUE);
+        // }
+
+
+
     }
 ?>

@@ -57,7 +57,7 @@ function myValidation2(email_login, password_login) {
     }
     else document.getElementById("regex-email-login").innerHTML = "";
     if(!password_regex.test(password_login.value)) {
-        document.getElementById("regex-password-login").innerHTML = "Password must contains at least 8 characters, a symbol,<br> upper and lower case letters and a number.";
+        document.getElementById("regex-password-login").innerHTML = "Password must contain at least 8 characters, a special character, <br> an uppercase, lowercase letter and a digit.";
     }
     else document.getElementById("regex-password-login").innerHTML = "";
     if(!email_regex.test(email_login.value) || !password_regex.test(password_login.value))
