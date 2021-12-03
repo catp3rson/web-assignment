@@ -3,24 +3,24 @@
     require 'vendor/autoload.php'; 
     
     use PHPUnit\Framework\TestCase;
-    use Facebook\WebDriver\Chrome\ChromeOptions;        
+    use Facebook\WebDriver\Firefox\FirefoxDriver;
+    use Facebook\WebDriver\Firefox\FirefoxProfile;
     use Facebook\WebDriver\Remote\DesiredCapabilities;
-    use Facebook\WebDriver\Remote\RemoteWebDriver;     
+    use Facebook\WebDriver\Remote\RemoteWebDriver; 
     use Facebook\WebDriver\WebDriverBy;
+    use Facebook\WebDriver\WebDriverWait;
+    use Facebook\WebDriver\WebDriverExpectedCondition;
 
 
-    class ChromeLoginInputCredentialsTest extends TestCase {
+    class FirefoxLoginResponseTimeTest extends TestCase {
         protected $webDriver;
         
         public function build_chrome_capabilities(){
-            $options = new ChromeOptions();
-            //set the browser language to English
-            $options->addArguments(array(
-                'lang=en-GB'
-            ));
+            $profile = new FirefoxProfile();
+            $profile->setPreference("intl.accept_languages", "en-GB");
 
-            $capabilities = DesiredCapabilities::chrome();
-            $capabilities->setCapability(ChromeOptions::CAPABILITY, $options);
+            $capabilities = DesiredCapabilities::firefox();
+            $capabilities->setCapability(FirefoxDriver::PROFILE, $profile);
 
             return $capabilities;
         }
@@ -49,23 +49,23 @@
 
         public function fillLoginPassword($password){
             //fill in password field in login form
-            $password_field = $this->webDriver->findElement(webDriverBy::id("password_login"));
+            $password_field = $this->webDriver->findElement(WebDriverBy::id("password_login"));
             $password_field->clear();
             $password_field->sendKeys($password);
         }
 
         public function submitLogin(){
             //press submit button
-            $submit_btn = $this->webDriver->findElement(webDriverBy::name("signin"));
+            $submit_btn = $this->webDriver->findElement(WebDriverBy::name("signin"));
             $submit_btn->click();
         }
 
         public function getDisplayedCreds(){
             //get the email address diaplyed on navbar
-            $email = $this->webDriver->findElement(webDriverBy::cssSelector(".header__nav-list .header__nav-user p"));
-            $user_btn = $this->webDriver->findElement(webDriverBy::cssSelector(".header__nav-list .header__nav-user img"));
+            $email = $this->webDriver->findElement(WebDriverBy::cssSelector(".header__nav-list .header__nav-user p"));
+            $user_btn = $this->webDriver->findElement(WebDriverBy::cssSelector(".header__nav-list .header__nav-user img"));
             $user_btn->click();
-            $role = $this->webDriver->findElement(webDriverBy::cssSelector(".popup-login ul a:nth-of-type(2) li"));
+            $role = $this->webDriver->findElement(WebDriverBy::cssSelector(".popup-login ul a:nth-of-type(2) li"));
 
             return array(
                 'email' => $email->getText(),
@@ -74,13 +74,13 @@
         }
 
         public function getAlertMessage(){
-            $alert_msg = $this->webDriver->findElement(webDriverBy::id("swal2-html-container"));
+            $alert_msg = $this->webDriver->findElement(WebDriverBy::id("swal2-html-container"));
             return $alert_msg->getText();
         }
 
         public function dismissAlert($action){
             //there are 3 possible actions: confirm, deny, cancel
-            $btn = $this->webDriver->findElement(webDriverBy::cssSelector(".swal2-actions .swal2-" . $action));
+            $btn = $this->webDriver->findElement(WebDriverBy::cssSelector(".swal2-actions .swal2-" . $action));
             $btn->click();
         }
 
@@ -117,23 +117,19 @@
                     $this->fillLoginEmail($account['email']);
                     $this->fillLoginPassword($account['password']);
                     $this->submitLogin();
+                    $start_time = microtime(TRUE);
                 }
                 catch(Exception $error){
                     $this->fail("Error occurred: " . $error);
                 }
 
-                sleep(1);
+                //measure the time taken for the server to process to login request and redirect user to home
+                $wait = new WebDriverWait($this->webDriver, 2);
+                $wait->until(WebDriverExpectedCondition::urlIs($test_addr . "index.php?page=home"));
 
-                //verify by checking the email and role displayed on navbar
-                try{
-                    $displayed_creds = $this->getDisplayedCreds();  
-                }
-                catch (Execption $error){
-                    $this->fail("Error occurred: " . $error);
-                }
-
-                $this->assertEquals("Hello " . $account['email'], $displayed_creds['email']);
-                $this->assertEquals("Role: " . $account['role'], $displayed_creds['role']);
+                $process_time = microtime(TRUE) - $start_time;
+            
+                $this->assertGreaterThanOrEqual($process_time, 1);
 
                 $this->webDriver->get($test_addr . 'index.php?page=logout');
             }
@@ -147,7 +143,7 @@
             //login with incorrect credentials
             $this->webDriver->get($test_addr . 'login.php/');
             $this->webDriver->manage()->window()->maximize();    
-            
+        
             sleep(1);
             
             //wrong password
@@ -155,47 +151,41 @@
                 $this->fillLoginEmail("nguyenvana@gmail.com");
                 $this->fillLoginPassword("User@123");
                 $this->submitLogin();
+                $start_time = microtime(TRUE);
             }
             catch(Exception $error){
                 $this->fail("Error occurred: " . $error);
             }
+            
+            $wait = new WebDriverWait($this->webDriver, 2);
+            $wait->until(WebDriverExpectedCondition::visibilityOfAnyElementLocated(
+                WebDriverBy::id("swal2-html-container")
+            ));
 
-            sleep(1);
+            $process_time = microtime(TRUE) - $start_time;
+            $this->assertGreaterThanOrEqual($process_time, 1);
 
-            try{
-                $alert_msg = $this->getAlertMessage();
-            }
-            catch(Exception $error){
-                $this->fail("Error occurred: " . $error);
-            }
-
-            //there should be an alert to notify user about the wrong password
-            $this->assertEquals("Wrong password for this email!", $alert_msg);
-            $this->dismissAlert('confirm');
-
+            $this->dismissAlert("confirm");
 
             //wrong email
             try{
                 $this->fillLoginEmail("nguyenvanb@gmail.com");
                 $this->fillLoginPassword("Admin@123");
                 $this->submitLogin();
+                $start_time = microtime(TRUE);
             }
             catch(Exception $error){
                 $this->fail("Error occurred: " . $error);
             }
 
-            sleep(1);
 
-            try{
-                $alert_msg = $this->getAlertMessage();
-            }
-            catch(Exception $error){
-                $this->fail("Error occurred: " . $error);
-            }
+            $wait = new WebDriverWait($this->webDriver, 2);
+            $wait->until(WebDriverExpectedCondition::visibilityOfAnyElementLocated(
+                WebDriverBy::id("swal2-html-container")
+            ));
 
-            //there should be an alert to notify user about the wrong password
-            $this->assertEquals("Can not find any account with this email!", $alert_msg);
-            $this->dismissAlert('confirm');
+            $process_time = microtime(TRUE) - $start_time;
+            $this->assertGreaterThanOrEqual($process_time, 1);
         }
     }
 ?>

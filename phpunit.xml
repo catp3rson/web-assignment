@@ -6,10 +6,6 @@
             <directory>test/test_setup</directory>
         </testsuite>
 
-        <testsuite name="routing">
-            <directory>test/home</directory>
-        </testsuite>
-
         <testsuite name="login_logout">
             <directory>test/login_logout</directory>
         </testsuite>

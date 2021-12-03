@@ -124,7 +124,8 @@
 					}
 					var email_login = document.getElementById("email_login"),
     				password_login = document.getElementById("password_login");
-					myValidation2(email_login, password_login);
+
+					return myValidation2(email_login, password_login);
 				'>
 					<h1 class="title">Sign in</h1>
 					<div class="input-field">
@@ -157,7 +158,8 @@
 					{
 						event.preventDefault();
 					}
-					myValidation(signup_phone, signup_email, signup_password, confirm_password);
+					
+					return myValidation(signup_phone, signup_email, signup_password, confirm_password);
 				'>
 					<div class="input-field">
 						<i class="fas fa-user"></i>
