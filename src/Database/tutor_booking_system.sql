@@ -1,71 +1,46 @@
-DROP DATABASE tutor_booking_system;
-CREATE DATABASE tutor_booking_system;
-USE tutor_booking_system;
-CREATE TABLE courses (
-	course_code          char(6)  NOT NULL    PRIMARY KEY,
-	course_name          varchar(255)  NOT NULL    ,
-    course_category		 varchar(255)  NOT NULL    ,
-	tutor_id			 int UNSIGNED NOT NULL	,
-	brief				 varchar(5000)		,
-	description          varchar(5000)      ,
-	course_fee           int UNSIGNED NOT NULL    ,
-	schedule             json  NOT NULL    ,
-	start_date           date  NOT NULL    ,
-	end_date             date  NOT NULL   ,
-	image				 varchar(255)
- ) engine=InnoDB;
-
-
-ALTER TABLE courses COMMENT 'Contains currently available courses';
-
-ALTER TABLE courses MODIFY course_code char(6)  NOT NULL   COMMENT 'The course code should have the following format: <subject code> - <index number>\nin which:\n_ <subject code> is 2 characters long and can be looked up in the subjects table.\n_ <index number> is the index of the course';
-
-ALTER TABLE courses MODIFY schedule json  NOT NULL   COMMENT 'List of time slots in the week that classes take place. This attribute is a json object\n\nExample: {''Monday'': [''7:00 - 8:00'', ''14:30 - 15:30''], ''Friday'': [''14:30 - 15:30'']}';
-
-ALTER TABLE courses MODIFY start_date date  NOT NULL   COMMENT 'Course''s start date';
-
-ALTER TABLE courses MODIFY end_date date  NOT NULL   COMMENT 'Course''s end date';
-
 CREATE TABLE locations ( 
-	location_id          int UNSIGNED NOT NULL    PRIMARY KEY,
+	location_id          int  NOT NULL    PRIMARY KEY,
 	location_name        varchar(500)  NOT NULL    ,
 	longtitude           double  NOT NULL    ,
 	latitude             double  NOT NULL    ,
 	location_description varchar(500)  NOT NULL    ,
 	CONSTRAINT unq_locations_longlat UNIQUE ( longtitude, latitude ) 
-) engine=InnoDB;
-
-ALTER TABLE locations COMMENT 'Contains the locations of the tutoring center';
-
-CREATE TABLE subjects ( 
-	subject_code         char(2)  NOT NULL    PRIMARY KEY,
-	subject_name         varchar(100)  NOT NULL    ,
-	num_courses          int UNSIGNED NOT NULL    
  ) engine=InnoDB;
 
-ALTER TABLE subjects MODIFY num_courses int UNSIGNED NOT NULL   COMMENT 'Number of courses belonging to this subject';
 
 CREATE TABLE users ( 
-	user_id              int UNSIGNED NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
+	user_id              int  NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
 	password             varchar(100)  NOT NULL    ,
 	email                varchar(255)  NOT NULL    ,
 	full_name            varchar(100)  NOT NULL    ,
-	birthday             date NOT NULL  		   ,
-	phone                varchar(50)  NOT NULL     ,
-	role                 int UNSIGNED NOT NULL DEFAULT 2   ,
-	description          varchar(5000)      	   ,
-	image				 varchar(255)			   ,
-	CONSTRAINT unq_users_phone UNIQUE ( phone ), 
-    CONSTRAINT unq_users_email UNIQUE ( email )
+	birthday             date  NOT NULL    ,
+	phone                varchar(50)  NOT NULL    ,
+	role                 int  NOT NULL DEFAULT 2   ,
+	description          varchar(5000)      ,
+	image                varchar(255)      ,
+	CONSTRAINT unq_users_phone UNIQUE ( phone ) ,
+	CONSTRAINT unq_users_email UNIQUE ( email ) 
  ) engine=InnoDB;
 
-ALTER TABLE users COMMENT 'Contains information of application users';
+CREATE TABLE courses ( 
+	course_code          char(6)  NOT NULL    PRIMARY KEY,
+	course_name          varchar(255)  NOT NULL    ,
+	course_category      varchar(255)  NOT NULL    ,
+	tutor_id             int  NOT NULL    ,
+	brief                varchar(5000)      ,
+	description          varchar(5000)      ,
+	course_fee           int  NOT NULL    ,
+	schedule             json  NOT NULL    ,
+	start_date           date  NOT NULL    ,
+	end_date             date  NOT NULL    ,
+	image                varchar(255)      
+ ) engine=InnoDB;
 
-ALTER TABLE users MODIFY role int UNSIGNED NOT NULL DEFAULT 2  COMMENT 'The role of the user in the system. There are 3 roles: admin (system admin), tutor, user (regular user of the application).\n\nThe code for each role is\n_ admin: 0\n_ tutor: 1\n_ user: 2';
+ALTER TABLE courses ADD CONSTRAINT fk_courses_users FOREIGN KEY ( tutor_id ) REFERENCES users( user_id ) ON DELETE CASCADE ON UPDATE CASCADE;
 
--- Real password of admin is Admin@123
--- Real password of tutors is Tutor@123
--- Real password of users is User@123 
+-- real password of admins is "Admin@123"
+-- real password of tutors is "Tutor@123"
+-- real password of users is "User@123"
 
 INSERT INTO `users` (`password`, `email`, `full_name`, `birthday`, `phone`, `role`, `description`,`image`) 
 VALUES 
@@ -110,12 +85,12 @@ VALUES
 		'tutor5.jpeg'
 	),
 	(
-		'$2y$10$adYTyNo1BngkwLn7v4z5ruOpoS4ZU8SxV8J.i2Zt/pR0UzQWqDCj6',
+		'$2y$10$5VuH4CzD7yQS4tExUIjAB.pB3r1cu1vDBKyaNNlAc/kIfQ5H2dh3e',
 		'trane@gmail.com',
         'Tran Thi E',
 		'1990-07-19',
 		'05556667777',
-		2,
+		1,
 		NULL,
 		'tutor4.jpeg'
 	),
@@ -127,7 +102,7 @@ VALUES
 		'06667778888',
 		2,
 		NULL,
-		'tutor3.jpeg'
+		NULL
 	),
 	(
 		'$2y$10$adYTyNo1BngkwLn7v4z5ruOpoS4ZU8SxV8J.i2Zt/pR0UzQWqDCj6',
@@ -137,7 +112,7 @@ VALUES
 		'07778889999',
 		2,
 		NULL,
-		'tutor6.jpeg'
+		NULL
 	);
 
 INSERT INTO `courses` (`course_code`, `course_name`, `course_category`, `tutor_id`, `brief`, `description`, `course_fee`, `schedule`, `start_date`, `end_date`, `image`) VALUES
@@ -180,11 +155,3 @@ INSERT INTO `locations` (`location_id`, `location_name`, `longtitude`, `latitude
 (5, 'Ben Nghe District 1 at Ho Chi Minh city', 106.705588, 10.788112, 'near Vietnam History Museum'),
 (6, 'Ca Mau Branch', 104.757911, 8.600316, 'opposite the commune committee Dat Mui, Ca Mau'),
 (7, 'Da Nang Branch', 108.226033, 16.047164, 'Green Island Villa');
-
-INSERT INTO `subjects` (`subject_code`, `subject_name`, `num_courses`) VALUES
-('BI', 'Biology', 6),
-('CH', 'Chemistry', 6),
-('EN', 'English', 6),
-('MA', 'Math', 6),
-('PH', 'Physics', 6);
-

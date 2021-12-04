@@ -21,12 +21,20 @@
 <script>
 
 function myValidation(signup_phone, signup_email, signup_password, confirm_password) {
-    var phone_regex = /^[0-9]*$/,
-    email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    password_regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    var phone_regex = /^[0-9]{10,15}$/;
+    var email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var password_regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     
     if(!phone_regex.test(signup_phone.value)) {
-        document.getElementById("regex-phone").innerHTML = "No letter.";
+        if (signup_phone.value.length < 10){
+            document.getElementById("regex-phone").innerHTML = "Phone number is too short.";
+        }
+        else if (signup_phone.value.length > 15){
+            document.getElementById("regex-phone").innerHTML = "Phone number is too long.";
+        }
+        else{
+            document.getElementById("regex-phone").innerHTML = "Phone number must contain only digits.";
+        }   
     }
     else document.getElementById("regex-phone").innerHTML = "";
     if(!email_regex.test(signup_email.value)) {
@@ -50,8 +58,8 @@ function myValidation(signup_phone, signup_email, signup_password, confirm_passw
 }
 
 function myValidation2(email_login, password_login) {
-    var email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    password_regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    var email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var password_regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     if(!email_regex.test(email_login.value)) {
         document.getElementById("regex-email-login").innerHTML = "Wrong email format.";
     }

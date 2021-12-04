@@ -25,7 +25,7 @@
         $password = $_POST["signup_password"];
     
         // Backend validation
-        $phone_regex = '/^[0-9]*$/';
+        $phone_regex = '/^[0-9]{10,15}$/';
         $email_regex = '/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';
         $password_regex = '/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/';
         $invalid_birthday = (strtotime($birthday) ? false : true);
