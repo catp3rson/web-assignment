@@ -64,11 +64,10 @@
                 <th>Code</th>
                 <th>Name</th>
                 <th>Category</th>
-                <th>Tutor ID</th>
                 <th>Remove</th>
             </tr>
             <?php
-                $sql = "SELECT course_code, course_name, course_category, tutor_id, course_fee FROM tutor_booking_system.courses;";
+                $sql = "SELECT course_code, course_name, course_category, course_fee FROM tutor_booking_system.courses WHERE tutor_id =" . $_SESSION["user_id"];
                 $result = $conn->query($sql);
                 if (!$result = $conn->query($sql)) {
                     echo("Error description: " . $result -> error);
@@ -80,7 +79,6 @@
                                 <td>".$row['course_code']."</td>
                                 <td>".$row['course_name']."</td>
                                 <td>".$row['course_category']."</td>
-                                <td>".$row['tutor_id']."</td>
                                 ";
                                 echo "<td>
                                     <form action='index.php' method='post'>
@@ -132,11 +130,8 @@
                 </div>
             </div>
             <div class="row manage-form">
-                <div class="col-25 manage-form">
-                    <label class="manage-form" for="tutor_id">Tutor ID</label>
-                </div>
                 <div class="col-75 manage-form">
-                    <input class="manage-form" type="number" id="tutor_id" name="tutor_id" placeholder="Tutor ID..." required>
+                    <input class="manage-form" type="hidden" id="tutor_id" name="tutor_id" value="<?= $_SESSION["user_id"] ?>">
                 </div>
             </div>
             <div class="row manage-form">
@@ -281,7 +276,7 @@
             <input class="manage-form" type="hidden" id="page" name="page" value="manage">
             <input class="manage-form" type="hidden" id="action" name="action" value="add">
             <div class="row manage-form">
-                <input class="manage-form" type="submit" value="Add new course">
+                <input class="manage-form" id="add_button" type="submit" value="Add new course">
             </div>
         </form>
     </div>

@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /BackEnd/
+Disallow: /Database/
+Disallow: /FrontEnd/register_success.php/
+Disallow: /FrontEnd/titles.php/
+Disallow: /FrontEnd/tutor.php/
+Disallow: /FrontEnd/manage.php/
