@@ -6,7 +6,7 @@
   - `testing_setup`: contains the files required to run the Selenium server
 - Install JDK (Java Development Kit) to run the Selenium server (Grid) (https://docs.oracle.com/javase/10/install/installation-jdk-and-jre-microsoft-windows-platforms.htm)
 - Install composer for Xampp's PHP (https://thecodedeveloper.com/install-composer-windows-xampp/)
-- Put composer.json file in `project` folder (they are development dependencies, so `require-dev` is more reasonable then `require`): 
+- Put composer.json file in `project` folder (they are development dependencies, so `require-dev` is more reasonable than `require`): 
 ```
 {
     "require-dev": {
@@ -18,7 +18,7 @@
 ```
 <i>Note: Remember to check the PHP version for compatible versions of the dependencies.</i>
 
-- Install PHPUnit and Selenium WebDriver as a project dependencies by running the following command (in the `project` folder):
+- Install PHPUnit and Selenium WebDriver as project dependencies by running the following command (in the `project` folder):
 ```
 composer update
 ```
@@ -39,7 +39,7 @@ composer update --no-dev
 <br><br>
 ![testing_setup folder](./misc/testing_setup_folder.png)
 <br><br>
-<i>Note: In the figure above, there are three webdrivers for three browsers: Chrome, Firefox</i>
+<i>Note: In the figure above, there are two webdrivers for two browsers: Chrome, Firefox</i>
 
 ## Writing the test cases
 - Create a folder named `test` in the `project` folder. This is where we store the test cases written in PHP.
