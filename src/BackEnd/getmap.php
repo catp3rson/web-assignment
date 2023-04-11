@@ -1,4 +1,4 @@
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3rMarZKfKHtdqrkVk6XV3zBMgNyHfnAg&callback=initMap&libraries=&v=weekly" async></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo getenv("GOOGLEMAP_API_KEY"); ?>&callback=initMap&libraries=&v=weekly" async></script>
 <script>
 function initMap() {
     var markers = new Array();

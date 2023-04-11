@@ -1,5 +1,5 @@
 <?php 
-    require dirname(__FILE__) . "/../BackEnd/getcourses.php"; 
+    require_once dirname(__FILE__) . "/../BackEnd/getcourses.php"; 
 ?>
 
 <div id="courses"  class="product">

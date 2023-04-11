@@ -1,10 +1,10 @@
 <?php 
-    require dirname(__FILE__) . '/../BackEnd/config.php';
+    require_once dirname(__FILE__) . '/../BackEnd/config.php';
 
     function retrieveTutor($tutor_id){
-        global $mysql_addr, $mysql_user, $mysql_password, $mysql_db;
+        global $MYSQL_HOST, $MYSQL_USER, $MYSQL_PASSWD, $MYSQL_DB;
         
-        $conn = mysqli_connect($mysql_addr, $mysql_user, $mysql_password, $mysql_db);
+        $conn = mysqli_connect($MYSQL_HOST, $MYSQL_USER, $MYSQL_PASSWD, $MYSQL_DB);
         $query_str = sprintf("SELECT * FROM users WHERE user_id = %s", $tutor_id);
         $query = mysqli_query($conn, $query_str);
 

@@ -1,6 +1,6 @@
 <?php
-    require dirname(__FILE__) . '/../test_config.php';
-    require 'vendor/autoload.php'; 
+    require_once dirname(__FILE__) . '/../test_config.php';
+    require_once 'vendor/autoload.php'; 
     
     use PHPUnit\Framework\TestCase;
     use Facebook\WebDriver\Chrome\ChromeOptions;        

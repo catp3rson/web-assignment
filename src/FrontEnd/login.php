@@ -11,8 +11,8 @@
 
 
 <?php 
-	require dirname(__FILE__) . "/script.php";
-	require dirname(__FILE__) . "/../BackEnd/login_processing.php";
+	require_once dirname(__FILE__) . "/script.php";
+	require_once dirname(__FILE__) . "/../BackEnd/login_processing.php";
 ?>
 
 

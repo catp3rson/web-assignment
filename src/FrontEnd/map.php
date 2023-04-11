@@ -1,5 +1,5 @@
 <?php 
-    require dirname(__FILE__) . "/../BackEnd/getmap.php";
+    require_once dirname(__FILE__) . "/../BackEnd/getmap.php";
 ?>
 
 <div id="map_location" class="location">

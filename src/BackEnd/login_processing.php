@@ -1,5 +1,5 @@
 <?php
-    require dirname(__FILE__) . '/config.php';
+    require_once dirname(__FILE__) . '/config.php';
 
     $sign_up_page = false; // true: go to signup page, false: go to login page.
     $sign_up_successful = false; // true: go to signup page, false: go to login page.
@@ -26,7 +26,8 @@
     
         // Backend validation
         $phone_regex = '/^[0-9]{10,15}$/';
-        $email_regex = '/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';
+        $email_regex = '/^(([^<>()[\]\\.,;:\s@"]+(\.[^<
+        >()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';
         $password_regex = '/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/';
         $invalid_birthday = (strtotime($birthday) ? false : true);
         $invalid_phone = (preg_match($phone_regex, $phone) ? false : true);

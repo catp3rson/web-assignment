@@ -1,0 +1,26 @@
+version: '2'
+services:
+  tutor-booking-system:
+    image: catp3rson/tutor-booking-system
+    container_name: tutor_booking_system
+    ports:
+      - "8080:80"
+      - "8022:22"
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - tutor_booking_system_mysql_log:/var/log/mysql/
+      - tutor_booking_system_mysql_data:/opt/lampp/var/mysql/
+      - tutor_booking_system_apache_log:/var/log/apache2/
+volumes:
+  tutor_booking_system_mysql_log:
+    external: true
+    name: tutor_booking_system_mysql_log
+  tutor_booking_system_mysql_data:
+    external: true
+    name: tutor_booking_system_mysql_data
+  tutor_booking_system_apache_log:
+    external: true
+    name: tutor_booking_system_apache_log
+  

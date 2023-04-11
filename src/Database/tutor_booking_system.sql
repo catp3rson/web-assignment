@@ -1,4 +1,5 @@
-CREATE TABLE locations ( 
+-- Create tables
+CREATE TABLE IF NOT EXISTS locations ( 
 	location_id          int  NOT NULL    PRIMARY KEY,
 	location_name        varchar(500)  NOT NULL    ,
 	longtitude           double  NOT NULL    ,
@@ -8,7 +9,7 @@ CREATE TABLE locations (
  ) engine=InnoDB;
 
 
-CREATE TABLE users ( 
+CREATE TABLE IF NOT EXISTS users ( 
 	user_id              int  NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
 	password             varchar(100)  NOT NULL    ,
 	email                varchar(255)  NOT NULL    ,
@@ -22,7 +23,7 @@ CREATE TABLE users (
 	CONSTRAINT unq_users_email UNIQUE ( email ) 
  ) engine=InnoDB;
 
-CREATE TABLE courses ( 
+CREATE TABLE IF NOT EXISTS courses ( 
 	course_code          char(6)  NOT NULL    PRIMARY KEY,
 	course_name          varchar(255)  NOT NULL    ,
 	course_category      varchar(255)  NOT NULL    ,

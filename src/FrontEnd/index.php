@@ -2,7 +2,7 @@
     session_start();
     $direct = 'home';
 
-    require dirname(__FILE__) . '/../BackEnd/config.php';
+    require_once dirname(__FILE__) . '/../BackEnd/config.php';
 
     if(isset($_GET['page']))
     {
@@ -12,9 +12,10 @@
     {
         $direct = $_POST['page'];
     }
+    $direct = htmlspecialchars($direct, ENT_QUOTES, 'UTF-8');
 
-    require dirname(__FILE__) . "/titles.php";
-    require dirname(__FILE__) . "/script.php";
+    require_once dirname(__FILE__) . "/titles.php";
+    require_once dirname(__FILE__) . "/script.php";
 ?>
 
 <!DOCTYPE html>

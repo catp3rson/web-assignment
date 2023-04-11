@@ -23,8 +23,10 @@
                         <a href="#contact" class="header__nav-item--link">CONTACT</a>
                     </li>  
                     <?php
+                        require_once dirname(__FILE__) . '/../BackEnd/config.php';
+
                         if(isset($_SESSION["role"])) {
-                            if($_SESSION["role"] == 1) {
+                            if($_SESSION["role"] == $ROLES["tutor"]) {
                                 echo '<li class="header__nav-item"> 
                                     <a href="index.php?page=manage" class="header__nav-item--link">MANAGE</a>
                                 </li>';   
@@ -87,7 +89,7 @@
                             </li>
                             <?php
                                 if(isset($_SESSION["role"])) {
-                                    if($_SESSION["role"] == 1) {
+                                    if($_SESSION["role"] == $ROLES["tutor"]) {
                                         echo '<li class="nav__mobile-item"> 
                                             <a href="index.php?page=manage" class="nav__mobile-item--link">
                                                 <i class="nav__mobile-icon fas fa-tasks"></i>

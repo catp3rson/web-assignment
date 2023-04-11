@@ -4,11 +4,13 @@
     }
 </script>
 <?php
-    if($_SESSION["role"] != 1) {
+    require_once dirname(__FILE__) . '/../BackEnd/config.php';
+
+    if($_SESSION["role"] != $ROLES["tutor"]) {
         die("Wrong role!");
     }
 
-    require dirname(__FILE__) . "/../BackEnd/manage_course_processing.php";
+    require_once dirname(__FILE__) . "/../BackEnd/manage_course_processing.php";
 
     if(isset($_POST["action"])) {
         if($_POST["action"] == "add") {
@@ -67,7 +69,7 @@
                 <th>Remove</th>
             </tr>
             <?php
-                $sql = "SELECT course_code, course_name, course_category, course_fee FROM tutor_booking_system.courses WHERE tutor_id =" . $_SESSION["user_id"];
+                $sql = "SELECT course_code, course_name, course_category, course_fee FROM courses WHERE tutor_id =" . $_SESSION["user_id"];
                 $result = $conn->query($sql);
                 if (!$result = $conn->query($sql)) {
                     echo("Error description: " . $result -> error);

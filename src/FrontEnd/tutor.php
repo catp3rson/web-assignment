@@ -1,16 +1,12 @@
 <?php
-    //connection details
-    $mysql_addr = "localhost";
-    $mysql_user = "root";
-    $mysql_password = "";
-    $mysql_db = "tutor_booking_system";
+    require_once dirname(__FILE__) . '/../BackEnd/config.php';
 
     function retrieveCourse($course_code){
         //function to retrieve the information of a course
         //return an associated array
-        global $mysql_addr, $mysql_user, $mysql_password, $mysql_db;
+        global $MYSQL_HOST, $MYSQL_USER, $MYSQL_PASSWD, $MYSQL_DB;
 
-        $conn = mysqli_connect($mysql_addr, $mysql_user, $mysql_password, $mysql_db);
+        $conn = mysqli_connect($MYSQL_HOST, $MYSQL_USER, $MYSQL_PASSWD, $MYSQL_DB);
         $query_str = sprintf("SELECT * FROM courses WHERE course_code = '%s'", $course_code);
         $query = mysqli_query($conn, $query_str);
 
@@ -27,9 +23,9 @@
     function retrieveTutor($tutor_id){
         //function to retrieve info about a tutor
         //retur an associated array
-        global $mysql_addr, $mysql_user, $mysql_password, $mysql_db;
+        global $MYSQL_HOST, $MYSQL_USER, $MYSQL_PASSWD, $MYSQL_DB;
         
-        $conn = mysqli_connect($mysql_addr, $mysql_user, $mysql_password, $mysql_db);
+        $conn = mysqli_connect($MYSQL_HOST, $MYSQL_USER, $MYSQL_PASSWD, $MYSQL_DB);
         $query_str = sprintf("SELECT * FROM users WHERE user_id = %s", $tutor_id);
         $query = mysqli_query($conn, $query_str);
 
@@ -110,7 +106,7 @@
     <body>
         <!-- navigation bar -->
         <?php 
-            require dirname(__FILE__) . "/header.php";
+            require_once dirname(__FILE__) . "/header.php";
         ?>
 
 
@@ -405,7 +401,7 @@
             </div>
         </div>
 
-        <?php require dirname(__FILE__) . "/footer.php"; ?>
+        <?php require_once dirname(__FILE__) . "/footer.php"; ?>
 
     </body>
 </html>
